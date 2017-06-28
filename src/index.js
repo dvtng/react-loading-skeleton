@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './index.css';
 
+export { default as SkeletonTheme } from './skeleton-theme';
+
 export default class Skeleton extends Component {
     static defaultProps = {
         count: 1,
