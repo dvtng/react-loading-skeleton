@@ -4,14 +4,17 @@ import SideBySide from './SideBySide';
 import Skeleton, { SkeletonTheme } from '../src';
 
 const Box = ({ children }) =>
-    <div style={{
+    <a style={{
         border: '1px solid #ccc',
+        display: 'block',
+        fontSize: 16,
+        lineHeight: 2,
         padding: 20,
         marginBottom: 10,
         width: 100
     }}>
         {children}
-    </div>;
+    </a>;
 
 storiesOf('Skeleton', module)
     .add('with wrapper', () =>
@@ -20,6 +23,8 @@ storiesOf('Skeleton', module)
             <div>
                 <Box key={1}>A</Box>
                 <Box key={2}>B</Box>
+                <Box key={3}>C</Box>
+                <Box key={4}>D</Box>
             </div>
         </SideBySide>
     )

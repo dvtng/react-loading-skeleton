@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 const style = {
+    alignItems: 'flex-start',
     display: 'flex',
     justifyContent: 'center',
 };

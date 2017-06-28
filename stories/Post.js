@@ -21,7 +21,7 @@ export default class Post extends Component {
         };
         return Object.assign(baseStyle, {
             fontSize: size === 'small' ? 16 : 25,
-            lineHeight: size === 'small' ? 1.2 : 2,
+            lineHeight: size === 'small' ? 'normal' : 2,
         });
     }
 

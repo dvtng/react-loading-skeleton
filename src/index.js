@@ -22,7 +22,7 @@ export default class Skeleton extends Component {
             <span>
                 {Wrapper
                     ? elements.map((element, i) =>
-                        <Wrapper key={i}>{element}</Wrapper>
+                        <Wrapper key={i}>{element}&zwnj;</Wrapper>
                     )
                     : elements
                 }
