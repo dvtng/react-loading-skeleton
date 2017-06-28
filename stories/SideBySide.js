@@ -16,7 +16,7 @@ export default ({ children }) => {
     React.Children.forEach(children, (child, index) => {
         if (index > 0) {
             childrenWithArrows.push(
-                <div style={arrowStyle}>→</div>
+                <div key={index} style={arrowStyle}>→</div>
             );
         }
         childrenWithArrows.push(child);

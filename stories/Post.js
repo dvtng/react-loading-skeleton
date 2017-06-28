@@ -6,7 +6,7 @@ export default class Post extends Component {
     static propTypes = {
         title: PropTypes.string,
         children: PropTypes.node,
-        size: PropTypes.oneOf('small', 'large'),
+        size: PropTypes.oneOf(['small', 'large']),
     };
 
     static defaultProps = {

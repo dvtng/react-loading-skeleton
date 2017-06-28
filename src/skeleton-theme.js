@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 let counter = 0;
 
 const css = (id, color = '#eee', highlight = '#f5f5f5') =>
-`.react-loading-theme-${id} .react-loading-skeleton > span {
+`.react-loading-theme-${id} .react-loading-skeleton {
     background-color: ${color};
     background-image: linear-gradient(90deg, ${color}, ${highlight}, ${color});
 }`;

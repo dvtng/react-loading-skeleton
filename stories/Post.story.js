@@ -20,7 +20,7 @@ storiesOf('Post', module)
     .add('with large size', () =>
         <SideBySide>
             <Post size="large" />
-            <Post size="larger" title="A title">
+            <Post size="large" title="A title">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Vestibulum nec justo feugiat, auctor nunc ac, volutpat arcu.
                 Suspendisse faucibus aliquam ante, sit amet iaculis dolor
@@ -38,4 +38,4 @@ storiesOf('Post', module)
                 <Post />
             </SkeletonTheme>
         </div>
-    )
+    );
