@@ -15,14 +15,15 @@ import Skeleton from 'react-loading-skeleton';
 <Skeleton count={5}/> // Five-line loading skeleton
 ```
 
-## Adapts to the styles you have defined
+## Principles
+
+### Adapts to the styles you have defined
 
 The `<Skeleton>` component is designed to be used directly in your components,
 in place of content while it's still loading.
-Rather than meticulously crafting a skeleton screen to match the particular
-`font-size`, `line-height` or `margin`s your content takes on,
-use a `<Skeleton>` component in every piece of empty content to have it
-automatically fill the correct dimensions.
+Unlike other libraries, rather than meticulously crafting a skeleton screen to
+match the `font-size`, `line-height` or `margin`s your content takes on,
+use a `<Skeleton>` component to have it automatically fill the correct dimensions.
 
 For example:
 
@@ -45,7 +46,7 @@ without any further configuration of the `<Skeleton>` component.
 This ensures the loading state remains up-to-date with any changes
 to your layout or typography.
 
-## Don't make dedicated skeleton screens
+### Don't make dedicated skeleton screens
 
 Instead, make components with *built-in* skeleton states.
 
@@ -53,3 +54,18 @@ In addition to keeping the styling in-sync, here are some other reasons to do th
 
 1. Components represent all possible states it can be in - loading included.
 1. It allows for more flexible loading patterns - in the `Blogpost` example, it's possible to have the `title` load first, and then the `body`, while having both pieces of content show loading skeletons at the right time.
+
+## Theming
+
+Using a `<SkeletonTheme>` component, you can easily change the colors of all
+skeleton components below it in the React hierarchy:
+
+```javascript
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+
+<SkeletonTheme color="#202020" highlightColor="#444">
+    <p>
+        <Skeleton count={3} />
+    </p>
+</SkeletonTheme>
+```
