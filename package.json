@@ -10,6 +10,7 @@
   "private": false,
   "main": "dist/bundle.js",
   "scripts": {
+    "start": "npm run storybook",
     "build": "webpack",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "prepublishOnly": "npm run build"
