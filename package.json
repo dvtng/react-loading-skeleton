@@ -11,9 +11,16 @@
   "main": "dist/bundle.js",
   "scripts": {
     "start": "npm run storybook",
+    "test": "jest",
     "build": "webpack",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "prepublishOnly": "npm run build"
+  },
+  "jest": {
+    "setupFiles": ["<rootDir>/testSetup/testSetup.js"],
+    "moduleNameMapper": {
+      "\\.css$": "<rootDir>/testSetup/cssMock.js"
+    }
   },
   "dependencies": {},
   "peerDependencies": {
@@ -27,9 +34,13 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.4",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.2",
+    "jest": "^21.2.1",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-test-renderer": "^16.0.0",
     "style-loader": "^0.18.2",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"

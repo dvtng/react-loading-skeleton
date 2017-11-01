@@ -1,5 +1,6 @@
 .storybook
 src
 stories
+testSetup
 .babelrc
 webpack.config.js
