@@ -13,7 +13,7 @@
     "start": "npm run storybook",
     "test": "jest",
     "build": "webpack",
-    "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook": "start-storybook -p 8080 -c .storybook",
     "prepublishOnly": "npm run build"
   },
   "jest": {

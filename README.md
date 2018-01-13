@@ -15,6 +15,7 @@ import Skeleton from 'react-loading-skeleton';
 <Skeleton count={5}/> // Five-line loading skeleton
 ```
 
+
 ## Principles
 
 ### Adapts to the styles you have defined
@@ -69,3 +70,21 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
     </p>
 </SkeletonTheme>
 ```
+
+
+## Speed
+
+
+```javascript
+class Blogpost extends Component {
+    render() {
+        return (
+            <div>
+                <h1>{this.props.title || <Skeleton speed={ 1.2 }/>}</h1>
+            </div>
+        );
+    }
+}
+```
+
+Default speed is 1.2 seconds but you can change how fast the cycle is.
