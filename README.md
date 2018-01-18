@@ -72,7 +72,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 ```
 
 
-## Speed
+## Duration
 
 
 ```javascript
@@ -80,11 +80,13 @@ class Blogpost extends Component {
     render() {
         return (
             <div>
-                <h1>{this.props.title || <Skeleton speed={ 1.2 }/>}</h1>
+                <h1>{this.props.title || <Skeleton duration={ 1.2 }/>}</h1>
             </div>
         );
     }
 }
 ```
 
-Default speed is 1.2 seconds but you can change how fast the cycle is.
+`Duration` : Float, default 1.2
+
+Duration is how long it takes do one cycle of the "wave" demonstrated on the gif above
