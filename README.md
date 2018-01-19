@@ -15,7 +15,6 @@ import Skeleton from 'react-loading-skeleton';
 <Skeleton count={5}/> // Five-line loading skeleton
 ```
 
-
 ## Principles
 
 ### Adapts to the styles you have defined
@@ -70,23 +69,20 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
     </p>
 </SkeletonTheme>
 ```
-
-
 ## Duration
-
 
 ```javascript
 class Blogpost extends Component {
     render() {
         return (
             <div>
-                <h1>{this.props.title || <Skeleton duration={ 1.2 }/>}</h1>
+                <h1>{this.props.title || <Skeleton duration={2}/>}</h1>
             </div>
         );
     }
 }
 ```
 
-`Duration` : Float, default 1.2
+`duration`: Number, defaults to 1.2
 
-Duration is how long it takes do one cycle of the "wave" demonstrated on the gif above
+Duration is how long it takes do one cycle of the skeleton animation.

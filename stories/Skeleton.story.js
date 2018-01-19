@@ -38,4 +38,12 @@ storiesOf('Skeleton', module)
                 <Box key={2}>B</Box>
             </div>
         </SideBySide>
+    )
+    .add('with different durations', () =>
+        <div>
+            <Skeleton count={1} duration={1}/>
+            <Skeleton count={1} duration={2}/>
+            <Skeleton count={1} duration={3}/>
+            <Skeleton count={1} duration={4}/>
+        </div>
     );
