@@ -6,14 +6,15 @@ export { default as SkeletonTheme } from './skeleton-theme';
 export default class Skeleton extends Component {
     static defaultProps = {
         count: 1,
-        wrapper: null
+        wrapper: null,
+        duration: 1.2
     };
 
     render() {
         const elements = [];
         for (let i = 0; i < this.props.count; i++) {
             elements.push(
-                <span key={i} className="react-loading-skeleton">&zwnj;</span>
+                <span key={i} className="react-loading-skeleton" style={{ animation: "progress " + String(this.props.duration) + "s ease-in-out infinite" }}>&zwnj;</span>
             );
         }
 
