@@ -7,14 +7,16 @@ export default class Skeleton extends Component {
     static defaultProps = {
         count: 1,
         wrapper: null,
-        duration: 1.2
+        duration: 1.2,
+        direction: "right"
     };
-
+    
+    
     render() {
         const elements = [];
         for (let i = 0; i < this.props.count; i++) {
             elements.push(
-                <span key={i} className="react-loading-skeleton" style={{ animation: "progress " + String(this.props.duration) + "s ease-in-out infinite" }}>&zwnj;</span>
+                <span key={i} className="react-loading-skeleton" style={{ animation: String(this.props.direction)+"Progress " + String(this.props.duration) + "s ease-in-out infinite" }}>&zwnj;</span>
             );
         }
 
