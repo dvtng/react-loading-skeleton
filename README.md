@@ -86,3 +86,23 @@ class Blogpost extends Component {
 `duration`: Number, defaults to 1.2
 
 Duration is how long it takes do one cycle of the skeleton animation.
+
+## Direction
+
+```javascript
+class Message extends Component {
+    render() {
+        return (
+            <div className="messages">
+                <div>{this.props.chat || <Skeleton direction={"left"} />}</div>
+            </div>
+        );
+    }
+}
+```
+
+`direction`: String, defaults to right
+
+Direction is what way the skeletion animation flows to
+
+Options: Left or Right
