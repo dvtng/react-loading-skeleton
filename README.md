@@ -69,6 +69,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
     </p>
 </SkeletonTheme>
 ```
+
 ## Duration
 
 ```javascript
@@ -78,6 +79,8 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 `duration`: Number, defaults to 1.2
 
 Duration is how long it takes do one cycle of the skeleton animation.
+
+## Width
 
 `width`: Number | String | null, defaults to null
 
