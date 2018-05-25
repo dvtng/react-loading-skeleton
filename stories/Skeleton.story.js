@@ -46,4 +46,12 @@ storiesOf('Skeleton', module)
             <Skeleton count={1} duration={3}/>
             <Skeleton count={1} duration={4}/>
         </div>
+    )
+    .add('with different widths', () =>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+            <Skeleton count={1}/>
+            <Skeleton count={1} width={50}/>
+            <Skeleton count={1} width={100}/>
+            <Skeleton count={1} width={200}/>
+        </div>
     );
