@@ -72,17 +72,18 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 ## Duration
 
 ```javascript
-class Blogpost extends Component {
-    render() {
-        return (
-            <div>
-                <h1>{this.props.title || <Skeleton duration={2}/>}</h1>
-            </div>
-        );
-    }
-}
+<Skeleton duration={2}/>
 ```
 
 `duration`: Number, defaults to 1.2
 
 Duration is how long it takes do one cycle of the skeleton animation.
+
+`width`: Number | String | null, defaults to null
+
+```javascript
+<Skeleton width={100}/>
+```
+
+Width of the skeleton. Useful when the skeleton is inside an inline element with
+no width of its own.
