@@ -17,7 +17,9 @@
     "prepublishOnly": "npm run build"
   },
   "jest": {
-    "setupFiles": ["<rootDir>/testSetup/testSetup.js"],
+    "setupFiles": [
+      "<rootDir>/testSetup/testSetup.js"
+    ],
     "moduleNameMapper": {
       "\\.css$": "<rootDir>/testSetup/cssMock.js"
     }
