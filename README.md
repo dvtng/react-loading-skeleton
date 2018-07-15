@@ -29,14 +29,14 @@ For example:
 
 ```javascript
 class Blogpost extends Component {
-    render() {
-        return (
-            <div style={{fontSize: 20, lineHeight: 2}}>
-                <h1>{this.props.title || <Skeleton/>}</h1>
-                {this.props.body || <Skeleton count={10}/>}
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div style={{ fontSize: 20, lineHeight: 2 }}>
+        <h1>{this.props.title || <Skeleton />}</h1>
+        {this.props.body || <Skeleton count={10} />}
+      </div>
+    );
+  }
 }
 ```
 
@@ -48,12 +48,12 @@ to your layout or typography.
 
 ### Don't make dedicated skeleton screens
 
-Instead, make components with *built-in* skeleton states.
+Instead, make components with _built-in_ skeleton states.
 
 In addition to keeping the styling in-sync, here are some other reasons to do this:
 
-1. Components represent all possible states it can be in - loading included.
-1. It allows for more flexible loading patterns - in the `Blogpost` example, it's possible to have the `title` load first, and then the `body`, while having both pieces of content show loading skeletons at the right time.
+1.  Components represent all possible states it can be in - loading included.
+1.  It allows for more flexible loading patterns - in the `Blogpost` example, it's possible to have the `title` load first, and then the `body`, while having both pieces of content show loading skeletons at the right time.
 
 ## Theming
 
@@ -61,19 +61,19 @@ Using a `<SkeletonTheme>` component, you can easily change the colors of all
 skeleton components below it in the React hierarchy:
 
 ```javascript
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 <SkeletonTheme color="#202020" highlightColor="#444">
-    <p>
-        <Skeleton count={3} />
-    </p>
-</SkeletonTheme>
+  <p>
+    <Skeleton count={3} />
+  </p>
+</SkeletonTheme>;
 ```
 
 ## Duration
 
 ```javascript
-<Skeleton duration={2}/>
+<Skeleton duration={2} />
 ```
 
 `duration`: Number, defaults to 1.2
@@ -85,7 +85,7 @@ Duration is how long it takes do one cycle of the skeleton animation.
 `width`: Number | String | null, defaults to null
 
 ```javascript
-<Skeleton width={100}/>
+<Skeleton width={100} />
 ```
 
 Width of the skeleton. Useful when the skeleton is inside an inline element with
