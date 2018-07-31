@@ -22,7 +22,7 @@ export default class SkeletonTheme extends Component {
         this.id = counter++;
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.style = createStyleElement(css(
             this.id, this.props.color, this.props.highlightColor
         ));

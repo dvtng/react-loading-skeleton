@@ -22,7 +22,8 @@
     ],
     "moduleNameMapper": {
       "\\.css$": "<rootDir>/testSetup/cssMock.js"
-    }
+    },
+    "testURL": "http://localhost"
   },
   "dependencies": {},
   "peerDependencies": {
@@ -38,6 +39,7 @@
     "css-loader": "^1.0.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
+    "extract-text-webpack-plugin": "2.1.2",
     "jest": "^23.4.1",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
