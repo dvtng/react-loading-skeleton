@@ -10,6 +10,7 @@ Install by `npm`/`yarn` with `react-loading-skeleton`.
 
 ```javascript
 import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/react-loading-skeleton.css'
 
 <Skeleton/> // Simple, single-line loading skeleton
 <Skeleton count={5}/> // Five-line loading skeleton
