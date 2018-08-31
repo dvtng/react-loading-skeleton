@@ -9,6 +9,7 @@
   },
   "private": false,
   "main": "dist/bundle.js",
+  "sideEffects": false,
   "scripts": {
     "start": "yarn run storybook",
     "test": "jest",
@@ -19,12 +20,11 @@
   "jest": {
     "setupFiles": [
       "<rootDir>/testSetup/testSetup.js"
-    ],
-    "moduleNameMapper": {
-      "\\.css$": "<rootDir>/testSetup/cssMock.js"
-    }
+    ]
   },
-  "dependencies": {},
+  "dependencies": {
+    "emotion": "^9.2.8"
+  },
   "peerDependencies": {
     "react": "^15.6.1 || ^16.0.0"
   },

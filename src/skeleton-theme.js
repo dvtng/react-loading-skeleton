@@ -1,42 +1,34 @@
-import React, { Component } from 'react';
-
-let counter = 0;
-
-const css = (id, color = '#eee', highlight = '#f5f5f5') =>
-`.react-loading-theme-${id} .react-loading-skeleton {
-    background-color: ${color};
-    background-image: linear-gradient(90deg, ${color}, ${highlight}, ${color});
-}`;
-
-const createStyleElement = (css) => {
-    const element = document.createElement('style');
-    element.textContent = css;
-    document.head.appendChild(element);
-    return element;
-};
+import React, { Component } from "react";
+import { css } from "emotion";
+import {
+  skeletonClass,
+  defaultBaseColor,
+  defaultHighlightColor
+} from "./skeleton";
 
 export default class SkeletonTheme extends Component {
-    constructor(props) {
-        super(props);
+  static defaultProps = {
+    color: defaultBaseColor,
+    highlightColor: defaultHighlightColor
+  };
 
-        this.id = counter++;
-    }
+  constructor(props) {
+    super(props);
 
-    componentWillMount() {
-        this.style = createStyleElement(css(
-            this.id, this.props.color, this.props.highlightColor
-        ));
-    }
-
-    componentWillUnmount() {
-        this.style.remove();
-    }
-    
-    render() {
-        return (
-            <div className={`react-loading-theme-${this.id}`}>
-                {this.props.children}
-            </div>
+    this.themeClass = css`
+      .${skeletonClass} {
+        background-color: ${props.color};
+        background-image: linear-gradient(
+          90deg,
+          ${props.color},
+          ${props.highlightColor},
+          ${props.color}
         );
-    }
+      }
+    `;
+  }
+
+  render() {
+    return <div className={this.themeClass}>{this.props.children}</div>;
+  }
 }
