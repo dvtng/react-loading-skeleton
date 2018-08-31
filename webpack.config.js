@@ -1,7 +1,14 @@
-const path = require("path");
-
 module.exports = {
+  mode: "production",
+
   entry: ["./src/index"],
+
+  output: {
+    library: "Skeleton",
+    libraryTarget: "umd",
+    filename: "bundle.js"
+  },
+
   externals: {
     react: {
       commonjs: "react",
@@ -10,14 +17,9 @@ module.exports = {
       root: "_"
     }
   },
-  output: {
-    path: path.resolve("dist"),
-    filename: "bundle.js",
-    library: "Skeleton",
-    libraryTarget: "umd"
-  },
+
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js/,
         loader: "babel-loader",
