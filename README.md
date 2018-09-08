@@ -90,3 +90,24 @@ Duration is how long it takes do one cycle of the skeleton animation.
 
 Width of the skeleton. Useful when the skeleton is inside an inline element with
 no width of its own.
+
+## Height
+
+`Height`: Number | String | null, defaults to null
+
+```javascript
+<Skeleton height={100} />
+```
+
+Height of the skeleton. Useful when you don't want to adapt the skeleton to a text element but for instance
+a card. Also needed for the prop `circle` (see below).
+
+## Circle
+
+`Circle`: Boolean | false, defaults to false
+
+```javascript
+<Skeleton circle={true} height={50} width={50} />
+```
+
+Prop for making the skeleton look like a circle, for when you are creating a user card with a profile picture for instance.
