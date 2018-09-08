@@ -35,7 +35,8 @@ export default class Skeleton extends Component {
     count: 1,
     duration: 1.2,
     width: null,
-    wrapper: null
+    wrapper: null,
+    height: null
   };
 
   render() {
@@ -49,6 +50,9 @@ export default class Skeleton extends Component {
       };
       if (this.props.width != null) {
         style.width = this.props.width;
+      }
+      if (this.props.height != null) {
+        style.height = this.props.height;
       }
       elements.push(
         <span key={i} className={skeletonClass} style={style}>
