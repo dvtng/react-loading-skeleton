@@ -65,4 +65,9 @@ storiesOf("Skeleton", module)
       <Skeleton count={1} height={400} />
       <Skeleton count={1} height={600} />
     </div>
+  ))
+  .add("Skeleton displayed as circle", () => (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <Skeleton count={1} height={50} width={50} circle={true} />
+    </div>
   ));

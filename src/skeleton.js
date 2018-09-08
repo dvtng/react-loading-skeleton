@@ -36,7 +36,8 @@ export default class Skeleton extends Component {
     duration: 1.2,
     width: null,
     wrapper: null,
-    height: null
+    height: null,
+    circle: false
   };
 
   render() {
@@ -53,6 +54,9 @@ export default class Skeleton extends Component {
       }
       if (this.props.height != null) {
         style.height = this.props.height;
+      }
+      if (this.props.width !== null && this.props.height !== null && this.props.circle) {
+        style.borderRadius = '50%';
       }
       elements.push(
         <span key={i} className={skeletonClass} style={style}>
