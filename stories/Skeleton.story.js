@@ -62,7 +62,7 @@ storiesOf("Skeleton", module)
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Skeleton count={1} />
       <Skeleton count={1} height={200} />
-      <Skeleton count={1} width={400} />
-      <Skeleton count={1} width={600} />
+      <Skeleton count={1} height={400} />
+      <Skeleton count={1} height={600} />
     </div>
   ));
