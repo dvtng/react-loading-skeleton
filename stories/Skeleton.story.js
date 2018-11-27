@@ -57,4 +57,17 @@ storiesOf("Skeleton", module)
       <Skeleton count={1} width={100} />
       <Skeleton count={1} width={200} />
     </div>
+  ))
+  .add("with different heights", () => (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <Skeleton count={1} />
+      <Skeleton count={1} height={200} />
+      <Skeleton count={1} height={400} />
+      <Skeleton count={1} height={600} />
+    </div>
+  ))
+  .add("Skeleton displayed as circle", () => (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <Skeleton count={1} height={50} width={50} circle={true} />
+    </div>
   ));
