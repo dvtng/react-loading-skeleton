@@ -1,3 +1,5 @@
+const CopyPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   mode: "production",
 
@@ -26,5 +28,14 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
-  }
+  },
+
+  plugins: [
+    new CopyPlugin([
+      {
+        from: 'src/index.d.ts',
+        to: 'index.d.ts',
+      },
+    ]),
+  ],
 };
