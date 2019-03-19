@@ -17,6 +17,7 @@
     "type": "git",
     "url": "https://github.com/dvtng/react-loading-skeleton.git"
   },
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "start": "yarn run storybook",
     "test": "jest",
