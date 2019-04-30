@@ -5,8 +5,8 @@ export default class Skeleton extends Component<Props> {}
 interface Props {
   count?: number;
   duration?: number;
-  width?: string;
+  width?: number;
   wrapper?: ReactNode;
-  height?: string;
+  height?: number;
   circle?: boolean;
 }
