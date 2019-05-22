@@ -56,6 +56,7 @@ storiesOf("Skeleton", module)
       <Skeleton count={1} width={50} />
       <Skeleton count={1} width={100} />
       <Skeleton count={1} width={200} />
+      <Skeleton count={1} width="50em" />
     </div>
   ))
   .add("with different heights", () => (
@@ -64,6 +65,7 @@ storiesOf("Skeleton", module)
       <Skeleton count={1} height={200} />
       <Skeleton count={1} height={400} />
       <Skeleton count={1} height={600} />
+      <Skeleton count={1} height="50em" />
     </div>
   ))
   .add("Skeleton displayed as circle", () => (
