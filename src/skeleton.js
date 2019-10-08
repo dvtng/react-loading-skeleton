@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { css, keyframes } from "emotion";
 
 export const defaultBaseColor = "#eee";
@@ -30,61 +30,64 @@ export const skeletonClass = css`
   width: 100%;
 `;
 
-export default class Skeleton extends Component {
-  static defaultProps = {
-    count: 1,
-    duration: 1.2,
-    width: null,
-    wrapper: null,
-    height: null,
-    circle: false
-  };
+export default function Skeleton({
+  count,
+  duration,
+  width,
+  wrapper: Wrapper,
+  height,
+  circle
+}) {
+  const elements = [];
 
-  render() {
-    const elements = [];
-    for (let i = 0; i < this.props.count; i++) {
-      let style = {
-        animation:
-          `${skeletonKeyframes} ` +
-          String(this.props.duration) +
-          "s ease-in-out infinite"
-      };
-      if (this.props.width != null) {
-        style.width = this.props.width;
-      }
-      if (this.props.height != null) {
-        style.height = this.props.height;
-      }
-      if (
-        this.props.width !== null &&
-        this.props.height !== null &&
-        this.props.circle
-      ) {
-        style.borderRadius = "50%";
-      }
-      elements.push(
-        <span
-          key={i}
-          className={`${skeletonClass} react-loading-skeleton`}
-          style={style}
-        >
-          &zwnj;
-        </span>
-      );
+  for (let i = 0; i < count; i++) {
+    let style = {
+      animation:
+        `${skeletonKeyframes} ` + String(duration) + "s ease-in-out infinite"
+    };
+
+    if (width !== null) {
+      style.width = width;
     }
 
-    const Wrapper = this.props.wrapper;
-    return (
-      <span>
-        {Wrapper
-          ? elements.map((element, i) => (
-              <Wrapper key={i}>
-                {element}
-                &zwnj;
-              </Wrapper>
-            ))
-          : elements}
+    if (height !== null) {
+      style.height = height;
+    }
+
+    if (width !== null && height !== null && circle) {
+      style.borderRadius = "50%";
+    }
+
+    elements.push(
+      <span
+        key={i}
+        className={`${skeletonClass} react-loading-skeleton`}
+        style={style}
+      >
+        &zwnj;
       </span>
     );
   }
+
+  return (
+    <span>
+      {Wrapper
+        ? elements.map((element, i) => (
+            <Wrapper key={i}>
+              {element}
+              &zwnj;
+            </Wrapper>
+          ))
+        : elements}
+    </span>
+  );
 }
+
+Skeleton.defaultProps = {
+  count: 1,
+  duration: 1.2,
+  width: null,
+  wrapper: null,
+  height: null,
+  circle: false
+};
