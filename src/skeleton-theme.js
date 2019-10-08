@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { css } from "emotion";
-import {
-  skeletonClass,
-  defaultBaseColor,
-  defaultHighlightColor
-} from "./skeleton";
+import { defaultBaseColor, defaultHighlightColor } from "./skeleton";
 
 export default class SkeletonTheme extends Component {
   static defaultProps = {
