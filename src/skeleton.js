@@ -55,11 +55,19 @@ export default class Skeleton extends Component {
       if (this.props.height != null) {
         style.height = this.props.height;
       }
-      if (this.props.width !== null && this.props.height !== null && this.props.circle) {
-        style.borderRadius = '50%';
+      if (
+        this.props.width !== null &&
+        this.props.height !== null &&
+        this.props.circle
+      ) {
+        style.borderRadius = "50%";
       }
       elements.push(
-        <span key={i} className={skeletonClass} style={style}>
+        <span
+          key={i}
+          className={`${skeletonClass} react-loading-skeleton`}
+          style={style}
+        >
           &zwnj;
         </span>
       );
