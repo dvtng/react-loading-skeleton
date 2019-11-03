@@ -8,23 +8,19 @@ export default class SkeletonTheme extends Component {
     highlightColor: defaultHighlightColor
   };
 
-  constructor(props) {
-    super(props);
-
-    this.themeClass = css`
+  render() {
+    const { color, highlightColor, children } = this.props;
+    const themeClass = css`
       .react-loading-skeleton {
-        background-color: ${props.color};
+        background-color: ${color};
         background-image: linear-gradient(
           90deg,
-          ${props.color},
-          ${props.highlightColor},
-          ${props.color}
+          ${color},
+          ${highlightColor},
+          ${color}
         );
       }
     `;
-  }
-
-  render() {
-    return <div className={this.themeClass}>{this.props.children}</div>;
+    return <div className={themeClass}>{children}</div>;
   }
 }
