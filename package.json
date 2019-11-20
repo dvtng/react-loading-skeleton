@@ -42,20 +42,20 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
     "@emotion/babel-preset-css-prop": "^10.0.17",
-    "@storybook/react": "^5.2.3",
-    "@types/react": "^16.8.4",
+    "@storybook/react": "^5.2.6",
+    "@types/react": "^16.9.11",
     "babel-loader": "^8.0.6",
     "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "^1.0.2",
+    "enzyme-adapter-react-16": "^1.15.1",
     "jest": "^24.9.0",
     "prop-types": "^15.5.10",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-test-renderer": "^16.0.0"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0"
   }
 }
