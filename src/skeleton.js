@@ -1,5 +1,5 @@
 import React from "react";
-import { css, keyframes } from "emotion";
+import { css, keyframes } from "@emotion/core";
 
 export const defaultBaseColor = "#eee";
 
@@ -14,7 +14,7 @@ export const skeletonKeyframes = keyframes`
   }
 `;
 
-export const skeletonClass = css`
+export const skeletonStyles = css`
   background-color: ${defaultBaseColor};
   background-image: linear-gradient(
     90deg,
@@ -41,10 +41,7 @@ export default function Skeleton({
   const elements = [];
 
   for (let i = 0; i < count; i++) {
-    let style = {
-      animation:
-        `${skeletonKeyframes} ` + String(duration) + "s ease-in-out infinite"
-    };
+    let style = {};
 
     if (width !== null) {
       style.width = width;
@@ -61,7 +58,11 @@ export default function Skeleton({
     elements.push(
       <span
         key={i}
-        className={`${skeletonClass} react-loading-skeleton`}
+        className="react-loading-skeleton"
+        css={css`
+          ${skeletonStyles}
+          animation: ${skeletonKeyframes} ${duration}s ease-in-out infinite
+        `}
         style={style}
       >
         &zwnj;
