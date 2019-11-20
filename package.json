@@ -42,6 +42,7 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
+    "@emotion/babel-preset-css-prop": "^10.0.17",
     "@storybook/react": "^5.2.3",
     "@types/react": "^16.8.4",
     "babel-loader": "^8.0.6",
