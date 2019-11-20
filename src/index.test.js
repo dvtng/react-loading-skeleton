@@ -1,9 +1,8 @@
 import React from "react";
 import { mount } from "enzyme";
 import Skeleton from "./index";
-import { skeletonClass } from "./skeleton";
 
-const skeletonSelector = "." + String(skeletonClass);
+const skeletonSelector = "span.react-loading-skeleton";
 
 it("should render a skeleton", () => {
   const skeleton = mount(<Skeleton />);

@@ -30,6 +30,9 @@
     "prepublishOnly": "yarn run build"
   },
   "jest": {
+    "roots": [
+      "<rootDir>/src/"
+    ],
     "setupFiles": [
       "<rootDir>/testSetup/testSetup.js"
     ]
