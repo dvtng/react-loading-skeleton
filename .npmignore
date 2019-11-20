@@ -1,6 +1,4 @@
-.storybook
-src
-stories
-testSetup
-.babelrc
-webpack.config.js
+.storybook/
+node_modules/
+lib/
+*.log
