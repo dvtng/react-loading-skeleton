@@ -63,7 +63,7 @@ skeleton components below it in the React hierarchy:
 ```javascript
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-<SkeletonTheme color="#202020" highlightColor="#444">
+<SkeletonTheme color="#202020" highlightColor="#444" height={36}>
   <p>
     <Skeleton count={3} />
   </p>

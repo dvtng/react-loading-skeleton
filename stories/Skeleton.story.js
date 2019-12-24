@@ -33,7 +33,7 @@ storiesOf("Skeleton", module)
   ))
   .add("with wrapper and theme", () => (
     <SideBySide>
-      <SkeletonTheme color="#333" highlightColor="#666">
+      <SkeletonTheme color="#333" highlightColor="#666" height={36}>
         <Skeleton count={5} wrapper={Box} />
       </SkeletonTheme>
       <div>

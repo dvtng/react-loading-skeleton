@@ -5,11 +5,12 @@ import { defaultBaseColor, defaultHighlightColor } from "./skeleton";
 export default class SkeletonTheme extends Component {
   static defaultProps = {
     color: defaultBaseColor,
-    highlightColor: defaultHighlightColor
+    highlightColor: defaultHighlightColor,
+    height: null
   };
 
   render() {
-    const { color, highlightColor, children } = this.props;
+    const { color, highlightColor, children, height } = this.props;
     const themeClass = css`
       .react-loading-skeleton {
         background-color: ${color};
@@ -19,6 +20,7 @@ export default class SkeletonTheme extends Component {
           ${highlightColor},
           ${color}
         );
+        height: ${height}px
       }
     `;
     return <div className={themeClass}>{children}</div>;
