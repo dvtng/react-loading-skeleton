@@ -20,7 +20,7 @@ export default class SkeletonTheme extends Component {
           ${highlightColor},
           ${color}
         );
-        height: ${height}px
+        ${height ? `height: ${height}px;` : ''}
       }
     `;
     return <div className={themeClass}>{children}</div>;
