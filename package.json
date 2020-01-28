@@ -4,9 +4,13 @@
   "license": "MIT",
   "author": "David Tang",
   "private": false,
-  "main": "dist/bundle.js",
+  "main": "lib/index.js",
   "sideEffects": false,
-  "browserslist": "> 0.25%, not dead",
+  "browserslist": [
+    "maintained node versions",
+    "> 0.25%",
+    "not dead"
+  ],
   "keywords": [
     "react",
     "loading",
@@ -18,43 +22,43 @@
     "type": "git",
     "url": "https://github.com/dvtng/react-loading-skeleton.git"
   },
-  "typings": "./dist/index.d.ts",
   "scripts": {
     "start": "yarn run storybook",
     "test": "jest",
-    "build": "webpack",
-    "storybook": "start-storybook -p 8080 -c .storybook",
+    "build": "babel src --out-dir lib --delete-dir-on-start --copy-files",
+    "storybook": "start-storybook -p 8080",
     "prepublishOnly": "yarn run build"
   },
   "jest": {
+    "roots": [
+      "<rootDir>/src/"
+    ],
     "setupFiles": [
       "<rootDir>/testSetup/testSetup.js"
     ]
   },
   "dependencies": {
-    "emotion": "^10.0.17"
+    "@emotion/core": "^10.0.22"
   },
   "peerDependencies": {
     "react": "^15.6.1 || ^16.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
-    "@storybook/react": "^5.2.3",
-    "@types/react": "^16.8.4",
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "@emotion/babel-preset-css-prop": "^10.0.17",
+    "@storybook/react": "^5.2.6",
+    "@types/react": "^16.9.11",
     "babel-loader": "^8.0.6",
-    "copy-webpack-plugin": "^5.0.0",
     "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "^1.0.2",
+    "enzyme-adapter-react-16": "^1.15.1",
     "jest": "^24.9.0",
     "prop-types": "^15.5.10",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-test-renderer": "^16.0.0",
-    "webpack": "^4.17.1",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.7"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0"
   }
 }
