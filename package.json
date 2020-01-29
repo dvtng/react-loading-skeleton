@@ -27,6 +27,7 @@
     "test": "jest",
     "build": "babel src --out-dir lib --delete-dir-on-start --copy-files",
     "storybook": "start-storybook -p 8080",
+    "postinstall": "yarn run build",
     "prepublishOnly": "yarn run build"
   },
   "jest": {
