@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { css } from "@emotion/core";
+import React, { Component, Fragment } from "react";
+import { css, Global } from "@emotion/core";
 import { defaultBaseColor, defaultHighlightColor } from "./skeleton";
 
 export default class SkeletonTheme extends Component {
@@ -11,7 +11,7 @@ export default class SkeletonTheme extends Component {
   render() {
     const { color, highlightColor, children } = this.props;
     const themeStyles = css`
-      .react-loading-skeleton {
+      span.react-loading-skeleton {
         background-color: ${color};
         background-image: linear-gradient(
           90deg,
@@ -21,6 +21,11 @@ export default class SkeletonTheme extends Component {
         );
       }
     `;
-    return <div css={themeStyles}>{children}</div>;
+    return (
+      <Fragment>
+        <Global styles={themeStyles} />
+        {children}
+      </Fragment>
+    );
   }
 }
