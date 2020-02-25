@@ -5,10 +5,13 @@ export const defaultBaseColor = "#eee";
 
 export const defaultHighlightColor = "#f5f5f5";
 
-export const skeletonKeyframes = keyframes`
+export const skeletonKeyframes = (duration, delay) => keyframes`
   0% {
     background-position: -200px 0;
   }
+  ${delay > 0 ? `${Math.floor(((1/(duration+delay))*(duration))*100)}% {
+    background-position: calc(200px + 100%) 0;
+  }` : undefined}
   100% {
     background-position: calc(200px + 100%) 0;
   }
@@ -36,7 +39,8 @@ export default function Skeleton({
   width,
   wrapper: Wrapper,
   height,
-  circle
+  circle,
+  delay
 }) {
   const elements = [];
 
@@ -61,7 +65,7 @@ export default function Skeleton({
         className="react-loading-skeleton"
         css={css`
           ${skeletonStyles}
-          animation: ${skeletonKeyframes} ${duration}s ease-in-out infinite
+          animation: ${skeletonKeyframes(duration, delay)} ${duration+delay}s ease-in-out infinite
         `}
         style={style}
       >
@@ -90,5 +94,6 @@ Skeleton.defaultProps = {
   width: null,
   wrapper: null,
   height: null,
-  circle: false
+  circle: false,
+  delay: 0,
 };
