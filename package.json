@@ -5,6 +5,7 @@
   "author": "David Tang",
   "private": false,
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "sideEffects": false,
   "browserslist": [
     "maintained node versions",
