@@ -36,7 +36,8 @@ export default function Skeleton({
   width,
   wrapper: Wrapper,
   height,
-  circle
+  circle,
+  style: customStyle,
 }) {
   const elements = [];
 
@@ -63,7 +64,10 @@ export default function Skeleton({
           ${skeletonStyles}
           animation: ${skeletonKeyframes} ${duration}s ease-in-out infinite
         `}
-        style={style}
+        style={{
+          ...customStyle,
+          ...style,
+        }}
       >
         &zwnj;
       </span>
