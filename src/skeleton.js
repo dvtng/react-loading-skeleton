@@ -38,6 +38,7 @@ export default function Skeleton({
   height,
   circle,
   style: customStyle,
+  className: customClassName,
 }) {
   const elements = [];
 
@@ -56,10 +57,15 @@ export default function Skeleton({
       style.borderRadius = "50%";
     }
 
+    let className = "react-loading-skeleton";
+    if (customClassName) {
+      className += " " + customClassName;
+    }
+
     elements.push(
       <span
         key={i}
-        className="react-loading-skeleton"
+        className={className}
         css={css`
           ${skeletonStyles}
           animation: ${skeletonKeyframes} ${duration}s ease-in-out infinite
@@ -94,5 +100,5 @@ Skeleton.defaultProps = {
   width: null,
   wrapper: null,
   height: null,
-  circle: false
+  circle: false,
 };

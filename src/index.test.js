@@ -32,3 +32,10 @@ it("inline style prop should overwrite custom styles", () => {
     height: 100,
   });
 });
+
+it("should render custom className if provided", () => {
+  const skeleton = mount(<Skeleton count={4} className="testClass" />);
+  expect(skeleton.find(skeletonSelector).at(0).hasClass("testClass")).toBe(
+    true
+  );
+});

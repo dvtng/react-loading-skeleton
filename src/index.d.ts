@@ -10,6 +10,7 @@ interface SkeletonProps {
   height?: string | number;
   circle?: boolean;
   style?: CSSProperties;
+  className?: string;
 }
 
 export class SkeletonTheme extends Component<SkeletonThemeProps> {}
