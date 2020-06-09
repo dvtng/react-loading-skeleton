@@ -12,7 +12,7 @@ const Box = ({ children }) => (
       lineHeight: 2,
       padding: 20,
       marginBottom: 10,
-      width: 100
+      width: 100,
     }}
   >
     {children}
@@ -50,7 +50,7 @@ storiesOf("Skeleton", module)
       theme === "light" ? "rgba(0, 0, 0, .2)" : "rgba(255,255,255, .2)";
 
     const handleToggle = () => {
-      setTheme(oldTheme => (oldTheme === "light" ? "dark" : "light"));
+      setTheme((oldTheme) => (oldTheme === "light" ? "dark" : "light"));
     };
 
     const backgroundColor = theme === "light" ? "white" : "#222";
@@ -99,13 +99,13 @@ storiesOf("Skeleton", module)
       <Skeleton count={1} height="50em" />
     </div>
   ))
-  .add("Skeleton with styles", () => (
+  .add("with custom styles", () => (
     <Skeleton
       height="100px"
       style={{ boarderRadius: 10, height: 50, width: 50 }}
     />
   ))
-  .add("Skeleton displayed as circle", () => (
+  .add("as circle", () => (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Skeleton count={1} height={50} width={50} circle={true} />
     </div>
