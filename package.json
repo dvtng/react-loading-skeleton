@@ -6,6 +6,9 @@
   "private": false,
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
   "sideEffects": false,
   "browserslist": [
     "maintained node versions",
@@ -26,7 +29,7 @@
   "scripts": {
     "start": "yarn run storybook",
     "test": "jest",
-    "build": "babel src --out-dir lib --delete-dir-on-start --copy-files",
+    "build": "babel src --out-dir lib --delete-dir-on-start --ignore \"src/**/*.test.js\" && cp src/index.d.ts lib",
     "storybook": "start-storybook -p 8080",
     "prepublishOnly": "yarn run build"
   },
