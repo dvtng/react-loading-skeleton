@@ -1,4 +1,4 @@
-import { Component, ReactNode } from "react";
+import { Component, ReactNode, CSSProperties } from "react";
 
 export default class Skeleton extends Component<SkeletonProps> {}
 
@@ -9,6 +9,7 @@ interface SkeletonProps {
   wrapper?: ReactNode;
   height?: string | number;
   circle?: boolean;
+  style?: CSSProperties;
 }
 
 export class SkeletonTheme extends Component<SkeletonThemeProps> {}
