@@ -39,6 +39,7 @@ export default function Skeleton({
   circle,
   style: customStyle,
   className: customClassName,
+  containerClassName
 }) {
   const elements = [];
 
@@ -81,7 +82,7 @@ export default function Skeleton({
   }
 
   return (
-    <span>
+    <span className={containerClassName}>
       {Wrapper
         ? elements.map((element, i) => (
             <Wrapper key={i}>
@@ -101,4 +102,5 @@ Skeleton.defaultProps = {
   wrapper: null,
   height: null,
   circle: false,
+  containerClassName: ""
 };
