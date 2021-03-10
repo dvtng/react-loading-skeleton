@@ -70,6 +70,22 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 </SkeletonTheme>;
 ```
 
+## Direction
+
+You can set the animation direction to `right-to-left` on `<SkeletonTheme>` component by using `direction="rtl"`, e.g:
+
+```javascript
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+
+<SkeletonTheme color="#202020" highlightColor="#444" direction="rtl">
+  <p>
+    <Skeleton />
+  </p>
+</SkeletonTheme>;
+```
+
+The default value is `ltr`. 
+
 ## Duration
 
 ```javascript
