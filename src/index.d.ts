@@ -18,4 +18,5 @@ export class SkeletonTheme extends Component<SkeletonThemeProps> {}
 interface SkeletonThemeProps {
   color?: string;
   highlightColor?: string;
+  style?: CSSProperties;
 }

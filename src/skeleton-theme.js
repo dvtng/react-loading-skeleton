@@ -9,8 +9,9 @@ export default class SkeletonTheme extends Component {
   };
 
   render() {
-    const { color, highlightColor, children } = this.props;
+    const { color, highlightColor, style, children } = this.props;
     const themeStyles = css`
+      ${style}
       .react-loading-skeleton {
         background-color: ${color};
         background-image: linear-gradient(
