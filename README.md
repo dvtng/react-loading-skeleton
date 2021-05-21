@@ -93,7 +93,7 @@ no width of its own.
 
 ## Height
 
-`Height`: Number | String | null, defaults to null
+`height`: Number | String | null, defaults to null
 
 ```javascript
 <Skeleton height={100} />
@@ -104,7 +104,7 @@ a card. Also needed for the prop `circle` (see below).
 
 ## Circle
 
-`Circle`: Boolean | false, defaults to false
+`circle`: Boolean | false, defaults to false
 
 ```javascript
 <Skeleton circle={true} height={50} width={50} />
