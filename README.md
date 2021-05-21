@@ -151,7 +151,7 @@ Prop for making the skeleton look like a circle, for when you are creating a use
 
 ## Style
 
-`style`: CSSProperties, defaults to undefined
+`style`: CSSProperties, defaults to {}
 
 ```javascript
 <Skeleton style={{ borderRadius: 10 }} />
@@ -161,7 +161,7 @@ Prop for adding custom CSS styles to the skeleton.
 
 ## ClassName
 
-`className`: String, defaults to undefined
+`className`: String, defaults to ""
 
 ```javascript
 <Skeleton className="foobar" />
