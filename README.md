@@ -70,6 +70,16 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 </SkeletonTheme>;
 ```
 
+## Count
+
+`count`: Number, defaults to 1
+
+```javascript
+<Skeleton count={5} />
+```
+
+Number of loading skeleton lines.
+
 ## Duration
 
 ```javascript
@@ -102,12 +112,59 @@ no width of its own.
 Height of the skeleton. Useful when you don't want to adapt the skeleton to a text element but for instance
 a card. Also needed for the prop `circle` (see below).
 
+## Wrapper
+
+`wrapper`: ReactNode | null, defaults to null
+
+```javascript
+const Box = ({ children }) => (
+  <a
+    style={{
+      border: "1px solid #ccc",
+      display: "block",
+      fontSize: 16,
+      lineHeight: 2,
+      padding: 20,
+      marginBottom: 10,
+      width: 100,
+    }}
+  >
+    {children}
+  </a>
+);
+
+<Skeleton wrapper={Box} />
+```
+
+Prop for wrap the skeleton in a custom component.
+
 ## Circle
 
-`circle`: Boolean | false, defaults to false
+`circle`: Boolean, defaults to false
 
 ```javascript
 <Skeleton circle={true} height={50} width={50} />
 ```
 
 Prop for making the skeleton look like a circle, for when you are creating a user card with a profile picture for instance.
+
+
+## Style
+
+`style`: CSSProperties, defaults to undefined
+
+```javascript
+<Skeleton style={{ borderRadius: 10 }} />
+```
+
+Prop for adding custom CSS styles to the skeleton.
+
+## ClassName
+
+`className`: String, defaults to undefined
+
+```javascript
+<Skeleton className="foobar" />
+```
+
+Prop for adding custom CSS classname to the skeleton.
