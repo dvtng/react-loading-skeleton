@@ -101,4 +101,6 @@ Skeleton.defaultProps = {
   wrapper: null,
   height: null,
   circle: false,
+  style: {},
+  className: "",
 };

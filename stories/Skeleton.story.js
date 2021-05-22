@@ -102,7 +102,7 @@ storiesOf("Skeleton", module)
   .add("with custom styles", () => (
     <Skeleton
       height="100px"
-      style={{ boarderRadius: 10, height: 50, width: 50 }}
+      style={{ borderRadius: 10, height: 50, width: 50 }}
     />
   ))
   .add("as circle", () => (
