@@ -1,5 +1,6 @@
+/** @jsx jsx */
 import React, { Component } from "react";
-import { css } from "@emotion/core";
+import { css, jsx } from "@emotion/react";
 import { defaultBaseColor, defaultHighlightColor } from "./skeleton";
 
 export default class SkeletonTheme extends Component {
