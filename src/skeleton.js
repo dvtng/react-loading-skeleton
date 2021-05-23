@@ -26,6 +26,7 @@ export const skeletonStyles = css`
   background-repeat: no-repeat;
   border-radius: 4px;
   display: inline-block;
+  vertical-align: top;
   line-height: 1;
   width: 100%;
 `;
