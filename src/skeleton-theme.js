@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { defaultBaseColor, defaultHighlightColor } from "./skeleton";
 
 export default class SkeletonTheme extends Component {
   static defaultProps = {
     color: defaultBaseColor,
-    highlightColor: defaultHighlightColor
+    highlightColor: defaultHighlightColor,
   };
 
   render() {

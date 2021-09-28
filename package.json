@@ -42,7 +42,7 @@
     ]
   },
   "dependencies": {
-    "@emotion/core": "^10.0.22"
+    "@emotion/react": "^11.4.1"
   },
   "peerDependencies": {
     "react": "^15.6.1 || ^16.0.0 || ^17.0.0"
@@ -53,7 +53,7 @@
     "@babel/plugin-proposal-class-properties": "^7.7.0",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
-    "@emotion/babel-preset-css-prop": "^10.0.17",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
     "@storybook/react": "^5.2.6",
     "@types/react": "^16.9.11",
     "babel-loader": "^8.0.6",
