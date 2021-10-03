@@ -80,6 +80,22 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 Number of loading skeleton lines.
 
+## Direction
+
+You can set the animation direction to right-to-left on `<SkeletonTheme>` component by using `direction="rtl"`, e.g:
+
+```javascript
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+
+<SkeletonTheme color="#202020" highlightColor="#444" direction="rtl">
+  <p>
+    <Skeleton />
+  </p>
+</SkeletonTheme>;
+```
+
+The default value is `ltr`.
+
 ## Duration
 
 ```javascript
@@ -133,7 +149,7 @@ const Box = ({ children }) => (
   </a>
 );
 
-<Skeleton wrapper={Box} />
+<Skeleton wrapper={Box} />;
 ```
 
 Prop for wrap the skeleton in a custom component.
@@ -147,7 +163,6 @@ Prop for wrap the skeleton in a custom component.
 ```
 
 Prop for making the skeleton look like a circle, for when you are creating a user card with a profile picture for instance.
-
 
 ## Style
 
