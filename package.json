@@ -21,6 +21,7 @@
         "dist/"
     ],
     "scripts": {
+        "build": "tsc",
         "prepack": "yarn run build",
         "prettier-all": "prettier . --write",
         "start": "yarn run storybook",
