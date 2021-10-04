@@ -1,9 +1,8 @@
 {
     "compilerOptions": {
         /* Language and Environment */
-        "target": "ES2018",
-        "lib": ["ES2018"],
-        "jsx": "react-jsx",
+        "target": "ES2015",
+        "jsx": "react",
 
         /* Modules */
         "module": "ESNext",

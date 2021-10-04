@@ -1,4 +1,4 @@
-import { CSSProperties, ReactElement } from "react";
+import React, { CSSProperties, ReactElement } from "react";
 
 export const defaultBaseColor = "#eee";
 
@@ -86,8 +86,8 @@ export default function Skeleton({
                 key={i}
                 className={className}
                 style={{
-                    ...style,
                     ...customStyle,
+                    ...style,
                 }}
             >
                 &zwnj;
