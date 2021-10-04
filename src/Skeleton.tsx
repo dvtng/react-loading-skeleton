@@ -1,4 +1,4 @@
-import { CSSProperties, ReactElement, ReactNode } from "react";
+import { CSSProperties, ReactElement } from "react";
 
 export const defaultBaseColor = "#eee";
 
@@ -29,73 +29,65 @@ export const defaultHighlightColor = "#f5f5f5";
 //     width: 100%;
 // `;
 
+// css={css`
+//     ${skeletonStyles}
+//     animation: ${skeletonKeyframes} ${duration}s ease-in-out infinite
+// `}
+
 export interface SkeletonProps {
     count?: number;
     duration?: number;
     width?: string | number;
-    wrapper?: ReactNode;
+    wrapper?: React.FunctionComponent;
     height?: string | number;
     circle?: boolean;
     style?: CSSProperties;
     className?: string;
+    containerClassName?: string;
 }
 
-Skeleton.defaultProps = {
-    count: 1,
-    duration: 1.2,
-    width: null,
-    wrapper: null,
-    height: null,
-    circle: false,
-    style: {},
-    className: "",
-    containerClassName: "",
-};
-
 export default function Skeleton({
-    count,
-    duration,
+    count = 1,
+    duration = 1.2,
     width,
     wrapper: Wrapper,
     height,
-    circle,
-    style: customStyle,
+    circle = false,
+    style: customStyle = {},
     className: customClassName,
     containerClassName,
 }: SkeletonProps): ReactElement {
     const elements = [];
 
+    const style: CSSProperties = {
+        animationDuration: `${duration}s`,
+    };
+
+    if (typeof width === "string" || typeof width === "number")
+        style.width = width;
+
+    if (typeof height === "string" || typeof height === "number")
+        style.height = height;
+
+    if (
+        typeof style.width !== "undefined" &&
+        typeof style.height !== "undefined" &&
+        circle
+    ) {
+        style.borderRadius = "50%";
+    }
+
     for (let i = 0; i < count; i++) {
-        let style = {};
-
-        if (width !== null) {
-            style.width = width;
-        }
-
-        if (height !== null) {
-            style.height = height;
-        }
-
-        if (width !== null && height !== null && circle) {
-            style.borderRadius = "50%";
-        }
-
         let className = "react-loading-skeleton";
-        if (customClassName) {
-            className += " " + customClassName;
-        }
+        if (customClassName) className += " " + customClassName;
 
         elements.push(
             <span
                 key={i}
                 className={className}
-                css={css`
-                    ${skeletonStyles}
-                    animation: ${skeletonKeyframes} ${duration}s ease-in-out infinite
-                `}
                 style={{
-                    ...customStyle,
                     ...style,
+                    ...customStyle,
                 }}
             >
                 &zwnj;
