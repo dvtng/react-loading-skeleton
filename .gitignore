@@ -1,3 +1,10 @@
 node_modules/
-lib/
-*.log
+dist/
+
+/.yarn/*
+!/.yarn/patches
+!/.yarn/plugins
+!/.yarn/releases
+!/.yarn/sdks
+
+/.pnp.*

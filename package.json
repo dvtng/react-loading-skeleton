@@ -3,7 +3,6 @@
   "version": "2.1.1",
   "license": "MIT",
   "author": "David Tang",
-  "private": false,
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -64,5 +63,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0"
-  }
+  },
+  "packageManager": "yarn@3.0.2"
 }
