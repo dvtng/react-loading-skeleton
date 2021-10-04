@@ -1,8 +1,8 @@
-import React, { CSSProperties, ReactElement } from "react";
+import React, { CSSProperties, ReactElement } from 'react'
 
-export const defaultBaseColor = "#eee";
+export const defaultBaseColor = '#eee'
 
-export const defaultHighlightColor = "#f5f5f5";
+export const defaultHighlightColor = '#f5f5f5'
 
 // export const skeletonKeyframes = keyframes`
 //   0% {
@@ -35,15 +35,15 @@ export const defaultHighlightColor = "#f5f5f5";
 // `}
 
 export interface SkeletonProps {
-    count?: number;
-    duration?: number;
-    width?: string | number;
-    wrapper?: React.FunctionComponent;
-    height?: string | number;
-    circle?: boolean;
-    style?: CSSProperties;
-    className?: string;
-    containerClassName?: string;
+    count?: number
+    duration?: number
+    width?: string | number
+    wrapper?: React.FunctionComponent
+    height?: string | number
+    circle?: boolean
+    style?: CSSProperties
+    className?: string
+    containerClassName?: string
 }
 
 export default function Skeleton({
@@ -57,29 +57,27 @@ export default function Skeleton({
     className: customClassName,
     containerClassName,
 }: SkeletonProps): ReactElement {
-    const elements = [];
+    const elements = []
 
     const style: CSSProperties = {
         animationDuration: `${duration}s`,
-    };
+    }
 
-    if (typeof width === "string" || typeof width === "number")
-        style.width = width;
+    if (typeof width === 'string' || typeof width === 'number') style.width = width
 
-    if (typeof height === "string" || typeof height === "number")
-        style.height = height;
+    if (typeof height === 'string' || typeof height === 'number') style.height = height
 
     if (
-        typeof style.width !== "undefined" &&
-        typeof style.height !== "undefined" &&
+        typeof style.width !== 'undefined' &&
+        typeof style.height !== 'undefined' &&
         circle
     ) {
-        style.borderRadius = "50%";
+        style.borderRadius = '50%'
     }
 
     for (let i = 0; i < count; i++) {
-        let className = "react-loading-skeleton";
-        if (customClassName) className += " " + customClassName;
+        let className = 'react-loading-skeleton'
+        if (customClassName) className += ' ' + customClassName
 
         elements.push(
             <span
@@ -92,7 +90,7 @@ export default function Skeleton({
             >
                 &zwnj;
             </span>
-        );
+        )
     }
 
     return (
@@ -106,5 +104,5 @@ export default function Skeleton({
                   ))
                 : elements}
         </span>
-    );
+    )
 }

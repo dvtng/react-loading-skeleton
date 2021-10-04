@@ -1,20 +1,6 @@
 {
     "name": "react-loading-skeleton",
     "version": "2.1.1",
-    "license": "MIT",
-    "author": "David Tang",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "files": [
-        "dist/"
-    ],
-    "sideEffects": false,
-    "browserslist": [
-        "maintained node versions",
-        "> 0.25%",
-        "not dead",
-        "not IE"
-    ],
     "keywords": [
         "react",
         "loading",
@@ -26,15 +12,27 @@
         "type": "git",
         "url": "https://github.com/dvtng/react-loading-skeleton.git"
     },
+    "license": "MIT",
+    "author": "David Tang",
+    "sideEffects": false,
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/"
+    ],
     "scripts": {
+        "prepack": "yarn run build",
+        "prettier-all": "prettier . --write",
         "start": "yarn run storybook",
-        "test": "jest --config .config/jest.config.cjs",
         "storybook": "start-storybook -p 8080",
-        "prepack": "yarn run build"
+        "test": "jest --config .config/jest.config.cjs"
     },
-    "peerDependencies": {
-        "react": ">=16.8.0"
-    },
+    "browserslist": [
+        "maintained node versions",
+        "> 0.25%",
+        "not dead",
+        "not IE"
+    ],
     "devDependencies": {
         "@swc/core": "^1.2.93",
         "@swc/jest": "^0.2.4",
@@ -45,6 +43,9 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "typescript": "^4.4.3"
+    },
+    "peerDependencies": {
+        "react": ">=16.8.0"
     },
     "packageManager": "yarn@3.0.2"
 }

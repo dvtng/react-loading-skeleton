@@ -1,12 +1,12 @@
-const path = require("path");
+const path = require('path')
 
 module.exports = {
-    testEnvironment: "jsdom",
+    testEnvironment: 'jsdom',
 
-    rootDir: path.resolve(__dirname, ".."),
-    testMatch: ["**/__tests__/**/*.test.ts?(x)"],
+    rootDir: path.resolve(__dirname, '..'),
+    testMatch: ['**/__tests__/**/*.test.ts?(x)'],
 
     transform: {
-        "^.+\\.(t|j)sx?$": ["@swc/jest"],
+        '^.+\\.(t|j)sx?$': ['@swc/jest'],
     },
-};
+}

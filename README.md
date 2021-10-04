@@ -29,14 +29,14 @@ For example:
 
 ```javascript
 class Blogpost extends Component {
-  render() {
-    return (
-      <div style={{ fontSize: 20, lineHeight: 2 }}>
-        <h1>{this.props.title || <Skeleton />}</h1>
-        {this.props.body || <Skeleton count={10} />}
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div style={{ fontSize: 20, lineHeight: 2 }}>
+                <h1>{this.props.title || <Skeleton />}</h1>
+                {this.props.body || <Skeleton count={10} />}
+            </div>
+        )
+    }
 }
 ```
 
@@ -61,13 +61,13 @@ Using a `<SkeletonTheme>` component, you can easily change the colors of all
 skeleton components below it in the React hierarchy:
 
 ```javascript
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 
-<SkeletonTheme color="#202020" highlightColor="#444">
-  <p>
-    <Skeleton count={3} />
-  </p>
-</SkeletonTheme>;
+;<SkeletonTheme color="#202020" highlightColor="#444">
+    <p>
+        <Skeleton count={3} />
+    </p>
+</SkeletonTheme>
 ```
 
 ## Count
@@ -85,13 +85,13 @@ Number of loading skeleton lines.
 You can set the animation direction to right-to-left on `<SkeletonTheme>` component by using `direction="rtl"`, e.g:
 
 ```javascript
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 
-<SkeletonTheme color="#202020" highlightColor="#444" direction="rtl">
-  <p>
-    <Skeleton />
-  </p>
-</SkeletonTheme>;
+;<SkeletonTheme color="#202020" highlightColor="#444" direction="rtl">
+    <p>
+        <Skeleton />
+    </p>
+</SkeletonTheme>
 ```
 
 The default value is `ltr`.
@@ -134,22 +134,22 @@ a card. Also needed for the prop `circle` (see below).
 
 ```javascript
 const Box = ({ children }) => (
-  <a
-    style={{
-      border: "1px solid #ccc",
-      display: "block",
-      fontSize: 16,
-      lineHeight: 2,
-      padding: 20,
-      marginBottom: 10,
-      width: 100,
-    }}
-  >
-    {children}
-  </a>
-);
+    <a
+        style={{
+            border: '1px solid #ccc',
+            display: 'block',
+            fontSize: 16,
+            lineHeight: 2,
+            padding: 20,
+            marginBottom: 10,
+            width: 100,
+        }}
+    >
+        {children}
+    </a>
+)
 
-<Skeleton wrapper={Box} />;
+;<Skeleton wrapper={Box} />
 ```
 
 Prop for wrap the skeleton in a custom component.
