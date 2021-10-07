@@ -1,21 +1,21 @@
-name: CI
-on: [push, pull_request]
+name: CI
+on: [push, pull_request]
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Set up Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-          cache: 'yarn'
-      - name: Install
-        run: yarn install --immutable
-      - name: Build
-        run: yarn build
-      - name: Test
-        run: yarn test
-      - name: Lint
-        run: yarn run lint-all
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - name: Install
+        run: yarn install --immutable
+      - name: Build
+        run: yarn build
+      - name: Test
+        run: yarn test
+      - name: Lint
+        run: yarn run lint-all
