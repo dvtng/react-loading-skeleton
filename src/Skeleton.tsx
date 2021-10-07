@@ -1,71 +1,66 @@
 import React, { CSSProperties, ReactElement } from 'react'
+import { SkeletonStyleProps } from './StyleProps'
 
-export const defaultBaseColor = '#eee'
+// If either color is changed, skeleton.css must be updated as well
+const defaultBaseColor = '#eee'
+const defaultHighlightColor = '#f5f5f5'
 
-export const defaultHighlightColor = '#f5f5f5'
-
-// export const skeletonKeyframes = keyframes`
-//   0% {
-//     background-position: -200px 0;
-//   }
-//   100% {
-//     background-position: calc(200px + 100%) 0;
-//   }
-// `;
-
-// export const skeletonStyles = css`
-//     background-color: ${defaultBaseColor};
-//     background-image: linear-gradient(
-//         90deg,
-//         ${defaultBaseColor},
-//         ${defaultHighlightColor},
-//         ${defaultBaseColor}
-//     );
-//     background-size: 200px 100%;
-//     background-repeat: no-repeat;
-//     border-radius: 4px;
-//     display: inline-block;
-//     line-height: 1;
-//     width: 100%;
-// `;
-
-// css={css`
-//     ${skeletonStyles}
-//     animation: ${skeletonKeyframes} ${duration}s ease-in-out infinite
-// `}
-
-export interface SkeletonProps {
+export interface SkeletonProps extends SkeletonStyleProps {
     count?: number
-    duration?: number
-    width?: string | number
     wrapper?: React.FunctionComponent
-    height?: string | number
-    circle?: boolean
-    style?: CSSProperties
+
     className?: string
     containerClassName?: string
+
+    circle?: boolean
+
+    duration?: number
+    width?: string | number
+    height?: string | number
+    baseColor?: string
+    highlightColor?: string
+    direction?: 'ltr' | 'rtl'
+
+    style?: CSSProperties
 }
 
-export default function Skeleton({
+export function Skeleton({
     count = 1,
-    duration = 1.2,
-    width,
     wrapper: Wrapper,
-    height,
-    circle = false,
-    style: customStyle = {},
+
     className: customClassName,
     containerClassName,
-}: SkeletonProps): ReactElement {
-    const elements = []
 
+    circle = false,
+    duration = 1.2,
+    width,
+    height,
+    direction,
+    baseColor,
+    highlightColor,
+    style: userProvidedStyle,
+}: SkeletonProps): ReactElement {
     const style: CSSProperties = {
         animationDuration: `${duration}s`,
+        animationDirection: direction === 'rtl' ? 'reverse' : 'normal',
     }
 
     if (typeof width === 'string' || typeof width === 'number') style.width = width
 
     if (typeof height === 'string' || typeof height === 'number') style.height = height
+
+    if (typeof baseColor !== 'undefined' || typeof highlightColor !== 'undefined') {
+        baseColor ??= defaultBaseColor
+        highlightColor ??= defaultHighlightColor
+
+        style.backgroundColor = baseColor
+        style.backgroundImage = `linear-gradient(
+            90deg,
+            ${baseColor},
+            ${highlightColor},
+            ${baseColor}
+        );`
+    }
 
     if (
         typeof style.width !== 'undefined' &&
@@ -75,19 +70,19 @@ export default function Skeleton({
         style.borderRadius = '50%'
     }
 
-    for (let i = 0; i < count; i++) {
-        let className = 'react-loading-skeleton'
-        if (customClassName) className += ' ' + customClassName
+    let className = 'react-loading-skeleton'
+    if (customClassName) className += ' ' + customClassName
 
+    const combinedStyle: CSSProperties = {
+        ...userProvidedStyle,
+        ...style,
+    }
+
+    const elements: ReactElement[] = []
+
+    for (let i = 0; i < count; i++) {
         elements.push(
-            <span
-                key={i}
-                className={className}
-                style={{
-                    ...customStyle,
-                    ...style,
-                }}
-            >
+            <span key={i} className={className} style={combinedStyle}>
                 &zwnj;
             </span>
         )

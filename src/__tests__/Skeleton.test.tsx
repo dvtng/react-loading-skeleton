@@ -1,5 +1,5 @@
 import React from 'react'
-import Skeleton from '../Skeleton'
+import { Skeleton } from '../Skeleton'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
