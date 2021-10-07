@@ -1,5 +1,5 @@
 module.exports = {
-    extends: ['eslint-config-react-app', 'eslint-config-react-app/jest'],
+    extends: ['react-app', 'react-app/jest'],
     plugins: ['jest'],
     ignorePatterns: ['*.js', '*.cjs', 'dist/'],
 }
