@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import SideBySide from './SideBySide'
 import Post from './Post'
-import { SkeletonTheme } from '../src'
+//import { SkeletonTheme } from '../src'
 
 storiesOf('Post', module)
     .add('default', () => (
@@ -25,13 +25,13 @@ storiesOf('Post', module)
             </Post>
         </SideBySide>
     ))
-    .add('with different colors', () => (
-        <div>
-            <SkeletonTheme color="#1D5CA6" highlightColor="#164999">
-                <Post />
-            </SkeletonTheme>
-            <SkeletonTheme color="#333" highlightColor="#4a4a4a">
-                <Post />
-            </SkeletonTheme>
-        </div>
-    ))
+// .add('with different colors', () => (
+//     <div>
+//         <SkeletonTheme color="#1D5CA6" highlightColor="#164999">
+//             <Post />
+//         </SkeletonTheme>
+//         <SkeletonTheme color="#333" highlightColor="#4a4a4a">
+//             <Post />
+//         </SkeletonTheme>
+//     </div>
+// ))

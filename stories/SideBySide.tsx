@@ -12,8 +12,8 @@ const arrowStyle = {
     padding: '0 20px',
 }
 
-export default ({ children }) => {
-    const childrenWithArrows = []
+export default function SideBySide({ children }: { children: React.ReactElement[] }) {
+    const childrenWithArrows: (React.ReactChildren | React.ReactElement)[] = []
     React.Children.forEach(children, (child, index) => {
         if (index > 0) {
             childrenWithArrows.push(

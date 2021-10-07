@@ -1,10 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import SideBySide from './SideBySide'
-import Skeleton, { SkeletonTheme } from '../src'
+import Skeleton from '../src' //, { SkeletonTheme }
 
-const Box = ({ children }) => (
+const Box = ({ children }: { children: string }) => (
     <a
+        href={children}
         style={{
             border: '1px solid #ccc',
             display: 'block',
@@ -22,7 +23,7 @@ const Box = ({ children }) => (
 storiesOf('Skeleton', module)
     .add('with wrapper', () => (
         <SideBySide>
-            <Skeleton count={5} wrapper={Box} />
+            <Skeleton count={5} wrapper={Box as React.FunctionComponent} />
             <div>
                 <Box key={1}>A</Box>
                 <Box key={2}>B</Box>
@@ -31,48 +32,48 @@ storiesOf('Skeleton', module)
             </div>
         </SideBySide>
     ))
-    .add('with wrapper and theme', () => (
-        <SideBySide>
-            <SkeletonTheme color="#333" highlightColor="#666">
-                <Skeleton count={5} wrapper={Box} />
-            </SkeletonTheme>
-            <div>
-                <Box key={1}>A</Box>
-                <Box key={2}>B</Box>
-            </div>
-        </SideBySide>
-    ))
-    .add('with dynamic theme', () => {
-        const [theme, setTheme] = React.useState('light')
-        const skeletonColor =
-            theme === 'light' ? 'rgba(0, 0, 0, .1)' : 'rgba(255, 255, 255, .1)'
-        const skeletonHighlight =
-            theme === 'light' ? 'rgba(0, 0, 0, .2)' : 'rgba(255,255,255, .2)'
+    // .add('with wrapper and theme', () => (
+    //     <SideBySide>
+    //         <SkeletonTheme color="#333" highlightColor="#666">
+    //             <Skeleton count={5} wrapper={Box} />
+    //         </SkeletonTheme>
+    //         <div>
+    //             <Box key={1}>A</Box>
+    //             <Box key={2}>B</Box>
+    //         </div>
+    //     </SideBySide>
+    // ))
+    // .add('with dynamic theme', () => {
+    //     const [theme, setTheme] = React.useState('light')
+    //     const skeletonColor =
+    //         theme === 'light' ? 'rgba(0, 0, 0, .1)' : 'rgba(255, 255, 255, .1)'
+    //     const skeletonHighlight =
+    //         theme === 'light' ? 'rgba(0, 0, 0, .2)' : 'rgba(255,255,255, .2)'
 
-        const handleToggle = () => {
-            setTheme((oldTheme) => (oldTheme === 'light' ? 'dark' : 'light'))
-        }
+    //     const handleToggle = () => {
+    //         setTheme((oldTheme) => (oldTheme === 'light' ? 'dark' : 'light'))
+    //     }
 
-        const backgroundColor = theme === 'light' ? 'white' : '#222'
+    //     const backgroundColor = theme === 'light' ? 'white' : '#222'
 
-        return (
-            <div style={{ backgroundColor }}>
-                <button onClick={handleToggle}>Toggle Theme</button>
-                <SideBySide>
-                    <SkeletonTheme
-                        color={skeletonColor}
-                        highlightColor={skeletonHighlight}
-                    >
-                        <Skeleton count={5} wrapper={Box} />
-                    </SkeletonTheme>
-                    <div>
-                        <Box key={1}>A</Box>
-                        <Box key={2}>B</Box>
-                    </div>
-                </SideBySide>
-            </div>
-        )
-    })
+    //     return (
+    //         <div style={{ backgroundColor }}>
+    //             <button onClick={handleToggle}>Toggle Theme</button>
+    //             <SideBySide>
+    //                 <SkeletonTheme
+    //                     color={skeletonColor}
+    //                     highlightColor={skeletonHighlight}
+    //                 >
+    //                     <Skeleton count={5} wrapper={Box} />
+    //                 </SkeletonTheme>
+    //                 <div>
+    //                     <Box key={1}>A</Box>
+    //                     <Box key={2}>B</Box>
+    //                 </div>
+    //             </SideBySide>
+    //         </div>
+    //     )
+    // })
     .add('with different durations', () => (
         <div>
             <Skeleton count={1} duration={1} />
