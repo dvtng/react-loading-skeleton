@@ -1,2 +1,3 @@
-export { default } from './Skeleton'
-//export { default as SkeletonTheme } from "./skeleton-theme";
+export * from './SkeletonStyleProps'
+export * from './SkeletonTheme'
+export { Skeleton as default } from './Skeleton'
