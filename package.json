@@ -35,7 +35,7 @@
         "maintained node versions",
         "> 0.25%",
         "not dead",
-        "not IE"
+        "not IE 11"
     ],
     "devDependencies": {
         "@storybook/react": "^6.3.10",
