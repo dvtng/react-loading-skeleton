@@ -4118,6 +4118,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^17.0.9":
+  version: 17.0.9
+  resolution: "@types/react-dom@npm:17.0.9"
+  dependencies:
+    "@types/react": "*"
+  checksum: b7e898e1a22643a371f58e801a3d1d8cf13a82d77063c24be73e840ef8d877ca1d04adc5db168d0dac3167dc050a26b1d70efc5fe8566a7f46a3c488a8322989
+  languageName: node
+  linkType: hard
+
 "@types/react-syntax-highlighter@npm:11.0.5":
   version: 11.0.5
   resolution: "@types/react-syntax-highlighter@npm:11.0.5"
@@ -12975,6 +12984,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"prettier@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "prettier@npm:2.4.1"
+  bin:
+    prettier: bin-prettier.js
+  checksum: cc6830588b401b0d742862fe9c46bc9118204fb307c3abe0e49e95b35ed23629573807ffdf9cdd65289c252a0bb51fc0171437f6626ee36378dea80f0ee80b91
+  languageName: node
+  linkType: hard
+
 "prettier@npm:~2.2.1":
   version: 2.2.1
   resolution: "prettier@npm:2.2.1"
@@ -13522,6 +13540,7 @@ fsevents@^1.2.7:
     "@testing-library/jest-dom": ^5.14.1
     "@testing-library/react": ^12.1.2
     "@types/react": ^17.0.27
+    "@types/react-dom": ^17.0.9
     "@typescript-eslint/eslint-plugin": ^4.33.0
     "@typescript-eslint/parser": ^4.33.0
     babel-eslint: ^10.1.0
@@ -13538,6 +13557,7 @@ fsevents@^1.2.7:
     husky: ^7.0.0
     jest: ^27.2.4
     lint-staged: ^11.2.0
+    prettier: ^2.4.1
     react: ^17.0.2
     react-dom: ^17.0.2
     rimraf: ^3.0.2
