@@ -3,14 +3,10 @@ import { SideBySide } from './SideBySide'
 import { Skeleton } from '../Skeleton' //, { SkeletonTheme }
 import { Meta } from '@storybook/react'
 
-const Box: React.FunctionComponent<PropsWithChildren<{ key: number }>> = ({
-    children,
-}: PropsWithChildren<{ key: number }>) => (
-    <a
-        href={children?.toString()}
+const Box = ({ children }: PropsWithChildren<unknown>) => (
+    <div
         style={{
             border: '1px solid #ccc',
-            display: 'block',
             fontSize: 16,
             lineHeight: 2,
             padding: 20,
@@ -19,27 +15,27 @@ const Box: React.FunctionComponent<PropsWithChildren<{ key: number }>> = ({
         }}
     >
         {children}
-    </a>
+    </div>
 )
 
 export default {
-    component: Box,
-    title: 'Components/Box',
+    component: Skeleton,
+    title: 'Skeleton',
 } as Meta
 
-export const WithWrapper: React.VFC<{}> = () => (
+export const WithWrapper: React.VFC = () => (
     <SideBySide>
         <Skeleton count={5} wrapper={Box} />
         <div>
-            <Box key={1}>A</Box>
-            <Box key={2}>B</Box>
-            <Box key={3}>C</Box>
-            <Box key={4}>D</Box>
+            <Box>A</Box>
+            <Box>B</Box>
+            <Box>C</Box>
+            <Box>D</Box>
         </div>
     </SideBySide>
 )
 
-export const DifferentDurations: React.VFC<{}> = () => (
+export const DifferentDurations: React.VFC = () => (
     <div>
         <Skeleton count={1} duration={1} />
         <Skeleton count={1} duration={2} />
@@ -48,7 +44,7 @@ export const DifferentDurations: React.VFC<{}> = () => (
     </div>
 )
 
-export const DifferentWidths: React.VFC<{}> = () => (
+export const DifferentWidths: React.VFC = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Skeleton count={1} />
         <Skeleton count={1} width={50} />
@@ -58,7 +54,7 @@ export const DifferentWidths: React.VFC<{}> = () => (
     </div>
 )
 
-export const DifferentHeights: React.VFC<{}> = () => (
+export const DifferentHeights: React.VFC = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Skeleton count={1} />
         <Skeleton count={1} height={200} />
@@ -68,17 +64,17 @@ export const DifferentHeights: React.VFC<{}> = () => (
     </div>
 )
 
-export const CustomStyles: React.VFC<{}> = () => (
+export const CustomStyles: React.VFC = () => (
     <Skeleton height="100px" style={{ borderRadius: 10, height: 50, width: 50 }} />
 )
 
-export const Circle: React.VFC<{}> = () => (
+export const Circle: React.VFC = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Skeleton count={1} height={50} width={50} circle={true} />
     </div>
 )
 
-//export const WrapperAndTheme: React.VFC<{}> = () => (
+//export const WrapperAndTheme: React.VFC = () => (
 //     <SideBySide>
 //         <SkeletonTheme color="#333" highlightColor="#666">
 //             <Skeleton count={5} wrapper={Box} />
@@ -90,7 +86,7 @@ export const Circle: React.VFC<{}> = () => (
 //     </SideBySide>
 //)
 
-// export const LightTheme: React.VFC<{}> = () => {
+// export const LightTheme: React.VFC = () => {
 //     const [theme, setTheme] = React.useState('light')
 //     const skeletonColor =
 //         theme === 'light' ? 'rgba(0, 0, 0, .1)' : 'rgba(255, 255, 255, .1)'

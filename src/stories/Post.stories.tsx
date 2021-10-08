@@ -5,8 +5,8 @@ import Post from './Post'
 //import { SkeletonTheme } from '../src'
 
 export default {
-    component: SideBySide,
-    title: 'Components/SideBySide',
+    component: Post,
+    title: 'Post',
 } as Meta
 
 export const Default: React.VFC<{}> = () => (

@@ -1,4 +1,4 @@
-import React, { CSSProperties, PropsWithChildren, ReactElement, useContext } from 'react'
+import React, { CSSProperties, ReactElement, useContext } from 'react'
 import { SkeletonThemeContext } from './SkeletonThemeContext'
 import { SkeletonStyleProps } from './SkeletonStyleProps'
 
@@ -61,7 +61,7 @@ function styleOptionsToCssProperties({
 
 export interface SkeletonProps extends SkeletonStyleProps {
     count?: number
-    wrapper?: React.FunctionComponent<PropsWithChildren<{ key: number }>>
+    wrapper?: React.FunctionComponent
 
     className?: string
     containerClassName?: string

@@ -104,7 +104,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.15.8, @babel/core@npm:^7.12.10, @babel/core@npm:^7.15.8":
+"@babel/core@npm:7.15.8, @babel/core@npm:^7.12.10":
   version: 7.15.8
   resolution: "@babel/core@npm:7.15.8"
   dependencies:
@@ -2557,7 +2557,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-actions@npm:6.3.10, @storybook/addon-actions@npm:^6.3.10":
+"@storybook/addon-actions@npm:6.3.10":
   version: 6.3.10
   resolution: "@storybook/addon-actions@npm:6.3.10"
   dependencies:
@@ -2642,7 +2642,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:6.3.10, @storybook/addon-docs@npm:^6.3.10":
+"@storybook/addon-docs@npm:6.3.10":
   version: 6.3.10
   resolution: "@storybook/addon-docs@npm:6.3.10"
   dependencies:
@@ -13313,10 +13313,6 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "react-loading-skeleton@workspace:."
   dependencies:
-    "@babel/core": ^7.15.8
-    "@mdx-js/react": ^1.6.22
-    "@storybook/addon-actions": ^6.3.10
-    "@storybook/addon-docs": ^6.3.10
     "@storybook/addon-essentials": ^6.3.10
     "@storybook/addon-links": ^6.3.10
     "@storybook/react": ^6.3.10
@@ -13329,7 +13325,6 @@ fsevents@^1.2.7:
     "@typescript-eslint/eslint-plugin": ^4.33.0
     "@typescript-eslint/parser": ^4.33.0
     babel-eslint: ^10.1.0
-    babel-loader: ^8.2.2
     eslint: ^7.32.0
     eslint-config-react-app: ^6.0.0
     eslint-plugin-flowtype: ^6.1.0
