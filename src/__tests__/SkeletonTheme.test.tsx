@@ -29,6 +29,18 @@ it('styles the skeleton', () => {
     expect(skeleton.style.backgroundColor).toBe('black')
 })
 
+it('is overridden by Skeleton props', () => {
+    render(
+        <SkeletonTheme borderRadius="1rem" baseColor="black">
+            <Skeleton borderRadius="2rem" />
+        </SkeletonTheme>
+    )
+
+    const skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
+    expect(skeleton.style.borderRadius).toBe('2rem')
+    expect(skeleton.style.backgroundColor).toBe('black')
+})
+
 it('styles the skeleton through a portal', () => {
     const portalDestination = document.createElement('div')
     document.body.append(portalDestination)
