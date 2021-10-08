@@ -23,6 +23,13 @@ export default {
     title: 'Skeleton',
 } as Meta
 
+// TODO remove wrapper div, set width on skeleton directly. Currently width is bugged with multiple skeleton count.
+export const Basic: React.VFC = () => (
+    <div style={{ width: 400 }}>
+        <Skeleton count={5} />
+    </div>
+)
+
 export const WithWrapper: React.VFC = () => (
     <SideBySide>
         <Skeleton count={5} wrapper={Box} />

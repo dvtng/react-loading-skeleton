@@ -30,6 +30,7 @@ continue to use `react-loading-skeleton` v2.
 -   Add `animationEnabled` prop to allow disabling the animation
 -   Add `containerClassName` prop to allow customizing the contaienr element
 -   Add `containerTestId` to make testing easier
+-   Change default `duration` from 1.2 s to 1.5 s
 
 ### Bug Fixes
 

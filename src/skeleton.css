@@ -3,9 +3,6 @@
     0% {
         background-position: -200px 0;
     }
-    80% {
-        background-position: calc(200px + 100%) 0;
-    }
     100% {
         background-position: calc(200px + 100%) 0;
     }
