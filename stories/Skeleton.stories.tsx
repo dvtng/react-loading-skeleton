@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import { SideBySide } from './SideBySide'
-import { Skeleton } from '../Skeleton' //, { SkeletonTheme }
+import { Skeleton } from '../src/Skeleton'
 import { Meta } from '@storybook/react'
 
 const Box = ({ children }: PropsWithChildren<unknown>) => (

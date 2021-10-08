@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react'
-import { Skeleton } from '../Skeleton'
+import { Skeleton } from '../src/Skeleton'
 
 export interface PostProps {
     title?: string

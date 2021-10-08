@@ -2,7 +2,6 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import { SideBySide } from './SideBySide'
 import Post from './Post'
-//import { SkeletonTheme } from '../src'
 
 export default {
     component: Post,
