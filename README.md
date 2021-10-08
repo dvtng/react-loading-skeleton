@@ -63,11 +63,13 @@ skeleton components below it in the React hierarchy:
 ```javascript
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 
-;<SkeletonTheme color="#202020" highlightColor="#444">
-    <p>
-        <Skeleton count={3} />
-    </p>
-</SkeletonTheme>
+return (
+    <SkeletonTheme color="#202020" highlightColor="#444">
+        <p>
+            <Skeleton count={3} />
+        </p>
+    </SkeletonTheme>
+)
 ```
 
 ## Count
@@ -87,11 +89,13 @@ You can set the animation direction to right-to-left on `<SkeletonTheme>` compon
 ```javascript
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 
-;<SkeletonTheme color="#202020" highlightColor="#444" direction="rtl">
-    <p>
-        <Skeleton />
-    </p>
-</SkeletonTheme>
+return (
+    <SkeletonTheme color="#202020" highlightColor="#444" direction="rtl">
+        <p>
+            <Skeleton />
+        </p>
+    </SkeletonTheme>
+)
 ```
 
 The default value is `ltr`.
