@@ -10,7 +10,7 @@
 
 .react-loading-skeleton {
     /* If either color is changed, Skeleton.tsx must be updated as well */
-    --base-color: #eee;
+    --base-color: #ebebeb;
     --highlight-color: #f5f5f5;
 
     background-color: var(--base-color);

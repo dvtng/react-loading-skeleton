@@ -3,7 +3,7 @@ import { SkeletonThemeContext } from './SkeletonThemeContext'
 import { SkeletonStyleProps } from './SkeletonStyleProps'
 
 // If either color is changed, skeleton.css must be updated as well
-const defaultBaseColor = '#eee'
+const defaultBaseColor = '#ebebeb'
 const defaultHighlightColor = '#f5f5f5'
 
 function styleOptionsToCssProperties({
