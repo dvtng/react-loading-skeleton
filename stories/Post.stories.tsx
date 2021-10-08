@@ -8,7 +8,7 @@ export default {
     title: 'Post',
 } as Meta
 
-export const Default: React.VFC<{}> = () => (
+export const Default: React.VFC = () => (
     <SideBySide>
         <Post />
         <Post title="A title">
@@ -19,7 +19,7 @@ export const Default: React.VFC<{}> = () => (
     </SideBySide>
 )
 
-export const LargeSize: React.VFC<{}> = () => (
+export const LargeSize: React.VFC = () => (
     <SideBySide>
         <Post size="large" />
         <Post size="large" title="A title">
@@ -30,7 +30,7 @@ export const LargeSize: React.VFC<{}> = () => (
     </SideBySide>
 )
 
-// export const WithColors: React.VFC<{}> = () => (
+// export const WithColors: React.VFC = () => (
 //     <div>
 //         <SkeletonTheme color="#1D5CA6" highlightColor="#164999">
 //             <Post />
