@@ -8,4 +8,5 @@ export interface SkeletonStyleProps {
 
     duration?: number
     direction?: 'ltr' | 'rtl'
+    enableAnimation?: boolean
 }

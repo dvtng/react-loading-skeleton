@@ -44,6 +44,20 @@ it('prioritizes explicit props over style prop', () => {
     expect(skeleton.style.width).toBe('22px')
 })
 
+it('disables the animation if and only if enableAnimation is false', () => {
+    const { rerender } = render(<Skeleton />)
+    let skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
+    expect(skeleton.style.animation).toBe('')
+
+    rerender(<Skeleton enableAnimation />)
+    skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
+    expect(skeleton.style.animation).toBe('')
+
+    rerender(<Skeleton enableAnimation={false} />)
+    skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
+    expect(skeleton.style.animation).toBe('none')
+})
+
 it('uses a custom className', () => {
     render(<Skeleton className="test-class" />)
 

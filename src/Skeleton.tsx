@@ -17,6 +17,7 @@ function styleOptionsToCssProperties({
 
     direction,
     duration,
+    enableAnimation = true,
 }: SkeletonStyleProps & { circle: boolean }): CSSProperties {
     const style: CSSProperties = {
         animationDirection: direction === 'rtl' ? 'reverse' : 'normal',
@@ -52,6 +53,8 @@ function styleOptionsToCssProperties({
             ${baseColor}
         )`
     }
+
+    if (!enableAnimation) style.animation = 'none'
 
     return style
 }
