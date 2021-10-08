@@ -4,6 +4,7 @@ export interface SkeletonStyleProps {
 
     width?: string | number
     height?: string | number
+    borderRadius?: string | number
 
     duration?: number
     direction?: 'ltr' | 'rtl'

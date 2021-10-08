@@ -33,15 +33,15 @@ it('renders a skeleton with styles', () => {
     expect(skeleton.style.width).toBe(style.width + 'px')
 })
 
-it('prioritizes height prop over style prop', () => {
-    const style = { borderRadius: 10, height: 50, width: 50 }
-    render(<Skeleton height={100} style={style} />)
+it('prioritizes explicit props over style prop', () => {
+    const style = { borderRadius: 10, height: 10, width: 10 }
+    render(<Skeleton borderRadius={20} height={20} width={20} style={style} />)
 
     const skeleton = document.querySelector(skeletonSelector) as HTMLElement
 
-    expect(skeleton.style.borderRadius).toBe(style.borderRadius + 'px')
-    expect(skeleton.style.height).toBe('100px')
-    expect(skeleton.style.width).toBe(style.width + 'px')
+    expect(skeleton.style.borderRadius).toBe('20px')
+    expect(skeleton.style.height).toBe('20px')
+    expect(skeleton.style.width).toBe('20px')
 })
 
 it('uses a custom className', () => {
