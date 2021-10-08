@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react'
+import { Meta } from '@storybook/react'
 import { SideBySide } from './SideBySide'
 import { Skeleton } from '../src/Skeleton'
-import { Meta } from '@storybook/react'
 
 const Box = ({ children }: PropsWithChildren<unknown>) => (
     <div
@@ -77,11 +77,11 @@ export const CustomStyles: React.VFC = () => (
 
 export const Circle: React.VFC = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Skeleton count={1} height={50} width={50} circle={true} />
+        <Skeleton count={1} height={50} width={50} circle />
     </div>
 )
 
-//export const WrapperAndTheme: React.VFC = () => (
+// export const WrapperAndTheme: React.VFC = () => (
 //     <SideBySide>
 //         <SkeletonTheme color="#333" highlightColor="#666">
 //             <Skeleton count={5} wrapper={Box} />
@@ -91,7 +91,7 @@ export const Circle: React.VFC = () => (
 //             <Box key={2}>B</Box>
 //         </div>
 //     </SideBySide>
-//)
+// )
 
 // export const LightTheme: React.VFC = () => {
 //     const [theme, setTheme] = React.useState('light')

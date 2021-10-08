@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom'
 import { render, screen } from '@testing-library/react'
 import { SkeletonTheme } from '../SkeletonTheme'
 import { Skeleton } from '../Skeleton'
-
-const skeletonSelector = 'span.react-loading-skeleton'
+import { getSkeleton } from './__helpers__'
 
 it('does not render anything', () => {
     render(
@@ -24,9 +23,9 @@ it('styles the skeleton', () => {
         </SkeletonTheme>
     )
 
-    const skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
-    expect(skeleton.style.borderRadius).toBe('1rem')
-    expect(skeleton.style.backgroundColor).toBe('black')
+    const skeleton = getSkeleton()
+    expect(skeleton).toHaveStyle({ borderRadius: '1rem' })
+    expect(skeleton).toHaveStyle({ backgroundColor: 'black' })
 })
 
 it('is overridden by Skeleton props', () => {
@@ -36,9 +35,9 @@ it('is overridden by Skeleton props', () => {
         </SkeletonTheme>
     )
 
-    const skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
-    expect(skeleton.style.borderRadius).toBe('2rem')
-    expect(skeleton.style.backgroundColor).toBe('black')
+    const skeleton = getSkeleton()
+    expect(skeleton).toHaveStyle({ borderRadius: '2rem' })
+    expect(skeleton).toHaveStyle({ backgroundColor: 'black' })
 })
 
 it('styles the skeleton through a portal', () => {
@@ -51,7 +50,7 @@ it('styles the skeleton through a portal', () => {
         </SkeletonTheme>
     )
 
-    const skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
-    expect(skeleton.style.borderRadius).toBe('1rem')
-    expect(skeleton.style.backgroundColor).toBe('black')
+    const skeleton = getSkeleton()
+    expect(skeleton).toHaveStyle({ borderRadius: '1rem' })
+    expect(skeleton).toHaveStyle({ backgroundColor: 'black' })
 })

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { PropsWithChildren, ReactElement } from 'react'
 import { Skeleton } from '../src/Skeleton'
 
 export interface PostProps {
@@ -10,7 +10,7 @@ export default function Post({
     title,
     children,
     size = 'small',
-}: PropsWithChildren<PostProps>) {
+}: PropsWithChildren<PostProps>): ReactElement {
     const getStyle = () => {
         const baseStyle = {
             padding: 8,

@@ -112,7 +112,7 @@ export function Skeleton({
     }
 
     let className = 'react-loading-skeleton'
-    if (customClassName) className += ' ' + customClassName
+    if (customClassName) className += ` ${customClassName}`
 
     const elements: ReactElement[] = []
 
@@ -128,6 +128,7 @@ export function Skeleton({
         <span className={containerClassName} data-testid={containerTestId}>
             {Wrapper
                 ? elements.map((element, i) => (
+                      // eslint-disable-next-line react/no-array-index-key
                       <Wrapper key={i}>
                           {element}
                           &zwnj;
