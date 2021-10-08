@@ -1,7 +1,8 @@
-import React, { PropsWithChildren } from 'react'
+import React, { PropsWithChildren, useState } from 'react'
 import { Meta } from '@storybook/react'
 import { SideBySide } from './SideBySide'
 import { Skeleton } from '../src/Skeleton'
+import { useEffect, useRef } from '@storybook/addons'
 
 const Box = ({ children }: PropsWithChildren<unknown>) => (
     <div
@@ -80,6 +81,28 @@ export const Circle: React.VFC = () => (
         <Skeleton count={1} height={50} width={50} circle />
     </div>
 )
+
+// Test for https://github.com/dvtng/react-loading-skeleton/issues/23
+export const HeightTest: React.VFC = () => {
+    const wrapperRef = useRef<HTMLDivElement | null>(null)
+    const [height, setHeight] = useState<number>()
+
+    useEffect(() => {
+        setHeight(wrapperRef.current?.clientHeight)
+    }, [])
+
+    return (
+        <div>
+            <div ref={wrapperRef} style={{ marginBottom: '1rem', display: 'flex' }}>
+                <Skeleton width={50} />
+                <div>Text</div>
+            </div>
+
+            <div>Expected height: 30</div>
+            <div>Actual height: {height}</div>
+        </div>
+    )
+}
 
 // export const WrapperAndTheme: React.VFC = () => (
 //     <SideBySide>
