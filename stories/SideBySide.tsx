@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren, ReactElement } from 'react'
 
 const style = {
     alignItems: 'flex-start',
@@ -12,8 +12,8 @@ const arrowStyle = {
     padding: '0 20px',
 }
 
-export default ({ children }) => {
-    const childrenWithArrows = []
+export function SideBySide({ children }: PropsWithChildren<unknown>) {
+    const childrenWithArrows: ReactElement[] = []
     React.Children.forEach(children, (child, index) => {
         if (index > 0) {
             childrenWithArrows.push(
@@ -22,7 +22,7 @@ export default ({ children }) => {
                 </div>
             )
         }
-        childrenWithArrows.push(child)
+        childrenWithArrows.push(child as ReactElement)
     })
     return <div style={style}>{childrenWithArrows}</div>
 }

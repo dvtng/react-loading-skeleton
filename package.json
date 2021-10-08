@@ -35,9 +35,11 @@
         "maintained node versions",
         "> 0.25%",
         "not dead",
-        "not IE"
+        "not IE 11"
     ],
     "devDependencies": {
+        "@storybook/addon-essentials": "^6.3.10",
+        "@storybook/addon-links": "^6.3.10",
         "@storybook/react": "^6.3.10",
         "@swc/core": "^1.2.93",
         "@swc/jest": "^0.2.4",
