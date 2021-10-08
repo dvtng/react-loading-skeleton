@@ -1,5 +1,5 @@
 import React, { CSSProperties, ReactElement, useContext } from 'react'
-import { SkeletonThemeContext } from '.'
+import { SkeletonThemeContext } from './SkeletonThemeContext'
 import { SkeletonStyleProps } from './SkeletonStyleProps'
 
 // If either color is changed, skeleton.css must be updated as well
@@ -50,7 +50,7 @@ function styleOptionsToCssProperties({
             ${baseColor},
             ${highlightColor},
             ${baseColor}
-        );`
+        )`
     }
 
     return style

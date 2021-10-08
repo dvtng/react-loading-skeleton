@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
+import { PropsWithChildren } from 'react'
 import { SkeletonStyleProps } from './SkeletonStyleProps'
+import { SkeletonThemeContext } from './SkeletonThemeContext'
 
-export const SkeletonThemeContext = React.createContext<SkeletonStyleProps>({})
+export type SkeletonThemeProps = PropsWithChildren<SkeletonStyleProps>
 
-export const SkeletonTheme = SkeletonThemeContext.Provider
+export function SkeletonTheme({
+    children,
+    ...styleOptions
+}: SkeletonThemeProps): ReactElement {
+    return (
+        <SkeletonThemeContext.Provider value={styleOptions}>
+            {children}
+        </SkeletonThemeContext.Provider>
+    )
+}
