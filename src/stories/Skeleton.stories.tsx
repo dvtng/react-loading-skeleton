@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import SideBySide from './SideBySide'
-import Skeleton from '../src' //, { SkeletonTheme }
+import Skeleton from '..' //, { SkeletonTheme }
 
 const Box = ({ children }: { children: string }) => (
     <a

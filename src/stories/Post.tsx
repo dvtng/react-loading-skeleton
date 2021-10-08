@@ -1,5 +1,5 @@
 import React from 'react'
-import Skeleton from '../src'
+import Skeleton from '..'
 
 export interface PostProps {
     title?: string
