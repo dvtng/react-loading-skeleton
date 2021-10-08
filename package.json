@@ -24,7 +24,7 @@
     "scripts": {
         "build": "tsc",
         "prepack": "yarn run build",
-        "prettier-all": "prettier . --write",
+        "prettier-all": "prettier .",
         "start": "yarn run storybook",
         "storybook": "start-storybook -p 8080",
         "test": "jest --config .config/jest.config.cjs",
@@ -58,6 +58,7 @@
         "eslint-plugin-react-hooks": "^4.2.0",
         "eslint-plugin-testing-library": "^4.12.4",
         "jest": "^27.2.4",
+        "prettier": "^2.4.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "typescript": "^4.4.3"
