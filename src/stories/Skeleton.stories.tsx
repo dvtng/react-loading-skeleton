@@ -7,7 +7,7 @@ import React, {
 } from 'react'
 import { Meta } from '@storybook/react'
 import { SideBySide } from './SideBySide'
-import { Skeleton } from '../src/Skeleton'
+import { Skeleton } from '../Skeleton'
 
 const Box = ({ children }: PropsWithChildren<unknown>) => (
     <div

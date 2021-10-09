@@ -45,11 +45,7 @@ module.exports = {
         'import/no-extraneous-dependencies': [
             'error',
             {
-                devDependencies: [
-                    'stories/**/*', // TODO REMOVE
-                    'src/stories/**/*',
-                    'src/__tests__/**/*',
-                ],
+                devDependencies: ['src/stories/**/*', 'src/__tests__/**/*'],
             },
         ],
         'import/prefer-default-export': 'off',
