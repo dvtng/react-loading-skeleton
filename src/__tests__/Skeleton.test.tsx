@@ -26,9 +26,11 @@ it('renders a skeleton with styles', () => {
 
     const skeleton = getSkeleton()
 
-    expect(skeleton).toHaveStyle({ borderRadius: `${style.borderRadius}px` })
-    expect(skeleton).toHaveStyle({ height: `${style.height}px` })
-    expect(skeleton).toHaveStyle({ width: `${style.width}px` })
+    expect(skeleton).toHaveStyle({
+        borderRadius: `${style.borderRadius}px`,
+        height: `${style.height}px`,
+        width: `${style.width}px`,
+    })
 })
 
 it('prioritizes explicit props over style prop', () => {
@@ -37,25 +39,24 @@ it('prioritizes explicit props over style prop', () => {
 
     const skeleton = getSkeleton()
 
-    expect(skeleton).toHaveStyle({ borderRadius: '20px' })
-    expect(skeleton).toHaveStyle({ height: '21px' })
-    expect(skeleton).toHaveStyle({ width: '22px' })
+    expect(skeleton).toHaveStyle({ borderRadius: '20px', height: '21px', width: '22px' })
 })
 
-it.todo('ignores borderRadius if circle=true')
+it('ignores borderRadius if circle=true', () => {
+    render(<Skeleton borderRadius={1} height={25} width={25} circle />)
+
+    expect(getSkeleton()).toHaveStyle({ borderRadius: '50%' })
+})
 
 it('disables the animation if and only if enableAnimation is false', () => {
     const { rerender } = render(<Skeleton />)
-    let skeleton = getSkeleton()
-    expect(skeleton).toHaveStyle({ animation: '' })
+    expect(getSkeleton()).toHaveStyle({ animation: '' })
 
     rerender(<Skeleton enableAnimation />)
-    skeleton = getSkeleton()
-    expect(skeleton).toHaveStyle({ animation: '' })
+    expect(getSkeleton()).toHaveStyle({ animation: '' })
 
     rerender(<Skeleton enableAnimation={false} />)
-    skeleton = getSkeleton()
-    expect(skeleton).toHaveStyle({ animation: 'none' })
+    expect(getSkeleton()).toHaveStyle({ animation: 'none' })
 })
 
 it('uses a custom className', () => {
