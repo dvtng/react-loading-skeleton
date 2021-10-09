@@ -1,8 +1,8 @@
-## UNRELEASED
+## 3.0.0
 
 ### Breaking Changes
 
--   Drop Emotion dependency, add CSS file that must be imported:
+-   Drop Emotion dependency, add CSS file that must be imported
     -   Add `import 'react-loading-skeleton/dist/skeleton.css'` to your code
     -   Dropping Emotion avoids conflicts when multiple Emotion versions are used
         on one page and reduces bundle size
@@ -26,9 +26,9 @@ continue to use `react-loading-skeleton` v2.
 -   Publish an ES module in addition to a CommonJS module
 -   Add `direction` prop to support right-to-left animation
 -   Add `animationEnabled` prop to allow disabling the animation
--   Add `containerClassName` prop to allow customizing the contaienr element
+-   Add `containerClassName` prop to allow customizing the container element
 -   Add `containerTestId` to make testing easier
--   Change default `duration` from 1.2 s to 1.5 s
+-   Change the default `duration` from 1.2 s to 1.5 s
 -   Make the default `Skeleton` base color a _tiny_ bit darker so that the
     animation is more visible
 
@@ -40,3 +40,5 @@ continue to use `react-loading-skeleton` v2.
 
 -   @srmagura
 -   @RoseMagura
+-   @saadaouad
+-   @rlaunch
