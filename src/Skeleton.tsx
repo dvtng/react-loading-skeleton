@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactElement, useContext } from 'react'
+import React, { CSSProperties, ReactElement } from 'react'
 import { SkeletonThemeContext } from './SkeletonThemeContext'
 import { SkeletonStyleProps } from './SkeletonStyleProps'
 
@@ -96,7 +96,7 @@ export function Skeleton({
     style: styleProp,
     ...propsStyleOptions
 }: SkeletonProps): ReactElement {
-    const contextStyleOptions = useContext(SkeletonThemeContext)
+    const contextStyleOptions = React.useContext(SkeletonThemeContext)
 
     // Props take priority over context
     const styleOptions = {
