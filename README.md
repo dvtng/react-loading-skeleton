@@ -1,28 +1,16 @@
-<div style="text-align: center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 style="text-align: center">project_title</h3>
-
-  <p style="text-align: center">
-    project_description
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
-  </p>
+<div align="center">
+    <a href="https://github.com/dvtng/react-loading-skeleton">
+        <img src="assets/logo.svg" alt="Logo" width="80" height="80" />
+    </a>
+    <h1 align="center">React Loading Skeleton</h1>
+    <p align="center">
+        Make beautiful, animated loading skeletons that automatically adapt to your app.
+    </p>
+    <h3><a href="https://dvtng.github.io/react-loading-skeleton">View Live Demo</a></h3>
+    <img src="https://media.giphy.com/media/l0Iyk4bAAjac3AU2k/giphy.gif" alt="Gif of the skeleton in action">
 </div>
-# react-loading-skeleton
 
-Make beautiful, animated loading skeletons that automatically adapt to your app.
-
-![Gif of skeleton in action](https://media.giphy.com/media/l0Iyk4bAAjac3AU2k/giphy.gif)
+Learn about the [changes in version 3](https://github.com/dvtng/react-loading-skeleton/releases/tag/v3.0.0), or view the [v2 documentation](https://github.com/dvtng/react-loading-skeleton/tree/v2#readme).
 
 ## Basic Usage
 
@@ -64,8 +52,8 @@ function BlogPost(props) {
 }
 ```
 
-...will produce the correctly-sized skeletons for the heading and body sections
-without any further configuration.
+...will produce the correctly-sized skeletons for the heading and body without
+any further configuration.
 
 This ensures the loading state remains up-to-date with any changes
 to your layout or typography.
@@ -256,9 +244,21 @@ const wrapped1 = <Skeleton wrapper={Box} />
 const wrapped2 = <Box><Skeleton /></Box>
 ```
 
-Prop for wrap the skeleton in a custom component.
-
 ### The height of my container is off by a few pixels!
+
+In the example below, the height of the `<div>` will be slightly larger than 30 even though the `react-loading-skeleton` element is exactly 30px.
+
+```tsx
+<div>
+    <Skeleton height={30} />
+</div>
+```
+
+This is a consequence of how `line-height` works in CSS. If you need the `<div>` to be exactly 30px tall, set its `line-height` to 1. [See here](https://github.com/dvtng/react-loading-skeleton/issues/23#issuecomment-939231878) for a detailed explanation.
+
+## Contributing
+
+Contributions are welcome! See `CONTRIBUTING.md` to get started.
 
 ## Acknowledgements
 
