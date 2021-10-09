@@ -22,7 +22,8 @@
         "dist/"
     ],
     "scripts": {
-        "build": "tsc",
+        "build": "yarn clean && rollup -c .config/rollup.config.js",
+        "clean": "rimraf dist",
         "lint": "eslint",
         "lint-all": "yarn lint .",
         "lint-staged": "lint-staged --no-stash",
@@ -47,6 +48,7 @@
         "not IE 11"
     ],
     "devDependencies": {
+        "@rollup/plugin-typescript": "^8.2.5",
         "@storybook/addon-essentials": "^6.3.10",
         "@storybook/addon-links": "^6.3.10",
         "@storybook/react": "^6.3.10",
@@ -75,6 +77,9 @@
         "prettier": "^2.4.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "rimraf": "^3.0.2",
+        "rollup": "^2.58.0",
+        "rollup-plugin-copy": "^3.4.0",
         "typescript": "^4.4.3"
     },
     "peerDependencies": {

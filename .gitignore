@@ -6,5 +6,6 @@ dist/
 !/.yarn/plugins
 !/.yarn/releases
 !/.yarn/sdks
-
 /.pnp.*
+
+*.orig
