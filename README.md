@@ -187,3 +187,5 @@ Prop for adding custom CSS styles to the skeleton.
 ```
 
 Prop for adding custom CSS classname to the skeleton.
+
+# TODO Document setting width in flex/grid, see PercentWidthInFlex story

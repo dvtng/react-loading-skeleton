@@ -8,6 +8,7 @@ import React, {
 import { Meta } from '@storybook/react'
 import { SideBySide } from './components'
 import { Skeleton } from '../Skeleton'
+import './styles/Skeleton.stories.css'
 
 const Box = ({ children }: PropsWithChildren<unknown>) => (
     <div
@@ -84,6 +85,27 @@ export const CustomStyles: React.VFC = () => (
 export const Circle: React.VFC = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Skeleton height={50} width={50} circle />
+    </div>
+)
+
+export const PercentWidthInFlex: React.VFC = () => (
+    <div>
+        <p>
+            This is a test for{' '}
+            <a href="https://github.com/dvtng/react-loading-skeleton/issues/61">#61</a>.
+            The skeleton should take up 50% of the width of the turquoise flex container.
+        </p>
+        <div
+            style={{
+                display: 'flex',
+                alignItems: 'center',
+                backgroundColor: 'PaleTurquoise',
+                width: 400,
+                height: 50,
+            }}
+        >
+            <Skeleton containerClassName="w-50" />
+        </div>
     </div>
 )
 
