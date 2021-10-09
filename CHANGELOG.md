@@ -31,6 +31,8 @@ continue to use `react-loading-skeleton` v2.
 -   Change the default `duration` from 1.2 s to 1.5 s
 -   Make the default `Skeleton` base color a _tiny_ bit darker so that the
     animation is more visible
+-   Add `aria-live` and `aria-busy` attributes to the skeleton container to
+    improve screen reader support
 
 ### Bug Fixes
 

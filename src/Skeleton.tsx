@@ -111,15 +111,6 @@ export function Skeleton({
         ...styleOptionsToCssProperties(styleOptions),
     }
 
-    const containerStyle: CSSProperties = {}
-
-    if (
-        typeof styleOptions.height === 'string' ||
-        typeof styleOptions.height === 'number'
-    ) {
-        containerStyle.height = styleOptions.height
-    }
-
     let className = 'react-loading-skeleton'
     if (customClassName) className += ` ${customClassName}`
 
@@ -133,8 +124,15 @@ export function Skeleton({
         )
     }
 
+    // Reference on accessible loading indicators
+    // https://dockyard.com/blog/2020/03/02/accessible-loading-indicatorswith-no-extra-elements
     return (
-        <span className={containerClassName} data-testid={containerTestId}>
+        <span
+            className={containerClassName}
+            data-testid={containerTestId}
+            aria-live="polite"
+            aria-busy
+        >
             {Wrapper
                 ? elements.map((element, i) => (
                       // eslint-disable-next-line react/no-array-index-key
