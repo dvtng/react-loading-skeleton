@@ -65,21 +65,9 @@ export interface SkeletonProps extends SkeletonStyleProps {
 
     className?: string
     containerClassName?: string
-
-    /**
-     * A string that will be added to the container element as a `data-testid`
-     * attribute.
-     */
     containerTestId?: string
 
     circle?: boolean
-
-    /**
-     * This is an escape hatch for advanced use cases and is not the preferred
-     * way to configure the skeleton.
-     *
-     * Props (e.g. `width`, `borderRadius`) take priority over this style object.
-     */
     style?: CSSProperties
 }
 
