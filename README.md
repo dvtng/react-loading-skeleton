@@ -256,9 +256,21 @@ const wrapped1 = <Skeleton wrapper={Box} />
 const wrapped2 = <Box><Skeleton /></Box>
 ```
 
-Prop for wrap the skeleton in a custom component.
-
 ### The height of my container is off by a few pixels!
+
+In the example below, the height of the `<div>` will be slightly larger than 30 even though the `react-loading-skeleton` element is exactly 30px.
+
+```tsx
+<div>
+    <Skeleton height={30} />
+</div>
+```
+
+This is a consequence of how `line-height` works in CSS. If you need the `<div>` to be exactly 30px tall, set its `line-height` to 1. [See here](https://github.com/dvtng/react-loading-skeleton/issues/23#issuecomment-939231878) for a detailed explanation.
+
+## Contributing
+
+Contributions are welcome! See `CONTRIBUTING.md` to get started.
 
 ## Acknowledgements
 
