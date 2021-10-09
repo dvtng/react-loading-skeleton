@@ -6,7 +6,7 @@ import React, {
     ReactElement,
 } from 'react'
 import { Meta } from '@storybook/react'
-import { SideBySide } from './SideBySide'
+import { SideBySide } from './components'
 import { Skeleton } from '../Skeleton'
 
 const Box = ({ children }: PropsWithChildren<unknown>) => (
@@ -50,30 +50,30 @@ export const WithWrapper: React.VFC = () => (
 
 export const DifferentDurations: React.VFC = () => (
     <div>
-        <Skeleton count={1} duration={1} />
-        <Skeleton count={1} duration={2} />
-        <Skeleton count={1} duration={3} />
-        <Skeleton count={1} duration={4} />
+        <Skeleton duration={1} />
+        <Skeleton duration={2} />
+        <Skeleton duration={3} />
+        <Skeleton duration={4} />
     </div>
 )
 
 export const DifferentWidths: React.VFC = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Skeleton count={1} />
-        <Skeleton count={1} width={50} />
-        <Skeleton count={1} width={100} />
-        <Skeleton count={1} width={200} />
-        <Skeleton count={1} width="50em" />
+        <Skeleton />
+        <Skeleton width={50} />
+        <Skeleton width={100} />
+        <Skeleton width={200} />
+        <Skeleton width="50em" />
     </div>
 )
 
 export const DifferentHeights: React.VFC = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Skeleton count={1} />
-        <Skeleton count={1} height={200} />
-        <Skeleton count={1} height={400} />
-        <Skeleton count={1} height={600} />
-        <Skeleton count={1} height="50em" />
+        <Skeleton />
+        <Skeleton height={200} />
+        <Skeleton height={400} />
+        <Skeleton height={600} />
+        <Skeleton height="50em" />
     </div>
 )
 
@@ -83,7 +83,7 @@ export const CustomStyles: React.VFC = () => (
 
 export const Circle: React.VFC = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Skeleton count={1} height={50} width={50} circle />
+        <Skeleton height={50} width={50} circle />
     </div>
 )
 

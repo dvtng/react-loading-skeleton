@@ -1,7 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { SideBySide } from './SideBySide'
-import Post from './Post'
+import { SideBySide, Post } from './components'
 
 export default {
     component: Post,
@@ -10,23 +9,15 @@ export default {
 
 export const Default: React.VFC = () => (
     <SideBySide>
-        <Post />
-        <Post title="A title">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec justo
-            feugiat, auctor nunc ac, volutpat arcu. Suspendisse faucibus aliquam ante, sit
-            amet iaculis dolor posuere et. In ut placerat leo.
-        </Post>
+        <Post loading />
+        <Post loading={false} />
     </SideBySide>
 )
 
-export const LargeSize: React.VFC = () => (
+export const Large: React.VFC = () => (
     <SideBySide>
-        <Post size="large" />
-        <Post size="large" title="A title">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec justo
-            feugiat, auctor nunc ac, volutpat arcu. Suspendisse faucibus aliquam ante, sit
-            amet iaculis dolor posuere et. In ut placerat leo.
-        </Post>
+        <Post loading size="large" />
+        <Post loading={false} size="large" />
     </SideBySide>
 )
 
