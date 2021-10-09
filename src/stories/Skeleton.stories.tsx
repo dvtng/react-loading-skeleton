@@ -5,6 +5,7 @@ import React, {
     useRef,
     ReactElement,
 } from 'react'
+import ReactDOM from 'react-dom'
 import { Meta } from '@storybook/react'
 import { SideBySide } from './components'
 import { Skeleton } from '../Skeleton'
@@ -206,6 +207,87 @@ export const HeightQuirk: React.VFC = () => (
         </HeightComparison>
     </div>
 )
+
+export const ShadowDOM: React.VFC = () => {
+    const hostRef = useRef<HTMLDivElement | null>(null)
+    const [portalDestination, setPortalDestination] = useState<HTMLDivElement>()
+
+    useEffect(() => {
+        if (!hostRef.current) throw new Error('hostRef.current is null.')
+
+        const shadowRoot = hostRef.current.attachShadow({ mode: 'open' })
+
+        const myPortalDestination = document.createElement('div')
+        shadowRoot.append(myPortalDestination)
+
+        setPortalDestination(myPortalDestination)
+    }, [])
+
+    // In a real app, you would insert the CSS into the Shadow DOM using one of
+    // the strategies outlined here:
+    // https://github.com/Wildhoney/ReactShadow#getting-started
+
+    // This CSS does NOT need to be updated, the goal is just to prove that
+    // Skeleton is capable of working in a Shadow DOM
+    const skeletonCss = `
+    @keyframes react-loading-skeleton {
+        0% {
+            background-position: -200px 0;
+        }
+        100% {
+            background-position: calc(200px + 100%) 0;
+        }
+    }
+    
+    .react-loading-skeleton {
+        /* If either color is changed, Skeleton.tsx must be updated as well */
+        --base-color: #ebebeb;
+        --highlight-color: #f5f5f5;
+    
+        background-color: var(--base-color);
+        background-image: linear-gradient(
+            90deg,
+            var(--base-color),
+            var(--highlight-color),
+            var(--base-color)
+        );
+    
+        width: 100%;
+        background-size: 200px 100%;
+        background-repeat: no-repeat;
+        border-radius: 0.25rem;
+        display: inline-block;
+        line-height: 1;
+    
+        animation-name: react-loading-skeleton;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }    
+    `
+
+    const shadowContent = (
+        <>
+            <Skeleton />
+            <style>{skeletonCss}</style>
+        </>
+    )
+
+    return (
+        <div>
+            <p>
+                This story verifies that Skeleton works inside a Shadow DOM. An older
+                version of Skeleton did not work inside the Shadow DOM according to{' '}
+                <a href="https://github.com/dvtng/react-loading-skeleton/issues/69">
+                    #69
+                </a>
+                .
+            </p>
+            <div ref={hostRef} />
+            {portalDestination && ReactDOM.render(shadowContent, portalDestination)}
+        </div>
+    )
+}
 
 // export const WrapperAndTheme: React.VFC = () => (
 //     <SideBySide>
