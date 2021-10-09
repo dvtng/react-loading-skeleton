@@ -7,10 +7,14 @@ export default {
         {
             file: 'dist/index.mjs',
             format: 'es',
+
+            // This disables the warning "Mixing named and default exports"
+            exports: 'named',
         },
         {
             dir: 'dist',
             format: 'cjs',
+            exports: 'named',
         },
     ],
     plugins: [
