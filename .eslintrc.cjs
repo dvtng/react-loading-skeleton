@@ -45,10 +45,12 @@ module.exports = {
         'import/no-extraneous-dependencies': [
             'error',
             {
-                devDependencies: ['src/stories/**/*', 'src/__tests__/**/*'],
+                devDependencies: ['src/__stories__/**/*', 'src/__tests__/**/*'],
             },
         ],
         'import/prefer-default-export': 'off',
+
+        'react/require-default-props': 'off',
 
         'testing-library/no-node-access': 'off',
     },

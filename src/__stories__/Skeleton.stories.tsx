@@ -133,10 +133,12 @@ export const FillEntireContainer: React.VFC = () => (
 
 interface HeightComparisonProps {
     title: string
+    lineHeight?: number
 }
 
 function HeightComparison({
     title,
+    lineHeight = 3,
     children,
 }: PropsWithChildren<HeightComparisonProps>): ReactElement {
     const wrapperRef = useRef<HTMLDivElement | null>(null)
@@ -150,7 +152,7 @@ function HeightComparison({
         <div style={{ marginRight: '4rem', maxWidth: 350 }}>
             <h4>{title}</h4>
 
-            <div ref={wrapperRef} style={{ marginBottom: '1rem', lineHeight: 3 }}>
+            <div ref={wrapperRef} style={{ marginBottom: '1rem', lineHeight }}>
                 {children}
             </div>
 
@@ -196,10 +198,18 @@ export const HeightQuirk: React.VFC = () => (
                 </span>
             </HeightComparison>
         </div>
-        <h2>Solution</h2>
+
+        <p>There are two ways to make the container exactly 30px tall.</p>
+        <h2>Solution 1</h2>
         <p>
-            To make the element that contains the Skeleton exactly 30px tall, you can
-            provide a <code>containerClassName</code> and apply the styles{' '}
+            Set the <code>line-height</code> of the container to 1.
+        </p>
+        <HeightComparison title="<div> with line-height: 1" lineHeight={1}>
+            <Skeleton height={30} />
+        </HeightComparison>
+        <h2>Solution 2</h2>
+        <p>
+            Provide a <code>containerClassName</code> and apply the styles{' '}
             <code>display: block; line-height: 1;</code> to that class.
         </p>
         <HeightComparison title='<Skeleton containerClassName="..." />'>
