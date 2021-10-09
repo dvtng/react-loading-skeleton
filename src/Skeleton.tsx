@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { CSSProperties, ReactElement } from 'react'
 import { SkeletonThemeContext } from './SkeletonThemeContext'
 import { SkeletonStyleProps } from './SkeletonStyleProps'
@@ -114,6 +115,9 @@ export function Skeleton({
 
     // Reference on accessible loading indicators
     // https://dockyard.com/blog/2020/03/02/accessible-loading-indicatorswith-no-extra-elements
+
+    // Without the <br /> elements, the skeleton lines will all run together if
+    // `width` is specified
     return (
         <span
             className={containerClassName}
@@ -123,13 +127,12 @@ export function Skeleton({
         >
             {Wrapper
                 ? elements.map((element, i) => (
-                      // eslint-disable-next-line react/no-array-index-key
                       <Wrapper key={i}>
                           {element}
                           &zwnj;
                       </Wrapper>
                   ))
-                : elements}
+                : elements.map((element, i) => [element, <br key={`br-${i}`} />])}
         </span>
     )
 }

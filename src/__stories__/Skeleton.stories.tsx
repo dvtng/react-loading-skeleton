@@ -26,17 +26,16 @@ const Box = ({ children }: PropsWithChildren<unknown>) => (
     </div>
 )
 
+const InlineWrapper = ({ children }: PropsWithChildren<unknown>) => (
+    <span>{children}</span>
+)
+
 export default {
     component: Skeleton,
     title: 'Skeleton',
 } as Meta
 
-// TODO remove wrapper div, set width on skeleton directly. Currently width is bugged with multiple skeleton count.
-export const Basic: React.VFC = () => (
-    <div style={{ width: 400 }}>
-        <Skeleton count={5} />
-    </div>
-)
+export const Basic: React.VFC = () => <Skeleton count={5} width={400} />
 
 export const WithWrapper: React.VFC = () => (
     <SideBySide>
@@ -48,6 +47,10 @@ export const WithWrapper: React.VFC = () => (
             <Box>D</Box>
         </div>
     </SideBySide>
+)
+
+export const WithInlineWrapper: React.VFC = () => (
+    <Skeleton count={5} wrapper={InlineWrapper} width={400} />
 )
 
 export const DifferentDurations: React.VFC = () => (
