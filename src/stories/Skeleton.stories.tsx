@@ -109,6 +109,27 @@ export const PercentWidthInFlex: React.VFC = () => (
     </div>
 )
 
+export const FillEntireContainer: React.VFC = () => (
+    <div>
+        <p>
+            This is a test for{' '}
+            <a href="https://github.com/dvtng/react-loading-skeleton/issues/31">#31</a>.
+            The skeleton should fill the entire red container. The container has{' '}
+            <code>line-height: 1</code> to make it pixel perfect.
+        </p>
+        <div
+            style={{
+                backgroundColor: 'red',
+                width: 400,
+                height: 100,
+                lineHeight: 1,
+            }}
+        >
+            <Skeleton width="100%" height="100%" borderRadius={0} />
+        </div>
+    </div>
+)
+
 interface HeightComparisonProps {
     title: string
 }
