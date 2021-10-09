@@ -125,7 +125,7 @@ export const FillEntireContainer: React.VFC = () => (
                 lineHeight: 1,
             }}
         >
-            <Skeleton width="100%" height="100%" borderRadius={0} />
+            <Skeleton height="100%" borderRadius={0} />
         </div>
     </div>
 )
