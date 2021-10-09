@@ -98,175 +98,168 @@ return (
 
 ## Props Reference
 
-### Props on `Skeleton` only
+### `Skeleton` only
 
 <table>
-<thead>
-  <tr>
-    <th>Prop</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><code>circle?: boolean</code></td>
-    <td>Makes the skeleton circular by setting <code>border-radius</code> to <code>50%</code>.</td>
-    <td><code>false<code></td>
-  </tr>
-  <tr>
-    <td><code>className?: string</code></td>
-    <td>A custom class name for the individual skeleton elements which is used alongside the default class, <code>react-loading-skeleton</code>.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><code>containerClassName?: string</code></td>
-    <td>A custom class name for the <code>&lt;span&gt;</code> that wraps the individual skeleton elements.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><code>containerTestId?: string</code></td>
-    <td>A string that is added to the container element as a <code>data-testid</code> attribute. Use it with <code>screen.getByTestId('...')</code> from React Testing Library.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><code>count?: number</code></td>
-    <td>The number of lines of skeletons to render.</td>
-    <td>1</td>
-  </tr>
-  <tr>
-    <td><code>style?: React.CSSProperties</code></td>
-    <td>This is an escape hatch for advanced use cases and is not the preferred way to style the skeleton. Props (e.g. <code>width</code>, <code>borderRadius</code>) take priority over this style object.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><code>wrapper?: React.FunctionComponent</code></td>
-    <td>A custom wrapper component that goes around the individual skeleton elements.</td>
-    <td></td>
-  </tr>
-</tbody>
-</table>                                                                                          |         |
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>count?: number</code></td>
+            <td>The number of lines of skeletons to render.</td>
+            <td><code>1</code></td>
+        </tr>
+        <tr>
+            <td><code>circle?: boolean</code></td>
+            <td>
+                Makes the skeleton circular by setting <code>border-radius</code> to
+                <code>50%</code>.
+            </td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>className?: string</code></td>
+            <td>
+                A custom class name for the individual skeleton elements which is used
+                alongside the default class, <code>react-loading-skeleton</code>.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>containerClassName?: string</code></td>
+            <td>
+                A custom class name for the <code>&lt;span&gt;</code> that wraps the
+                individual skeleton elements.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>containerTestId?: string</code></td>
+            <td>
+                A string that is added to the container element as a
+                <code>data-testid</code> attribute. Use it with
+                <code>screen.getByTestId('...')</code> from React Testing Library.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>style?: React.CSSProperties</code></td>
+            <td>
+                This is an escape hatch for advanced use cases and is not the preferred
+                way to style the skeleton. Props (e.g. <code>width</code>,
+                <code>borderRadius</code>) take priority over this style object.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>wrapper?: React.FunctionComponent</code></td>
+            <td>
+                A custom wrapper component that goes around the individual skeleton
+                elements.
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 
-### Props on both `Skeleton` and `SkeletonTheme`
+### `Skeleton` and `SkeletonTheme`
 
-## Count
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>baseColor?: string</code></td>
+            <td>The background color of the skeleton.</td>
+            <td><code>#ebebeb</code></td>
+        </tr>
+        <tr>
+            <td><code>highlightColor?: string</code></td>
+            <td>The highlight color in the skeleton animation.</td>
+            <td><code>#f5f5f5</code></td>
+        </tr>
+        <tr>
+            <td><code>width?: number</code></td>
+            <td>The width of the skeleton.</td>
+            <td><code>100%</code></td>
+        </tr>
+        <tr>
+            <td><code>height?: number</code></td>
+            <td>The height of each skeleton line.</td>
+            <td>The font size</td>
+        </tr>
+        <tr>
+            <td><code>borderRadius?: number</code></td>
+            <td>The border radius of the skeleton.</td>
+            <td><code>0.25rem</code></td>
+        </tr>
+        <tr>
+            <td><code>duration?: number</code></td>
+            <td>The length of the animation in seconds.</td>
+            <td><code>1.5</code></td>
+        </tr>
+        <tr>
+            <td><code>direction?: 'ltr' | 'rtl'</code></td>
+            <td>
+                The direction of the animation, either left-to-right or right-to-left.
+            </td>
+            <td><code>'ltr'</code></td>
+        </tr>
+        <tr>
+            <td><code>enableAnimation?: boolean</code></td>
+            <td>
+                Whether the animation should play. The skeleton will be a solid color when
+                this is <code>false</code>. You could use this prop to stop the animation
+                if an error is encountered.
+            </td>
+            <td><code>true</code></td>
+        </tr>
+    </tbody>
+</table>
 
-`count`: Number, defaults to 1
+## Advanced
 
-```javascript
-<Skeleton count={5} />
-```
+### Custom Wrappers
 
-Number of loading skeleton lines.
+You can use the `wrapper` prop to wrap each line of the skeleton in a box:
 
-## Direction
-
-You can set the animation direction to right-to-left on `<SkeletonTheme>` component by using `direction="rtl"`, e.g:
-
-```javascript
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-
-return (
-    <SkeletonTheme color="#202020" highlightColor="#444" direction="rtl">
-        <p>
-            <Skeleton />
-        </p>
-    </SkeletonTheme>
-)
-```
-
-The default value is `ltr`.
-
-## Duration
-
-```javascript
-<Skeleton duration={2} />
-```
-
-`duration`: Number, defaults to 1.2
-
-Duration is how long it takes do one cycle of the skeleton animation.
-
-## Width
-
-`width`: Number | String | null, defaults to null
-
-```javascript
-<Skeleton width={100} />
-```
-
-Width of the skeleton. Useful when the skeleton is inside an inline element with
-no width of its own.
-
-## Height
-
-`height`: Number | String | null, defaults to null
-
-```javascript
-<Skeleton height={100} />
-```
-
-Height of the skeleton. Useful when you don't want to adapt the skeleton to a text element but for instance
-a card. Also needed for the prop `circle` (see below).
-
-## Wrapper
-
-`wrapper`: ReactNode | null, defaults to null
-
-```javascript
-const Box = ({ children }) => (
-    <a
+```tsx
+function Box({ children }: PropsWithChildren<unknown>) (
+    <div
         style={{
             border: '1px solid #ccc',
             display: 'block',
-            fontSize: 16,
             lineHeight: 2,
-            padding: 20,
-            marginBottom: 10,
+            padding: '1rem',
+            marginBottom: '0.5rem',
             width: 100,
         }}
     >
         {children}
-    </a>
+    </div>
 )
 
-;<Skeleton wrapper={Box} />
+// Method 1: use the wrapper prop
+const wrapped1 = <Skeleton wrapper={Box} />
+
+// Method 2: do it the normal way
+const wrapped2 = <Box><Skeleton /></Box>
 ```
 
 Prop for wrap the skeleton in a custom component.
 
-## Circle
-
-`circle`: Boolean, defaults to false
-
-```javascript
-<Skeleton circle={true} height={50} width={50} />
-```
-
-Prop for making the skeleton look like a circle, for when you are creating a user card with a profile picture for instance.
-
-## Style
-
-`style`: CSSProperties, defaults to {}
-
-```javascript
-<Skeleton style={{ borderRadius: 10 }} />
-```
-
-Prop for adding custom CSS styles to the skeleton.
-
-## ClassName
-
-`className`: String, defaults to ""
-
-```javascript
-<Skeleton className="foobar" />
-```
-
-Prop for adding custom CSS classname to the skeleton.
-
-# TODO Document setting width in flex/grid, see PercentWidthInFlex story
+### The height of my container is off by a few pixels!
 
 ## Acknowledgements
 
-Thank you to [Font Awesome](https://fontawesome.com/license/free) for the original SVG used in our logo.
+Our logo is based off an image from [Font Awesome](https://fontawesome.com/license/free). Thanks!
