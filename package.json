@@ -48,6 +48,7 @@
         "not IE 11"
     ],
     "devDependencies": {
+        "@babel/core": "^7.15.8",
         "@rollup/plugin-typescript": "^8.2.5",
         "@storybook/addon-essentials": "^6.3.10",
         "@storybook/addon-links": "^6.3.10",
@@ -60,6 +61,7 @@
         "@types/react-dom": "^17.0.9",
         "@typescript-eslint/eslint-plugin": "^4.33.0",
         "@typescript-eslint/parser": "^4.33.0",
+        "babel-loader": "^8.2.2",
         "eslint": "^7.32.0",
         "eslint-config-airbnb": "^18.2.1",
         "eslint-config-airbnb-typescript": "^14.0.1",
@@ -80,7 +82,9 @@
         "rimraf": "^3.0.2",
         "rollup": "^2.58.0",
         "rollup-plugin-copy": "^3.4.0",
-        "typescript": "^4.4.3"
+        "tslib": "^2.3.1",
+        "typescript": "^4.4.3",
+        "webpack": "^5.58.1"
     },
     "peerDependencies": {
         "react": ">=16.8.0"
