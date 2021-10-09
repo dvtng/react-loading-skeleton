@@ -1,3 +1,8 @@
+/* .react-loading-skeleton-container {
+    display: inline-block;
+    width: 100%;
+} */
+
 /* Animate for 80% of the time and delay for 20% of the time */
 @keyframes react-loading-skeleton {
     0% {

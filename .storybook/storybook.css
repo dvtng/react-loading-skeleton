@@ -1,4 +1,8 @@
 body {
     font-family: sans-serif;
-    line-height: 1.5;
+}
+
+.height-quirk-custom-container {
+    display: block;
+    line-height: 1;
 }

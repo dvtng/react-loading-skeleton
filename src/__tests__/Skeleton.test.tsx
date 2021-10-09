@@ -42,6 +42,8 @@ it('prioritizes explicit props over style prop', () => {
     expect(skeleton).toHaveStyle({ width: '22px' })
 })
 
+it.todo('ignores borderRadius if circle=true')
+
 it('disables the animation if and only if enableAnimation is false', () => {
     const { rerender } = render(<Skeleton />)
     let skeleton = getSkeleton()

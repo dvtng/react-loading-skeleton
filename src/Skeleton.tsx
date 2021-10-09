@@ -111,6 +111,15 @@ export function Skeleton({
         ...styleOptionsToCssProperties(styleOptions),
     }
 
+    const containerStyle: CSSProperties = {}
+
+    if (
+        typeof styleOptions.height === 'string' ||
+        typeof styleOptions.height === 'number'
+    ) {
+        containerStyle.height = styleOptions.height
+    }
+
     let className = 'react-loading-skeleton'
     if (customClassName) className += ` ${customClassName}`
 

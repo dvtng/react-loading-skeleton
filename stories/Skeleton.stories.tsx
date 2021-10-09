@@ -1,8 +1,13 @@
-import React, { PropsWithChildren, useState } from 'react'
+import React, {
+    PropsWithChildren,
+    useState,
+    useEffect,
+    useRef,
+    ReactElement,
+} from 'react'
 import { Meta } from '@storybook/react'
 import { SideBySide } from './SideBySide'
 import { Skeleton } from '../src/Skeleton'
-import { useEffect, useRef } from '@storybook/addons'
 
 const Box = ({ children }: PropsWithChildren<unknown>) => (
     <div
@@ -82,8 +87,14 @@ export const Circle: React.VFC = () => (
     </div>
 )
 
-// Test for https://github.com/dvtng/react-loading-skeleton/issues/23
-export const HeightTest: React.VFC = () => {
+interface HeightComparisonProps {
+    title: string
+}
+
+function HeightComparison({
+    title,
+    children,
+}: PropsWithChildren<HeightComparisonProps>): ReactElement {
     const wrapperRef = useRef<HTMLDivElement | null>(null)
     const [height, setHeight] = useState<number>()
 
@@ -92,10 +103,11 @@ export const HeightTest: React.VFC = () => {
     }, [])
 
     return (
-        <div>
-            <div ref={wrapperRef} style={{ marginBottom: '1rem', display: 'flex' }}>
-                <Skeleton width={50} />
-                <div>Text</div>
+        <div style={{ marginRight: '4rem', maxWidth: 350 }}>
+            <h4>{title}</h4>
+
+            <div ref={wrapperRef} style={{ marginBottom: '1rem', lineHeight: 3 }}>
+                {children}
             </div>
 
             <div>Expected height: 30</div>
@@ -103,6 +115,54 @@ export const HeightTest: React.VFC = () => {
         </div>
     )
 }
+
+export const HeightQuirk: React.VFC = () => (
+    <div>
+        <p>
+            This is a demonstration of a Skeleton quirk that was reported in{' '}
+            <a href="https://github.com/dvtng/react-loading-skeleton/issues/23">#23</a>.
+        </p>
+        <p>
+            If you set the Skeleton&apos;s height to 30px, the element containing the
+            Skeleton will have a height of 31px, assuming the document&apos;s line-height
+            is left at the default value. The height discrepancy increases with
+            line-height.
+        </p>
+        <p>
+            This example uses a large line-height to magnify the issue. It compares a
+            Skeleton with <code>height: 30px</code> to a normal span tag with{' '}
+            <code>height: 30px; display: inline-block; line-height: 1;</code>. The height
+            discrepancy occurs in both cases which suggests that this is not a Skeleton
+            bug.
+        </p>
+        <div style={{ display: 'flex', marginBottom: '3rem' }}>
+            <HeightComparison title="<Skeleton />">
+                <Skeleton height={30} />
+            </HeightComparison>
+            <HeightComparison title="<span>">
+                <span
+                    style={{
+                        height: '30px',
+                        display: 'inline-block',
+                        lineHeight: 1,
+                        backgroundColor: 'lemonchiffon',
+                    }}
+                >
+                    TEST
+                </span>
+            </HeightComparison>
+        </div>
+        <h2>Solution</h2>
+        <p>
+            To make the element that contains the Skeleton exactly 30px tall, you can
+            provide a <code>containerClassName</code> and apply the styles{' '}
+            <code>display: block; line-height: 1;</code> to that class.
+        </p>
+        <HeightComparison title='<Skeleton containerClassName="..." />'>
+            <Skeleton height={30} containerClassName="height-quirk-custom-container" />
+        </HeightComparison>
+    </div>
+)
 
 // export const WrapperAndTheme: React.VFC = () => (
 //     <SideBySide>
