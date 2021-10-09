@@ -14,7 +14,9 @@
     },
     "license": "MIT",
     "author": "David Tang",
-    "sideEffects": false,
+    "sideEffects": [
+        "**/*.css"
+    ],
     "main": "dist/index.js",
     "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
