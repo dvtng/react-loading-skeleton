@@ -284,7 +284,7 @@ export const ShadowDOM: React.VFC = () => {
                 .
             </p>
             <div ref={hostRef} />
-            {portalDestination && ReactDOM.render(shadowContent, portalDestination)}
+            {portalDestination && ReactDOM.createPortal(shadowContent, portalDestination)}
         </div>
     )
 }
