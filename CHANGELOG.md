@@ -13,7 +13,7 @@
         portal. The new `SkeletonTheme` does work in this case.
 -   `SkeletonTheme`: rename the `color` prop to `baseColor`
 -   Convert to TypeScript
--   Publish code as ES2015
+-   Publish code as ES2018 to reduce bundle size
 -   Require React >= 16.8.0
 -   Drop Internet Explorer support
 
