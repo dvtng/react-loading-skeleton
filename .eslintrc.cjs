@@ -19,7 +19,6 @@ module.exports = {
         'testing-library/custom-renders': 'off',
     },
     rules: {
-        'no-param-reassign': 'off',
         'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
         'no-restricted-syntax': [
             'error',

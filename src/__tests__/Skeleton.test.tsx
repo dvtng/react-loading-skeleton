@@ -10,6 +10,9 @@ it('renders a skeleton', () => {
 
     expect(skeletonElements).toHaveLength(1)
     expect(skeletonElements[0]).toBeVisible()
+
+    // No inline styles should be rendered by default
+    expect(skeletonElements[0]).not.toHaveAttribute('style')
 })
 
 it('renders the required number of skeletons', () => {
@@ -50,13 +53,13 @@ it('ignores borderRadius if circle=true', () => {
 
 it('disables the animation if and only if enableAnimation is false', () => {
     const { rerender } = render(<Skeleton />)
-    expect(getSkeleton()).toHaveStyle({ animation: '' })
+    expect(getSkeleton()).toHaveStyle({ backgroundImage: /linear-gradient/ })
 
     rerender(<Skeleton enableAnimation />)
-    expect(getSkeleton()).toHaveStyle({ animation: '' })
+    expect(getSkeleton()).toHaveStyle({ backgroundImage: /linear-gradient/ })
 
     rerender(<Skeleton enableAnimation={false} />)
-    expect(getSkeleton()).toHaveStyle({ animation: 'none' })
+    expect(getSkeleton()).toHaveStyle({ backgroundImage: 'none' })
 })
 
 it('uses a custom className', () => {

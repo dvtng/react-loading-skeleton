@@ -7,6 +7,7 @@ import { SkeletonStyleProps } from './SkeletonStyleProps'
 const defaultBaseColor = '#ebebeb'
 const defaultHighlightColor = '#f5f5f5'
 
+// For performance & cleanliness, don't add any inline styles unless we have to
 function styleOptionsToCssProperties({
     baseColor,
     highlightColor,
@@ -20,9 +21,7 @@ function styleOptionsToCssProperties({
     duration,
     enableAnimation = true,
 }: SkeletonStyleProps & { circle: boolean }): CSSProperties {
-    const style: CSSProperties = {
-        animationDirection: direction === 'rtl' ? 'reverse' : 'normal',
-    }
+    const style: CSSProperties = {}
 
     if (direction === 'rtl') style.animationDirection = 'reverse'
 
@@ -43,19 +42,16 @@ function styleOptionsToCssProperties({
     }
 
     if (typeof baseColor !== 'undefined' || typeof highlightColor !== 'undefined') {
-        baseColor ??= defaultBaseColor
-        highlightColor ??= defaultHighlightColor
-
-        style.backgroundColor = baseColor
+        style.backgroundColor = baseColor ?? defaultBaseColor
         style.backgroundImage = `linear-gradient(
             90deg,
-            ${baseColor},
-            ${highlightColor},
-            ${baseColor}
+            ${baseColor ?? defaultBaseColor},
+            ${highlightColor ?? defaultHighlightColor},
+            ${baseColor ?? defaultBaseColor}
         )`
     }
 
-    if (!enableAnimation) style.animation = 'none'
+    if (!enableAnimation) style.backgroundImage = 'none'
 
     return style
 }
