@@ -52,8 +52,8 @@ function BlogPost(props) {
 }
 ```
 
-...will produce the correctly-sized skeletons for the heading and body without
-any further configuration.
+...will produce correctly-sized skeletons for the heading and body without any
+further configuration.
 
 This ensures the loading state remains up-to-date with any changes
 to your layout or typography.
@@ -177,17 +177,17 @@ return (
             <td><code>#f5f5f5</code></td>
         </tr>
         <tr>
-            <td><code>width?: number</code></td>
+            <td><code>width?: string | number</code></td>
             <td>The width of the skeleton.</td>
             <td><code>100%</code></td>
         </tr>
         <tr>
-            <td><code>height?: number</code></td>
+            <td><code>height?: string | number</code></td>
             <td>The height of each skeleton line.</td>
             <td>The font size</td>
         </tr>
         <tr>
-            <td><code>borderRadius?: number</code></td>
+            <td><code>borderRadius?: string | number</code></td>
             <td>The border radius of the skeleton.</td>
             <td><code>0.25rem</code></td>
         </tr>
@@ -208,7 +208,7 @@ return (
             <td>
                 Whether the animation should play. The skeleton will be a solid color when
                 this is <code>false</code>. You could use this prop to stop the animation
-                if an error is encountered.
+                if an error occurs.
             </td>
             <td><code>true</code></td>
         </tr>
@@ -254,7 +254,7 @@ In the example below, the height of the `<div>` will be slightly larger than 30 
 </div>
 ```
 
-This is a consequence of how `line-height` works in CSS. If you need the `<div>` to be exactly 30px tall, set its `line-height` to 1. [See here](https://github.com/dvtng/react-loading-skeleton/issues/23#issuecomment-939231878) for a detailed explanation.
+This is a consequence of how `line-height` works in CSS. If you need the `<div>` to be exactly 30px tall, set its `line-height` to 1. [See here](https://github.com/dvtng/react-loading-skeleton/issues/23#issuecomment-939231878) for more details.
 
 ## Contributing
 
