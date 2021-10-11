@@ -1,4 +1,4 @@
-import React, { ReactElement , PropsWithChildren } from 'react'
+import React, { ReactElement, PropsWithChildren } from 'react'
 import { SkeletonStyleProps } from './SkeletonStyleProps'
 import { SkeletonThemeContext } from './SkeletonThemeContext'
 

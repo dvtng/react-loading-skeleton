@@ -3,6 +3,7 @@ import copy from 'rollup-plugin-copy'
 
 export default {
     input: 'src/index.ts',
+    external: ['react'],
     output: [
         {
             file: 'dist/index.mjs',
@@ -33,7 +34,7 @@ export default {
         },
     ],
     plugins: [
-        typescript({ exclude: '**/__tests__/**/*' }),
+        typescript({ exclude: ['**/__tests__/**/*', '**/__stories__/**/*'] }),
         copy({
             targets: [{ src: 'src/skeleton.css', dest: 'dist' }],
         }),
