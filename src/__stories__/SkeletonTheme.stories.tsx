@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import { Post, SideBySide } from './components'
 import { SkeletonTheme } from '../SkeletonTheme'
-import { Box } from './Skeleton.stories'
+import { Box } from './components/Box'
 import { Skeleton } from '../Skeleton'
 
 export default {
@@ -10,12 +10,21 @@ export default {
     title: 'SkeletonTheme',
 } as Meta
 
+const darkBaseColor = '#333'
+const darkHighlightColor = '#cccccc'
+const blueBaseColor = '#1D5CA6'
+const blueHighlightColor = '#d0dbeb'
+const lightBaseColor = '#d3d3d3'
+const lightHighlightColor = '#808080'
+const lightBackground = '#FFFFFF'
+const darkBackground = '#000000'
+
 export const WithColors: React.VFC = () => (
     <div>
-        <SkeletonTheme baseColor="#1D5CA6" highlightColor="#164999">
+        <SkeletonTheme baseColor={blueBaseColor} highlightColor={blueHighlightColor}>
             <Post loading />
         </SkeletonTheme>
-        <SkeletonTheme baseColor="#333" highlightColor="#4a4a4a">
+        <SkeletonTheme baseColor={darkBaseColor} highlightColor={darkHighlightColor}>
             <Post loading />
         </SkeletonTheme>
     </div>
@@ -23,7 +32,11 @@ export const WithColors: React.VFC = () => (
 
 export const NoBorderRadius: React.VFC = () => (
     <div>
-        <SkeletonTheme baseColor="#1D5CA6" borderRadius="0">
+        <SkeletonTheme
+            baseColor={blueBaseColor}
+            highlightColor={blueHighlightColor}
+            borderRadius="0"
+        >
             <Post loading />
             <Post loading />
             <Post loading />
@@ -33,7 +46,7 @@ export const NoBorderRadius: React.VFC = () => (
 
 export const WrapperAndTheme: React.VFC = () => (
     <SideBySide>
-        <SkeletonTheme baseColor="#333" highlightColor="#666">
+        <SkeletonTheme baseColor={darkBaseColor} highlightColor={darkHighlightColor}>
             <Skeleton count={5} wrapper={Box} />
         </SkeletonTheme>
         <div>
@@ -46,18 +59,16 @@ export const WrapperAndTheme: React.VFC = () => (
     </SideBySide>
 )
 
-export const LightTheme: React.VFC = () => {
+export const LightAndDarkThemes: React.VFC = () => {
     const [theme, setTheme] = React.useState('light')
-    const skeletonColor =
-        theme === 'light' ? 'rgba(0, 0, 0, .1)' : 'rgba(255, 255, 255, .1)'
-    const skeletonHighlight =
-        theme === 'light' ? 'rgba(0, 0, 0, .2)' : 'rgba(255,255,255, .2)'
+    const skeletonColor = theme === 'light' ? darkBaseColor : lightBaseColor
+    const skeletonHighlight = theme === 'light' ? darkHighlightColor : lightHighlightColor
 
     const handleToggle = () => {
         setTheme((oldTheme) => (oldTheme === 'light' ? 'dark' : 'light'))
     }
 
-    const backgroundColor = theme === 'light' ? 'white' : '#222'
+    const backgroundColor = theme === 'light' ? lightBackground : darkBackground
 
     return (
         <div style={{ backgroundColor }}>
@@ -72,8 +83,11 @@ export const LightTheme: React.VFC = () => {
                     <Skeleton count={5} wrapper={Box} />
                 </SkeletonTheme>
                 <div>
-                    <Box key={1}>A</Box>
-                    <Box key={2}>B</Box>
+                    <Box>A</Box>
+                    <Box>B</Box>
+                    <Box>C</Box>
+                    <Box>D</Box>
+                    <Box>E</Box>
                 </div>
             </SideBySide>
         </div>

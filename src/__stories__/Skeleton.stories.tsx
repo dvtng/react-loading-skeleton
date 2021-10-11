@@ -10,21 +10,7 @@ import { Meta } from '@storybook/react'
 import { SideBySide } from './components'
 import { Skeleton } from '../Skeleton'
 import './styles/Skeleton.stories.css'
-
-export const Box = ({ children }: PropsWithChildren<unknown>): React.ReactElement => (
-    <div
-        style={{
-            border: '1px solid #ccc',
-            fontSize: 16,
-            lineHeight: 2,
-            padding: 20,
-            marginBottom: 10,
-            width: 100,
-        }}
-    >
-        {children}
-    </div>
-)
+import { Box } from './components/Box'
 
 const InlineWrapper = ({ children }: PropsWithChildren<unknown>) => (
     <span>{children}</span>
@@ -94,9 +80,23 @@ export const Circle: React.VFC = () => (
 
 export const RightToLeft: React.VFC = () => <Skeleton direction="rtl" />
 
-export const DisableAnimation: React.VFC = () => (
-    <Skeleton count={5} enableAnimation={false} highlightColor="#FF3384" />
-)
+export const DisableAnimation: React.VFC = () => {
+    const [enabled, setEnabled] = useState(true)
+    return (
+        <div>
+            <label htmlFor="checkbox">
+                Enable Animation:
+                <input
+                    id="checkbox"
+                    type="checkbox"
+                    checked={enabled}
+                    onChange={() => setEnabled(!enabled)}
+                />
+            </label>
+            <Skeleton count={5} enableAnimation={enabled} highlightColor="#FF3384" />
+        </div>
+    )
+}
 
 export const PercentWidthInFlex: React.VFC = () => (
     <div>
