@@ -1,9 +1,18 @@
-## UNRELEASED
+## 3.0.0
+
+### Migration Guide
+
+1. Add the new required CSS import:
+
+    ```js
+    import 'react-loading-skeleton/dist/skeleton.css'
+    ```
+
+2. Read the full list of breaking changes to see if any affect you.
 
 ### Breaking Changes
 
--   Drop Emotion dependency, add CSS file that must be imported:
-    -   Add `import 'react-loading-skeleton/dist/skeleton.css'` to your code
+-   Drop Emotion dependency, add CSS file that must be imported
     -   Dropping Emotion avoids conflicts when multiple Emotion versions are used
         on one page and reduces bundle size
 -   Reimplement `SkeletonTheme` using React context
@@ -11,8 +20,9 @@
         cases. The new `SkeletonTheme` does not render any DOM elements.
     -   The old `SkeletonTheme` did not work if the `Skeleton` was rendered in a
         portal. The new `SkeletonTheme` does work in this case.
+-   `SkeletonTheme`: rename the `color` prop to `baseColor`
 -   Convert to TypeScript
--   Publish code as ES2015
+-   Publish code as ES2018 to reduce bundle size
 -   Require React >= 16.8.0
 -   Drop Internet Explorer support
 
@@ -23,19 +33,25 @@ continue to use `react-loading-skeleton` v2.
 
 -   Add many new style-related props to `SkeletonTheme`
 -   Publish an ES module in addition to a CommonJS module
--   Add a short delay in between iterations of the animation
-    -   The length of this delay is not configurable without bringing your own CSS
-        file. Please open an issue if you really need to configure the delay.
 -   Add `direction` prop to support right-to-left animation
--   Add `animationEnabled` prop to allow disabling the animation
--   Add `containerClassName` prop to allow customizing the contaienr element
+-   Add `enableAnimation` prop to allow disabling the animation
+-   Add `containerClassName` prop to allow customizing the container element
 -   Add `containerTestId` to make testing easier
+-   Change the default `duration` from 1.2 s to 1.5 s
+-   Make the default `Skeleton` base color a _tiny_ bit darker so that the
+    animation is more visible
+-   Add `aria-live` and `aria-busy` attributes to the skeleton container to
+    improve screen reader support
 
 ### Bug Fixes
 
+-   Several common issues are now resolved as a result of removing Emotion
+-   Fix multi-line skeletons not working with the `width` prop
 -   Fix the type of the `wrapper` prop in the type definitions
 
 ### Thanks!
 
 -   @srmagura
 -   @RoseMagura
+-   @saadaouad
+-   @rlaunch

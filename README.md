@@ -1,47 +1,59 @@
-# react-loading-skeleton
+<div align="center">
+    <a href="https://github.com/dvtng/react-loading-skeleton">
+        <img src="assets/logo.svg" alt="Logo" width="80" height="80" />
+    </a>
+    <h1 align="center">React Loading Skeleton</h1>
+    <p align="center">
+        Make beautiful, animated loading skeletons that automatically adapt to your app.
+    </p>
+    <h3><a href="https://dvtng.github.io/react-loading-skeleton">View Live Demo</a></h3>
+    <img src="https://media.giphy.com/media/l0Iyk4bAAjac3AU2k/giphy.gif" alt="Gif of the skeleton in action">
+</div>
 
-Make beautiful, animated loading skeletons that automatically adapt to your app.
+Learn about the [changes in version 3](https://github.com/dvtng/react-loading-skeleton/releases/tag/v3.0.0), or view the [v2 documentation](https://github.com/dvtng/react-loading-skeleton/tree/v2#readme).
 
-![Gif of skeleton in action](https://media.giphy.com/media/l0Iyk4bAAjac3AU2k/giphy.gif)
+## Basic Usage
 
-## Basic usage
+Install via one of:
 
-Install by `npm`/`yarn` with `react-loading-skeleton`.
+```bash
+yarn add react-loading-skeleton
+npm install react-loading-skeleton
+```
 
-```javascript
-import Skeleton from 'react-loading-skeleton';
+```tsx
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-<Skeleton/> // Simple, single-line loading skeleton
-<Skeleton count={5}/> // Five-line loading skeleton
+<Skeleton /> // Simple, single-line loading skeleton
+<Skeleton count={5} /> // Five-line loading skeleton
 ```
 
 ## Principles
 
 ### Adapts to the styles you have defined
 
-The `<Skeleton>` component is designed to be used directly in your components,
-in place of content while it's still loading.
-Unlike other libraries, rather than meticulously crafting a skeleton screen to
-match the `font-size`, `line-height` or `margin`s your content takes on,
-use a `<Skeleton>` component to have it automatically fill the correct dimensions.
+The `Skeleton` component should be used directly in your components in place of
+content that is loading. While other libraries require you to meticulously craft
+a skeleton screen that matches the font size, line height, and margins of your
+content, the `Skeleton` component is automatically sized to the correct
+dimensions.
 
 For example:
 
-```javascript
-class Blogpost extends Component {
-    render() {
-        return (
-            <div style={{ fontSize: 20, lineHeight: 2 }}>
-                <h1>{this.props.title || <Skeleton />}</h1>
-                {this.props.body || <Skeleton count={10} />}
-            </div>
-        )
-    }
+```tsx
+function BlogPost(props) {
+    return (
+        <div>
+            <h1>{props.title || <Skeleton />}</h1>
+            {props.body || <Skeleton count={10} />}
+        </div>
+    )
 }
 ```
 
-...will produce the correctly-sized skeletons for the heading and body sections
-without any further configuration of the `<Skeleton>` component.
+...will produce correctly-sized skeletons for the heading and body without any
+further configuration.
 
 This ensures the loading state remains up-to-date with any changes
 to your layout or typography.
@@ -50,21 +62,21 @@ to your layout or typography.
 
 Instead, make components with _built-in_ skeleton states.
 
-In addition to keeping the styling in-sync, here are some other reasons to do this:
+This approach is beneficial because:
 
-1.  Components represent all possible states it can be in - loading included.
-1.  It allows for more flexible loading patterns - in the `Blogpost` example, it's possible to have the `title` load first, and then the `body`, while having both pieces of content show loading skeletons at the right time.
+1. It keeps styles in sync.
+2. Components should represent all possible states — loading included.
+3. It allows for more flexible loading patterns. In the blog post example above, it's possible to have the title load before the body, while having both pieces of content show loading skeletons at the right time.
 
 ## Theming
 
-Using a `<SkeletonTheme>` component, you can easily change the colors of all
-skeleton components below it in the React hierarchy:
+Customize individual skeletons with props, or render a `SkeletonTheme` to style all skeletons below it in the React hierarchy:
 
-```javascript
+```tsx
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 
 return (
-    <SkeletonTheme color="#202020" highlightColor="#444">
+    <SkeletonTheme baseColor="#202020" highlightColor="#444">
         <p>
             <Skeleton count={3} />
         </p>
@@ -72,118 +84,182 @@ return (
 )
 ```
 
-## Count
+## Props Reference
 
-`count`: Number, defaults to 1
+### `Skeleton` only
 
-```javascript
-<Skeleton count={5} />
-```
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>count?: number</code></td>
+            <td>The number of lines of skeletons to render.</td>
+            <td><code>1</code></td>
+        </tr>
+        <tr>
+            <td><code>circle?: boolean</code></td>
+            <td>
+                Makes the skeleton circular by setting <code>border-radius</code> to
+                <code>50%</code>.
+            </td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>className?: string</code></td>
+            <td>
+                A custom class name for the individual skeleton elements which is used
+                alongside the default class, <code>react-loading-skeleton</code>.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>containerClassName?: string</code></td>
+            <td>
+                A custom class name for the <code>&lt;span&gt;</code> that wraps the
+                individual skeleton elements.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>containerTestId?: string</code></td>
+            <td>
+                A string that is added to the container element as a
+                <code>data-testid</code> attribute. Use it with
+                <code>screen.getByTestId('...')</code> from React Testing Library.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>style?: React.CSSProperties</code></td>
+            <td>
+                This is an escape hatch for advanced use cases and is not the preferred
+                way to style the skeleton. Props (e.g. <code>width</code>,
+                <code>borderRadius</code>) take priority over this style object.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>wrapper?: React.FunctionComponent</code></td>
+            <td>
+                A custom wrapper component that goes around the individual skeleton
+                elements.
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 
-Number of loading skeleton lines.
+### `Skeleton` and `SkeletonTheme`
 
-## Direction
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>baseColor?: string</code></td>
+            <td>The background color of the skeleton.</td>
+            <td><code>#ebebeb</code></td>
+        </tr>
+        <tr>
+            <td><code>highlightColor?: string</code></td>
+            <td>The highlight color in the skeleton animation.</td>
+            <td><code>#f5f5f5</code></td>
+        </tr>
+        <tr>
+            <td><code>width?: string | number</code></td>
+            <td>The width of the skeleton.</td>
+            <td><code>100%</code></td>
+        </tr>
+        <tr>
+            <td><code>height?: string | number</code></td>
+            <td>The height of each skeleton line.</td>
+            <td>The font size</td>
+        </tr>
+        <tr>
+            <td><code>borderRadius?: string | number</code></td>
+            <td>The border radius of the skeleton.</td>
+            <td><code>0.25rem</code></td>
+        </tr>
+        <tr>
+            <td><code>duration?: number</code></td>
+            <td>The length of the animation in seconds.</td>
+            <td><code>1.5</code></td>
+        </tr>
+        <tr>
+            <td><code>direction?: 'ltr' | 'rtl'</code></td>
+            <td>
+                The direction of the animation, either left-to-right or right-to-left.
+            </td>
+            <td><code>'ltr'</code></td>
+        </tr>
+        <tr>
+            <td><code>enableAnimation?: boolean</code></td>
+            <td>
+                Whether the animation should play. The skeleton will be a solid color when
+                this is <code>false</code>. You could use this prop to stop the animation
+                if an error occurs.
+            </td>
+            <td><code>true</code></td>
+        </tr>
+    </tbody>
+</table>
 
-You can set the animation direction to right-to-left on `<SkeletonTheme>` component by using `direction="rtl"`, e.g:
+## Advanced
 
-```javascript
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+### Custom Wrappers
 
-return (
-    <SkeletonTheme color="#202020" highlightColor="#444" direction="rtl">
-        <p>
-            <Skeleton />
-        </p>
-    </SkeletonTheme>
-)
-```
+You can use the `wrapper` prop to wrap each line of the skeleton in a box:
 
-The default value is `ltr`.
-
-## Duration
-
-```javascript
-<Skeleton duration={2} />
-```
-
-`duration`: Number, defaults to 1.2
-
-Duration is how long it takes do one cycle of the skeleton animation.
-
-## Width
-
-`width`: Number | String | null, defaults to null
-
-```javascript
-<Skeleton width={100} />
-```
-
-Width of the skeleton. Useful when the skeleton is inside an inline element with
-no width of its own.
-
-## Height
-
-`height`: Number | String | null, defaults to null
-
-```javascript
-<Skeleton height={100} />
-```
-
-Height of the skeleton. Useful when you don't want to adapt the skeleton to a text element but for instance
-a card. Also needed for the prop `circle` (see below).
-
-## Wrapper
-
-`wrapper`: ReactNode | null, defaults to null
-
-```javascript
-const Box = ({ children }) => (
-    <a
+```tsx
+function Box({ children }: PropsWithChildren<unknown>) (
+    <div
         style={{
             border: '1px solid #ccc',
             display: 'block',
-            fontSize: 16,
             lineHeight: 2,
-            padding: 20,
-            marginBottom: 10,
+            padding: '1rem',
+            marginBottom: '0.5rem',
             width: 100,
         }}
     >
         {children}
-    </a>
+    </div>
 )
 
-;<Skeleton wrapper={Box} />
+// Method 1: use the wrapper prop
+const wrapped1 = <Skeleton wrapper={Box} />
+
+// Method 2: do it the normal way
+const wrapped2 = <Box><Skeleton /></Box>
 ```
 
-Prop for wrap the skeleton in a custom component.
+### The height of my container is off by a few pixels!
 
-## Circle
+In the example below, the height of the `<div>` will be slightly larger than 30 even though the `react-loading-skeleton` element is exactly 30px.
 
-`circle`: Boolean, defaults to false
-
-```javascript
-<Skeleton circle={true} height={50} width={50} />
+```tsx
+<div>
+    <Skeleton height={30} />
+</div>
 ```
 
-Prop for making the skeleton look like a circle, for when you are creating a user card with a profile picture for instance.
+This is a consequence of how `line-height` works in CSS. If you need the `<div>` to be exactly 30px tall, set its `line-height` to 1. [See here](https://github.com/dvtng/react-loading-skeleton/issues/23#issuecomment-939231878) for more details.
 
-## Style
+## Contributing
 
-`style`: CSSProperties, defaults to {}
+Contributions are welcome! See `CONTRIBUTING.md` to get started.
 
-```javascript
-<Skeleton style={{ borderRadius: 10 }} />
-```
+## Acknowledgements
 
-Prop for adding custom CSS styles to the skeleton.
-
-## ClassName
-
-`className`: String, defaults to ""
-
-```javascript
-<Skeleton className="foobar" />
-```
-
-Prop for adding custom CSS classname to the skeleton.
+Our logo is based off an image from [Font Awesome](https://fontawesome.com/license/free). Thanks!

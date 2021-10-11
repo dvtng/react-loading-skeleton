@@ -1,0 +1,8 @@
+.w-50 {
+    width: 50%;
+}
+
+.height-quirk-custom-container {
+    display: block;
+    line-height: 1;
+}
