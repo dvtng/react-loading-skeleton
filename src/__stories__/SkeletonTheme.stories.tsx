@@ -1,8 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { Post, SideBySide } from './components'
+import { Post, SideBySide, Box } from './components'
 import { SkeletonTheme } from '../SkeletonTheme'
-import { Box } from './components/Box'
 import { Skeleton } from '../Skeleton'
 
 export default {

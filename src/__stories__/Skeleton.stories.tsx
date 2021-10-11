@@ -7,10 +7,9 @@ import React, {
 } from 'react'
 import ReactDOM from 'react-dom'
 import { Meta } from '@storybook/react'
-import { SideBySide } from './components'
+import { SideBySide, Box } from './components'
 import { Skeleton } from '../Skeleton'
 import './styles/Skeleton.stories.css'
-import { Box } from './components/Box'
 
 const InlineWrapper = ({ children }: PropsWithChildren<unknown>) => (
     <span>{children}</span>
