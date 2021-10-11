@@ -1,5 +1,6 @@
 import typescript from '@rollup/plugin-typescript'
 import copy from 'rollup-plugin-copy'
+import commonjs from 'rollup-plugin-commonjs'
 
 export default {
     input: 'src/index.ts',
@@ -18,5 +19,6 @@ export default {
         copy({
             targets: [{ src: 'src/skeleton.css', dest: 'dist' }],
         }),
+        commonjs(),
     ],
 }
