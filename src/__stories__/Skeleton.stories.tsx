@@ -85,7 +85,7 @@ export const DisableAnimation: React.VFC = () => {
     return (
         <div>
             <label htmlFor="checkbox">
-                Enable Animation:
+                Enable animation:
                 <input
                     id="checkbox"
                     type="checkbox"

@@ -11,13 +11,11 @@ export default {
 } as Meta
 
 const darkBaseColor = '#333'
-const darkHighlightColor = '#cccccc'
+const darkHighlightColor = '#999'
 const blueBaseColor = '#1D5CA6'
-const blueHighlightColor = '#d0dbeb'
+const blueHighlightColor = '#5294e0'
 const lightBaseColor = '#d3d3d3'
 const lightHighlightColor = '#808080'
-const lightBackground = '#FFFFFF'
-const darkBackground = '#000000'
 
 export const WithColors: React.VFC = () => (
     <div>
@@ -60,7 +58,7 @@ export const WrapperAndTheme: React.VFC = () => (
 )
 
 export const LightAndDarkThemes: React.VFC = () => {
-    const [theme, setTheme] = React.useState('light')
+    const [theme, setTheme] = React.useState<'light' | 'dark'>('light')
     const skeletonColor = theme === 'light' ? darkBaseColor : lightBaseColor
     const skeletonHighlight = theme === 'light' ? darkHighlightColor : lightHighlightColor
 
@@ -68,10 +66,11 @@ export const LightAndDarkThemes: React.VFC = () => {
         setTheme((oldTheme) => (oldTheme === 'light' ? 'dark' : 'light'))
     }
 
-    const backgroundColor = theme === 'light' ? lightBackground : darkBackground
+    const backgroundColor = theme === 'light' ? 'white' : '#333'
+    const color = theme === 'light' ? 'unset' : '#eee'
 
     return (
-        <div style={{ backgroundColor }}>
+        <div style={{ backgroundColor, color }}>
             <button onClick={handleToggle} type="button">
                 Toggle Theme
             </button>
