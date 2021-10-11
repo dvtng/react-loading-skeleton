@@ -20,14 +20,3 @@ export const Large: React.VFC = () => (
         <Post loading={false} size="large" />
     </SideBySide>
 )
-
-// export const WithColors: React.VFC = () => (
-//     <div>
-//         <SkeletonTheme color="#1D5CA6" highlightColor="#164999">
-//             <Post />
-//         </SkeletonTheme>
-//         <SkeletonTheme color="#333" highlightColor="#4a4a4a">
-//             <Post />
-//         </SkeletonTheme>
-//     </div>
-// )
