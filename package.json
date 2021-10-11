@@ -48,6 +48,8 @@
         "not IE 11"
     ],
     "devDependencies": {
+        "@rollup/plugin-node-resolve": "^13.0.5",
+        "@rollup/plugin-replace": "^3.0.0",
         "@rollup/plugin-typescript": "^8.2.5",
         "@storybook/addon-essentials": "^6.3.10",
         "@storybook/addon-links": "^6.3.10",

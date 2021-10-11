@@ -1,6 +1,9 @@
 import typescript from '@rollup/plugin-typescript'
 import copy from 'rollup-plugin-copy'
 import commonjs from 'rollup-plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
+import React from 'react'
+import replace from '@rollup/plugin-replace'
 
 export default {
     input: 'src/index.ts',
@@ -15,10 +18,19 @@ export default {
         },
     ],
     plugins: [
-        typescript({ exclude: '**/__tests__/**/*' }),
+        replace({
+            'process.env.NODE_ENV': JSON.stringify('development'),
+            preventAssignment: true,
+        }),
+        typescript({ exclude: ['**/__tests__/**/*', '**/stories/**/*'] }),
         copy({
             targets: [{ src: 'src/skeleton.css', dest: 'dist' }],
         }),
-        commonjs(),
+        commonjs({
+            namedExports: {
+                react: Object.keys(React),
+            },
+        }),
+        resolve(),
     ],
 }
