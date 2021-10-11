@@ -1,10 +1,6 @@
-/* Animate for 80% of the time and delay for 20% of the time */
 @keyframes react-loading-skeleton {
     0% {
         background-position: -200px 0;
-    }
-    80% {
-        background-position: calc(200px + 100%) 0;
     }
     100% {
         background-position: calc(200px + 100%) 0;
@@ -13,7 +9,7 @@
 
 .react-loading-skeleton {
     /* If either color is changed, Skeleton.tsx must be updated as well */
-    --base-color: #eee;
+    --base-color: #ebebeb;
     --highlight-color: #f5f5f5;
 
     background-color: var(--base-color);
@@ -24,12 +20,12 @@
         var(--base-color)
     );
 
+    width: 100%;
     background-size: 200px 100%;
     background-repeat: no-repeat;
     border-radius: 0.25rem;
     display: inline-block;
     line-height: 1;
-    width: 100%;
 
     animation-name: react-loading-skeleton;
     animation-duration: 1.5s;

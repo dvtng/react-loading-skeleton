@@ -1,23 +1,24 @@
-import '@testing-library/jest-dom'
 import React from 'react'
-import { Skeleton } from '../Skeleton'
 import { render, screen } from '@testing-library/react'
-
-const skeletonSelector = 'span.react-loading-skeleton'
+import { Skeleton } from '../Skeleton'
+import { getAllSkeletons, getSkeleton } from './__helpers__'
 
 it('renders a skeleton', () => {
     render(<Skeleton />)
 
-    const skeletonElements = Array.from(document.querySelectorAll(skeletonSelector))
+    const skeletonElements = getAllSkeletons()
 
     expect(skeletonElements).toHaveLength(1)
     expect(skeletonElements[0]).toBeVisible()
+
+    // No inline styles should be rendered by default
+    expect(skeletonElements[0]).not.toHaveAttribute('style')
 })
 
 it('renders the required number of skeletons', () => {
     render(<Skeleton count={4} />)
 
-    const skeletonElements = Array.from(document.querySelectorAll(skeletonSelector))
+    const skeletonElements = getAllSkeletons()
 
     expect(skeletonElements).toHaveLength(4)
 })
@@ -26,42 +27,45 @@ it('renders a skeleton with styles', () => {
     const style = { borderRadius: 10, height: 50, width: 50 }
     render(<Skeleton style={style} />)
 
-    const skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
+    const skeleton = getSkeleton()
 
-    expect(skeleton.style.borderRadius).toBe(style.borderRadius + 'px')
-    expect(skeleton.style.height).toBe(style.height + 'px')
-    expect(skeleton.style.width).toBe(style.width + 'px')
+    expect(skeleton).toHaveStyle({
+        borderRadius: `${style.borderRadius}px`,
+        height: `${style.height}px`,
+        width: `${style.width}px`,
+    })
 })
 
 it('prioritizes explicit props over style prop', () => {
     const style = { borderRadius: 10, height: 10, width: 10 }
     render(<Skeleton borderRadius={20} height={21} width={22} style={style} />)
 
-    const skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
+    const skeleton = getSkeleton()
 
-    expect(skeleton.style.borderRadius).toBe('20px')
-    expect(skeleton.style.height).toBe('21px')
-    expect(skeleton.style.width).toBe('22px')
+    expect(skeleton).toHaveStyle({ borderRadius: '20px', height: '21px', width: '22px' })
+})
+
+it('ignores borderRadius if circle=true', () => {
+    render(<Skeleton borderRadius={1} height={25} width={25} circle />)
+
+    expect(getSkeleton()).toHaveStyle({ borderRadius: '50%' })
 })
 
 it('disables the animation if and only if enableAnimation is false', () => {
     const { rerender } = render(<Skeleton />)
-    let skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
-    expect(skeleton.style.animation).toBe('')
+    expect(getSkeleton()).toHaveStyle({ backgroundImage: /linear-gradient/ })
 
     rerender(<Skeleton enableAnimation />)
-    skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
-    expect(skeleton.style.animation).toBe('')
+    expect(getSkeleton()).toHaveStyle({ backgroundImage: /linear-gradient/ })
 
     rerender(<Skeleton enableAnimation={false} />)
-    skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
-    expect(skeleton.style.animation).toBe('none')
+    expect(getSkeleton()).toHaveStyle({ backgroundImage: 'none' })
 })
 
 it('uses a custom className', () => {
     render(<Skeleton className="test-class" />)
 
-    const skeleton = document.querySelector<HTMLElement>(skeletonSelector)!
+    const skeleton = getSkeleton()
 
     expect(skeleton).toHaveClass('react-loading-skeleton')
     expect(skeleton).toHaveClass('test-class')

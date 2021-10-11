@@ -1,11 +1,13 @@
-import React, { CSSProperties, ReactElement, useContext } from 'react'
+/* eslint-disable react/no-array-index-key */
+import React, { CSSProperties, ReactElement } from 'react'
 import { SkeletonThemeContext } from './SkeletonThemeContext'
 import { SkeletonStyleProps } from './SkeletonStyleProps'
 
 // If either color is changed, skeleton.css must be updated as well
-const defaultBaseColor = '#eee'
+const defaultBaseColor = '#ebebeb'
 const defaultHighlightColor = '#f5f5f5'
 
+// For performance & cleanliness, don't add any inline styles unless we have to
 function styleOptionsToCssProperties({
     baseColor,
     highlightColor,
@@ -19,9 +21,7 @@ function styleOptionsToCssProperties({
     duration,
     enableAnimation = true,
 }: SkeletonStyleProps & { circle: boolean }): CSSProperties {
-    const style: CSSProperties = {
-        animationDirection: direction === 'rtl' ? 'reverse' : 'normal',
-    }
+    const style: CSSProperties = {}
 
     if (direction === 'rtl') style.animationDirection = 'reverse'
 
@@ -42,19 +42,16 @@ function styleOptionsToCssProperties({
     }
 
     if (typeof baseColor !== 'undefined' || typeof highlightColor !== 'undefined') {
-        baseColor ??= defaultBaseColor
-        highlightColor ??= defaultHighlightColor
-
-        style.backgroundColor = baseColor
+        style.backgroundColor = baseColor ?? defaultBaseColor
         style.backgroundImage = `linear-gradient(
             90deg,
-            ${baseColor},
-            ${highlightColor},
-            ${baseColor}
+            ${baseColor ?? defaultBaseColor},
+            ${highlightColor ?? defaultHighlightColor},
+            ${baseColor ?? defaultBaseColor}
         )`
     }
 
-    if (!enableAnimation) style.animation = 'none'
+    if (!enableAnimation) style.backgroundImage = 'none'
 
     return style
 }
@@ -65,21 +62,9 @@ export interface SkeletonProps extends SkeletonStyleProps {
 
     className?: string
     containerClassName?: string
-
-    /**
-     * A string that will be added to the container element as a `data-testid`
-     * attribute.
-     */
     containerTestId?: string
 
     circle?: boolean
-
-    /**
-     * This is an escape hatch for advanced use cases and is not the preferred
-     * way to configure the skeleton.
-     *
-     * Props (e.g. `width`, `borderRadius`) take priority over this style object.
-     */
     style?: CSSProperties
 }
 
@@ -96,7 +81,7 @@ export function Skeleton({
     style: styleProp,
     ...propsStyleOptions
 }: SkeletonProps): ReactElement {
-    const contextStyleOptions = useContext(SkeletonThemeContext)
+    const contextStyleOptions = React.useContext(SkeletonThemeContext)
 
     // Props take priority over context
     const styleOptions = {
@@ -112,7 +97,7 @@ export function Skeleton({
     }
 
     let className = 'react-loading-skeleton'
-    if (customClassName) className += ' ' + customClassName
+    if (customClassName) className += ` ${customClassName}`
 
     const elements: ReactElement[] = []
 
@@ -124,8 +109,18 @@ export function Skeleton({
         )
     }
 
+    // Reference on accessible loading indicators
+    // https://dockyard.com/blog/2020/03/02/accessible-loading-indicatorswith-no-extra-elements
+
+    // Without the <br /> elements, the skeleton lines will all run together if
+    // `width` is specified
     return (
-        <span className={containerClassName} data-testid={containerTestId}>
+        <span
+            className={containerClassName}
+            data-testid={containerTestId}
+            aria-live="polite"
+            aria-busy
+        >
             {Wrapper
                 ? elements.map((element, i) => (
                       <Wrapper key={i}>
@@ -133,7 +128,7 @@ export function Skeleton({
                           &zwnj;
                       </Wrapper>
                   ))
-                : elements}
+                : elements.map((element, i) => [element, <br key={`br-${i}`} />])}
         </span>
     )
 }
