@@ -41,7 +41,7 @@ export default {
             'process.env.NODE_ENV': JSON.stringify('development'),
             preventAssignment: true,
         }),
-        typescript({ exclude: ['**/__tests__/**/*', '**/stories/**/*'] }),
+        typescript({ exclude: ['**/__tests__/**/*', '**/__stories__/**/*'] }),
         copy({
             targets: [{ src: 'src/skeleton.css', dest: 'dist' }],
         }),
