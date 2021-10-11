@@ -11,7 +11,7 @@ import { SideBySide } from './components'
 import { Skeleton } from '../Skeleton'
 import './styles/Skeleton.stories.css'
 
-const Box = ({ children }: PropsWithChildren<unknown>) => (
+export const Box = ({ children }: PropsWithChildren<unknown>): React.ReactElement => (
     <div
         style={{
             border: '1px solid #ccc',
@@ -90,6 +90,12 @@ export const Circle: React.VFC = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Skeleton height={50} width={50} circle />
     </div>
+)
+
+export const RightToLeft: React.VFC = () => <Skeleton direction="rtl" />
+
+export const DisableAnimation: React.VFC = () => (
+    <Skeleton count={5} enableAnimation={false} highlightColor="#FF3384" />
 )
 
 export const PercentWidthInFlex: React.VFC = () => (
@@ -301,44 +307,3 @@ export const ShadowDOM: React.VFC = () => {
         </div>
     )
 }
-
-// export const WrapperAndTheme: React.VFC = () => (
-//     <SideBySide>
-//         <SkeletonTheme color="#333" highlightColor="#666">
-//             <Skeleton count={5} wrapper={Box} />
-//         </SkeletonTheme>
-//         <div>
-//             <Box key={1}>A</Box>
-//             <Box key={2}>B</Box>
-//         </div>
-//     </SideBySide>
-// )
-
-// export const LightTheme: React.VFC = () => {
-//     const [theme, setTheme] = React.useState('light')
-//     const skeletonColor =
-//         theme === 'light' ? 'rgba(0, 0, 0, .1)' : 'rgba(255, 255, 255, .1)'
-//     const skeletonHighlight =
-//         theme === 'light' ? 'rgba(0, 0, 0, .2)' : 'rgba(255,255,255, .2)'
-
-//     const handleToggle = () => {
-//         setTheme((oldTheme) => (oldTheme === 'light' ? 'dark' : 'light'))
-//     }
-
-//     const backgroundColor = theme === 'light' ? 'white' : '#222'
-
-//     return (
-//         <div style={{ backgroundColor }}>
-//             <button onClick={handleToggle}>Toggle Theme</button>
-//             <SideBySide>
-//                 <SkeletonTheme color={skeletonColor} highlightColor={skeletonHighlight}>
-//                     <Skeleton count={5} wrapper={Box} />
-//                 </SkeletonTheme>
-//                 <div>
-//                     <Box key={1}>A</Box>
-//                     <Box key={2}>B</Box>
-//                 </div>
-//             </SideBySide>
-//         </div>
-//     )
-// }
