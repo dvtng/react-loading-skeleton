@@ -7,6 +7,8 @@ import { SkeletonStyleProps } from './SkeletonStyleProps'
 const defaultBaseColor = '#ebebeb'
 const defaultHighlightColor = '#f5f5f5'
 
+const defaultEnableAnimation = true
+
 // For performance & cleanliness, don't add any inline styles unless we have to
 function styleOptionsToCssProperties({
     baseColor,
@@ -19,7 +21,7 @@ function styleOptionsToCssProperties({
 
     direction,
     duration,
-    enableAnimation = true,
+    enableAnimation = defaultEnableAnimation,
 }: SkeletonStyleProps & { circle: boolean }): CSSProperties {
     const style: CSSProperties = {}
 
@@ -129,7 +131,7 @@ export function Skeleton({
             className={containerClassName}
             data-testid={containerTestId}
             aria-live="polite"
-            aria-busy
+            aria-busy={styleOptions.enableAnimation ?? defaultEnableAnimation}
         >
             {Wrapper
                 ? elements.map((el, i) => <Wrapper key={i}>{el}</Wrapper>)
