@@ -62,23 +62,7 @@ export const LightAndDarkThemes: React.VFC = () => {
                     baseColor={skeletonColor}
                     highlightColor={skeletonHighlight}
                 >
-                    <div>
-                        <Box>
-                            <Skeleton />
-                        </Box>
-                        <Box>
-                            <Skeleton />
-                        </Box>
-                        <Box>
-                            <Skeleton />
-                        </Box>
-                        <Box>
-                            <Skeleton />
-                        </Box>
-                        <Box>
-                            <Skeleton />
-                        </Box>
-                    </div>
+                    <Skeleton count={5} wrapper={Box} />
                 </SkeletonTheme>
                 <div>
                     <Box>A</Box>

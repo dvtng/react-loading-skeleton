@@ -6,7 +6,10 @@
     <p align="center">
         Make beautiful, animated loading skeletons that automatically adapt to your app.
     </p>
-    <h3><a href="https://dvtng.github.io/react-loading-skeleton">View Live Demo</a></h3>
+    <h3>
+    <a href="https://dvtng.github.io/react-loading-skeleton">View Live Demo</a> &bull;
+    <a href="https://codesandbox.io/s/react-loading-skeleton-3xwil?file=/src/App.tsx">Open on CodeSandbox</a>
+    </h3>
     <img src="https://media.giphy.com/media/l0Iyk4bAAjac3AU2k/giphy.gif" alt="Gif of the skeleton in action">
 </div>
 
@@ -66,7 +69,9 @@ This approach is beneficial because:
 
 1. It keeps styles in sync.
 2. Components should represent all possible states — loading included.
-3. It allows for more flexible loading patterns. In the blog post example above, it's possible to have the title load before the body, while having both pieces of content show loading skeletons at the right time.
+3. It allows for more flexible loading patterns. In the blog post example above,
+   it's possible to have the title load before the body, while having both
+   pieces of content show loading skeletons at the right time.
 
 ## Theming
 
