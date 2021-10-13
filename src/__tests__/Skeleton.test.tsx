@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { Skeleton } from '../Skeleton'
-import { getAllSkeletons, getSkeleton } from './__helpers__'
+import { getAllSkeletons, getSkeleton, hasLineBreak } from './__helpers__'
 
 it('renders a skeleton', () => {
     render(<Skeleton />)
@@ -49,6 +49,17 @@ it('ignores borderRadius if circle=true', () => {
     render(<Skeleton borderRadius={1} height={25} width={25} circle />)
 
     expect(getSkeleton()).toHaveStyle({ borderRadius: '50%' })
+})
+
+it('adds a line break when inline is false', () => {
+    const { rerender } = render(<Skeleton />)
+    expect(hasLineBreak()).toBe(true)
+
+    rerender(<Skeleton inline={false} />)
+    expect(hasLineBreak()).toBe(true)
+
+    rerender(<Skeleton inline />)
+    expect(hasLineBreak()).toBe(false)
 })
 
 it('disables the animation if and only if enableAnimation is false', () => {

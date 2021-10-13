@@ -144,14 +144,6 @@ return (
             </td>
             <td></td>
         </tr>
-        <tr>
-            <td><code>wrapper?: React.FunctionComponent</code></td>
-            <td>
-                A custom wrapper component that goes around the individual skeleton
-                elements.
-            </td>
-            <td></td>
-        </tr>
     </tbody>
 </table>
 
@@ -192,6 +184,15 @@ return (
             <td><code>0.25rem</code></td>
         </tr>
         <tr>
+            <td><code>inline?: boolean</code></td>
+            <td>
+                By default, a <code>&lt;br /&gt;</code> is inserted after each skeleton so
+                that each skeleton gets its own line. When <code>inline</code> is true, no
+                line breaks are inserted.
+            </td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
             <td><code>duration?: number</code></td>
             <td>The length of the animation in seconds.</td>
             <td><code>1.5</code></td>
@@ -215,33 +216,35 @@ return (
     </tbody>
 </table>
 
-## Advanced
+## Examples
 
-### Custom Wrappers
+### Custom Wrapper
 
-You can use the `wrapper` prop to wrap each line of the skeleton in a box:
+Wrapping a skeleton in a container is simple:
 
 ```tsx
-function Box({ children }: PropsWithChildren<unknown>) (
-    <div
-        style={{
-            border: '1px solid #ccc',
-            display: 'block',
-            lineHeight: 2,
-            padding: '1rem',
-            marginBottom: '0.5rem',
-            width: 100,
-        }}
-    >
-        {children}
-    </div>
+function Box({ children }: PropsWithChildren<unknown>) {
+    return (
+        <div
+            style={{
+                border: '1px solid #ccc',
+                display: 'block',
+                lineHeight: 2,
+                padding: '1rem',
+                marginBottom: '0.5rem',
+                width: 100,
+            }}
+        >
+            {children}
+        </div>
+    )
+}
+
+const wrapped = (
+    <Box>
+        <Skeleton />
+    </Box>
 )
-
-// Method 1: use the wrapper prop
-const wrapped1 = <Skeleton wrapper={Box} />
-
-// Method 2: do it the normal way
-const wrapped2 = <Box><Skeleton /></Box>
 ```
 
 ### The height of my container is off by a few pixels!

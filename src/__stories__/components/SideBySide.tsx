@@ -9,7 +9,8 @@ const style = {
 const arrowStyle = {
     alignSelf: 'center',
     fontSize: 20,
-    padding: '0 20px',
+    padding: '0 1.25rem',
+    lineHeight: 0.5,
 }
 
 export function SideBySide({ children }: PropsWithChildren<unknown>): ReactElement {

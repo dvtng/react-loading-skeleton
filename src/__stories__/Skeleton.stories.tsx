@@ -11,10 +11,6 @@ import { SideBySide, Box } from './components'
 import { Skeleton } from '../Skeleton'
 import './styles/Skeleton.stories.css'
 
-const InlineWrapper = ({ children }: PropsWithChildren<unknown>) => (
-    <span>{children}</span>
-)
-
 export default {
     component: Skeleton,
     title: 'Skeleton',
@@ -22,9 +18,40 @@ export default {
 
 export const Basic: React.VFC = () => <Skeleton count={5} width={400} />
 
+export const Inline: React.VFC = () => (
+    <div>
+        <p>A single line composed of multiple skeletons:</p>
+        <SideBySide>
+            <div>
+                <Skeleton width={100} inline style={{ marginRight: '0.5rem' }} />
+                <Skeleton width={150} inline style={{ marginRight: '0.5rem' }} />
+                <Skeleton width={75} inline style={{ marginRight: '0.5rem' }} />
+                <Skeleton width={150} inline />
+            </div>
+            <div>Some text for comparison</div>
+        </SideBySide>
+    </div>
+)
+
 export const WithWrapper: React.VFC = () => (
     <SideBySide>
-        <Skeleton count={5} wrapper={Box} />
+        <div>
+            <Box>
+                <Skeleton />
+            </Box>
+            <Box>
+                <Skeleton />
+            </Box>
+            <Box>
+                <Skeleton />
+            </Box>
+            <Box>
+                <Skeleton />
+            </Box>
+            <Box>
+                <Skeleton />
+            </Box>
+        </div>
         <div>
             <Box>A</Box>
             <Box>B</Box>
@@ -32,10 +59,6 @@ export const WithWrapper: React.VFC = () => (
             <Box>D</Box>
         </div>
     </SideBySide>
-)
-
-export const WithInlineWrapper: React.VFC = () => (
-    <Skeleton count={5} wrapper={InlineWrapper} width={400} />
 )
 
 export const DifferentDurations: React.VFC = () => (

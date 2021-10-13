@@ -12,3 +12,7 @@ export function getSkeleton(): HTMLElement {
 
     return skeleton
 }
+
+export function hasLineBreak(): boolean {
+    return !!document.querySelector<HTMLElement>('br')
+}

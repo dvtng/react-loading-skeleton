@@ -58,7 +58,6 @@ function styleOptionsToCssProperties({
 
 export interface SkeletonProps extends SkeletonStyleProps {
     count?: number
-    wrapper?: React.FunctionComponent
 
     className?: string
     containerClassName?: string
@@ -70,7 +69,6 @@ export interface SkeletonProps extends SkeletonStyleProps {
 
 export function Skeleton({
     count = 1,
-    wrapper: Wrapper,
 
     className: customClassName,
     containerClassName,
@@ -99,6 +97,7 @@ export function Skeleton({
     let className = 'react-loading-skeleton'
     if (customClassName) className += ` ${customClassName}`
 
+    const inline = styleOptions.inline ?? false
     const elements: ReactElement[] = []
 
     for (let i = 0; i < count; i++) {
@@ -107,13 +106,12 @@ export function Skeleton({
                 &zwnj;
             </span>
         )
+
+        // Without the <br />, the skeleton lines will all run together if
+        // `width` is specified
+        if (!inline) elements.push(<br key={`br-${i}`} />)
     }
 
-    // Reference on accessible loading indicators
-    // https://dockyard.com/blog/2020/03/02/accessible-loading-indicatorswith-no-extra-elements
-
-    // Without the <br /> elements, the skeleton lines will all run together if
-    // `width` is specified
     return (
         <span
             className={containerClassName}
@@ -121,14 +119,7 @@ export function Skeleton({
             aria-live="polite"
             aria-busy
         >
-            {Wrapper
-                ? elements.map((element, i) => (
-                      <Wrapper key={i}>
-                          {element}
-                          &zwnj;
-                      </Wrapper>
-                  ))
-                : elements.map((element, i) => [element, <br key={`br-${i}`} />])}
+            {elements}
         </span>
     )
 }
