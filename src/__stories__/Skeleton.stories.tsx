@@ -105,10 +105,31 @@ export const CustomStyles: React.VFC = () => (
     <Skeleton height="100px" style={{ borderRadius: 10, height: 50, width: 50 }} />
 )
 
-export const Circle: React.VFC = () => (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Skeleton height={50} width={50} circle />
+export const Circle: React.VFC = () => <Skeleton height={50} width={50} circle />
+
+const StarWrapper: React.FC = ({ children }) => (
+    <div
+        style={{
+            display: 'inline-block',
+            clipPath:
+                'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
+            width: '100px',
+            height: '100px',
+        }}
+    >
+        {children}
     </div>
+)
+
+// Use https://bennettfeely.com/clippy/ to try out other shapes
+export const Stars: React.VFC = () => (
+    <Skeleton
+        height="100%"
+        wrapper={StarWrapper}
+        count={5}
+        baseColor="#ebab34"
+        highlightColor="#f2cb07"
+    />
 )
 
 export const RightToLeft: React.VFC = () => <Skeleton direction="rtl" />
