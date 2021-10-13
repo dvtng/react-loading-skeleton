@@ -7,7 +7,7 @@
         Make beautiful, animated loading skeletons that automatically adapt to your app.
     </p>
     <h3>
-    <a href="https://dvtng.github.io/react-loading-skeleton">View Live Demo</a> &bull;
+    <a href="https://dvtng.github.io/react-loading-skeleton">View Live Demo</a> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
     <a href="https://codesandbox.io/s/react-loading-skeleton-3xwil?file=/src/App.tsx">Open on CodeSandbox</a>
     </h3>
     <img src="https://media.giphy.com/media/l0Iyk4bAAjac3AU2k/giphy.gif" alt="Gif of the skeleton in action">
