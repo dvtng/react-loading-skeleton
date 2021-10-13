@@ -35,35 +35,19 @@ export const NoBorderRadius: React.VFC = () => (
             borderRadius="0"
         >
             <Post loading />
-            <Post loading />
-            <Post loading />
         </SkeletonTheme>
     </div>
 )
 
-export const WrapperAndTheme: React.VFC = () => (
-    <SideBySide>
-        <SkeletonTheme baseColor={darkBaseColor} highlightColor={darkHighlightColor}>
-            <Skeleton count={5} wrapper={Box} />
-        </SkeletonTheme>
-        <div>
-            <Box>A</Box>
-            <Box>B</Box>
-            <Box>C</Box>
-            <Box>D</Box>
-            <Box>E</Box>
-        </div>
-    </SideBySide>
-)
-
 export const LightAndDarkThemes: React.VFC = () => {
     const [theme, setTheme] = React.useState<'light' | 'dark'>('light')
-    const skeletonColor = theme === 'light' ? darkBaseColor : lightBaseColor
-    const skeletonHighlight = theme === 'light' ? darkHighlightColor : lightHighlightColor
 
     const handleToggle = () => {
         setTheme((oldTheme) => (oldTheme === 'light' ? 'dark' : 'light'))
     }
+
+    const skeletonColor = theme === 'light' ? darkBaseColor : lightBaseColor
+    const skeletonHighlight = theme === 'light' ? darkHighlightColor : lightHighlightColor
 
     const backgroundColor = theme === 'light' ? 'white' : '#333'
     const color = theme === 'light' ? 'unset' : '#eee'
@@ -78,7 +62,23 @@ export const LightAndDarkThemes: React.VFC = () => {
                     baseColor={skeletonColor}
                     highlightColor={skeletonHighlight}
                 >
-                    <Skeleton count={5} wrapper={Box} />
+                    <div>
+                        <Box>
+                            <Skeleton />
+                        </Box>
+                        <Box>
+                            <Skeleton />
+                        </Box>
+                        <Box>
+                            <Skeleton />
+                        </Box>
+                        <Box>
+                            <Skeleton />
+                        </Box>
+                        <Box>
+                            <Skeleton />
+                        </Box>
+                    </div>
                 </SkeletonTheme>
                 <div>
                     <Box>A</Box>
