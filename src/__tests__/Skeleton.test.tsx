@@ -1,7 +1,12 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { Skeleton } from '../Skeleton'
-import { getAllSkeletons, getSkeleton, hasLineBreak } from './__helpers__'
+import {
+    getAllSkeletons,
+    getSkeleton,
+    hasLineBreak,
+    skeletonSelector,
+} from './__helpers__'
 
 it('renders a skeleton', () => {
     render(<Skeleton />)
@@ -87,4 +92,15 @@ it('applies the containerClassName and containerTestId', () => {
 
     const container = screen.getByTestId('myTestId')
     expect(container).toHaveClass('test-class')
+})
+
+it('renders a skeleton with a wrapper', () => {
+    const Wrapper: React.FC = ({ children }) => <div className="box">{children}</div>
+
+    render(<Skeleton wrapper={Wrapper} />)
+
+    const box = document.querySelector<HTMLElement>('.box')
+    if (!box) throw new Error('box is null.')
+
+    expect(box.querySelector(skeletonSelector)).toBeVisible()
 })

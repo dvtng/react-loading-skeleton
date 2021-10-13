@@ -19,39 +19,20 @@ export default {
 export const Basic: React.VFC = () => <Skeleton count={5} width={400} />
 
 export const Inline: React.VFC = () => (
-    <div>
-        <p>A single line composed of multiple skeletons:</p>
-        <SideBySide>
-            <div>
-                <Skeleton width={100} inline style={{ marginRight: '0.5rem' }} />
-                <Skeleton width={150} inline style={{ marginRight: '0.5rem' }} />
-                <Skeleton width={75} inline style={{ marginRight: '0.5rem' }} />
-                <Skeleton width={150} inline />
-            </div>
-            <div>Some text for comparison</div>
-        </SideBySide>
-    </div>
-)
-
-export const WithWrapper: React.VFC = () => (
     <SideBySide>
         <div>
-            <Box>
-                <Skeleton />
-            </Box>
-            <Box>
-                <Skeleton />
-            </Box>
-            <Box>
-                <Skeleton />
-            </Box>
-            <Box>
-                <Skeleton />
-            </Box>
-            <Box>
-                <Skeleton />
-            </Box>
+            <Skeleton width={100} inline style={{ marginRight: '0.5rem' }} />
+            <Skeleton width={150} inline style={{ marginRight: '0.5rem' }} />
+            <Skeleton width={75} inline style={{ marginRight: '0.5rem' }} />
+            <Skeleton width={150} inline />
         </div>
+        <div>Some text for comparison</div>
+    </SideBySide>
+)
+
+export const BlockWrapper: React.VFC = () => (
+    <SideBySide>
+        <Skeleton count={5} wrapper={Box} />
         <div>
             <Box>A</Box>
             <Box>B</Box>
@@ -59,6 +40,36 @@ export const WithWrapper: React.VFC = () => (
             <Box>D</Box>
         </div>
     </SideBySide>
+)
+
+function InlineWrapperWithMargin({ children }: PropsWithChildren<unknown>): ReactElement {
+    return <span style={{ marginRight: '0.25rem' }}>{children}</span>
+}
+
+export const InlineWrapper: React.VFC = () => (
+    <div style={{ lineHeight: 1.5 }}>
+        <SideBySide>
+            <div>
+                {[0, 1, 2, 3].map((i) => (
+                    <div>
+                        <Skeleton
+                            count={4}
+                            width={75}
+                            inline
+                            wrapper={InlineWrapperWithMargin}
+                            key={i}
+                        />
+                    </div>
+                ))}
+            </div>
+            <div>
+                <div>Some text for comparison</div>
+                <div>Some text for comparison</div>
+                <div>Some text for comparison</div>
+                <div>Some text for comparison</div>
+            </div>
+        </SideBySide>
+    </div>
 )
 
 export const DifferentDurations: React.VFC = () => (
@@ -104,6 +115,7 @@ export const RightToLeft: React.VFC = () => <Skeleton direction="rtl" />
 
 export const DisableAnimation: React.VFC = () => {
     const [enabled, setEnabled] = useState(true)
+
     return (
         <div>
             <label htmlFor="checkbox">

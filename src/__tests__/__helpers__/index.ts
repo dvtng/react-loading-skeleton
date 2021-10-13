@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 
-const skeletonSelector = 'span.react-loading-skeleton'
+export const skeletonSelector = 'span.react-loading-skeleton'
 
 export function getAllSkeletons(): HTMLElement[] {
     return Array.from(document.querySelectorAll<HTMLElement>(skeletonSelector))

@@ -103,6 +103,14 @@ return (
             <td><code>1</code></td>
         </tr>
         <tr>
+            <td><code>wrapper?: React.FunctionComponent</code></td>
+            <td>
+                A custom wrapper component that goes around the individual skeleton
+                elements.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
             <td><code>circle?: boolean</code></td>
             <td>
                 Makes the skeleton circular by setting <code>border-radius</code> to

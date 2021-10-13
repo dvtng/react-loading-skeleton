@@ -58,6 +58,7 @@ function styleOptionsToCssProperties({
 
 export interface SkeletonProps extends SkeletonStyleProps {
     count?: number
+    wrapper?: React.FunctionComponent
 
     className?: string
     containerClassName?: string
@@ -69,6 +70,7 @@ export interface SkeletonProps extends SkeletonStyleProps {
 
 export function Skeleton({
     count = 1,
+    wrapper: Wrapper,
 
     className: customClassName,
     containerClassName,
@@ -98,18 +100,28 @@ export function Skeleton({
     if (customClassName) className += ` ${customClassName}`
 
     const inline = styleOptions.inline ?? false
+
     const elements: ReactElement[] = []
 
+    // Without the <br />, the skeleton lines will all run together if
+    // `width` is specified
     for (let i = 0; i < count; i++) {
-        elements.push(
-            <span key={i} className={className} style={style}>
+        const skeletonSpan = (
+            <span className={className} style={style} key={i}>
                 &zwnj;
             </span>
         )
 
-        // Without the <br />, the skeleton lines will all run together if
-        // `width` is specified
-        if (!inline) elements.push(<br key={`br-${i}`} />)
+        if (inline) {
+            elements.push(skeletonSpan)
+        } else {
+            elements.push(
+                <React.Fragment key={i}>
+                    {skeletonSpan}
+                    <br />
+                </React.Fragment>
+            )
+        }
     }
 
     return (
@@ -119,7 +131,9 @@ export function Skeleton({
             aria-live="polite"
             aria-busy
         >
-            {elements}
+            {Wrapper
+                ? elements.map((el, i) => <Wrapper key={i}>{el}</Wrapper>)
+                : elements}
         </span>
     )
 }
