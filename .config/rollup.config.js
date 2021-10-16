@@ -18,6 +18,12 @@ export default {
              * Can't import the named export 'useContext' from non EcmaScript
              * module (only default export is available)
              *
+             * This error occurred in a Webpack 4 app (Create React App). We can
+             * hopefully remove the `interop` key if React decides to publish an
+             * ES module and/or Webpack 4 usage declines.
+             *
+             * -----
+             *
              * Here is the Rollup documentation on `defaultOnly`:
              *
              * Named imports are forbidden. If such an import is encountered,
