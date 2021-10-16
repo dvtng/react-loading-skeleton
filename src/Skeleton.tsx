@@ -35,13 +35,7 @@ function styleOptionsToCssProperties({
     if (typeof borderRadius === 'string' || typeof borderRadius === 'number')
         style.borderRadius = borderRadius
 
-    if (
-        typeof style.width !== 'undefined' &&
-        typeof style.height !== 'undefined' &&
-        circle
-    ) {
-        style.borderRadius = '50%'
-    }
+    if (circle) style.borderRadius = '50%'
 
     if (typeof baseColor !== 'undefined' || typeof highlightColor !== 'undefined') {
         style.backgroundColor = baseColor ?? defaultBaseColor
