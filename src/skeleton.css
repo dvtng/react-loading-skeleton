@@ -13,14 +13,14 @@
 
     width: 100%;
     border-radius: 0.25rem;
-    display: inline-block;
+    display: inline-flex;
     line-height: 1;
 
     position: relative;
     overflow: hidden;
 }
 
-.react-loading-skeleton::before {
+.react-loading-skeleton::after {
     content: ' ';
     display: block;
     position: absolute;
