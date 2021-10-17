@@ -8,6 +8,8 @@
     /* If either color is changed, Skeleton.tsx must be updated as well */
     --base-color: #ebebeb;
     --highlight-color: #f5f5f5;
+    --animation-duration: 1.5s;
+    --animation-direction: normal;
 
     background-color: var(--base-color);
 
@@ -37,7 +39,8 @@
     transform: translateX(-100%);
 
     animation-name: react-loading-skeleton;
-    animation-duration: 1.5s;
+    animation-direction: var(--animation-direction);
+    animation-duration: var(--animation-duration);
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }

@@ -21,11 +21,11 @@ function styleOptionsToCssProperties({
     duration,
     enableAnimation = true,
 }: SkeletonStyleProps & { circle: boolean }): CSSProperties {
-    const style: CSSProperties = {}
+    const style: CSSProperties & Record<`--${string}`, string> = {}
 
-    if (direction === 'rtl') style.animationDirection = 'reverse'
+    if (direction === 'rtl') style['--animation-direction'] = 'reverse'
 
-    if (typeof duration === 'number') style.animationDuration = `${duration}s`
+    if (typeof duration === 'number') style['--animation-duration'] = `${duration}s`
 
     if (typeof width === 'string' || typeof width === 'number') style.width = width
     if (typeof height === 'string' || typeof height === 'number') style.height = height
@@ -42,13 +42,8 @@ function styleOptionsToCssProperties({
     }
 
     if (typeof baseColor !== 'undefined' || typeof highlightColor !== 'undefined') {
-        style.backgroundColor = baseColor ?? defaultBaseColor
-        style.backgroundImage = `linear-gradient(
-            90deg,
-            ${baseColor ?? defaultBaseColor},
-            ${highlightColor ?? defaultHighlightColor},
-            ${baseColor ?? defaultBaseColor}
-        )`
+        style['--base-color'] = baseColor ?? defaultBaseColor;
+        style['--highlight-color'] = highlightColor ?? defaultHighlightColor;
     }
 
     if (!enableAnimation) style.backgroundImage = 'none'
