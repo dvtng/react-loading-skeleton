@@ -42,11 +42,16 @@ continue to use `react-loading-skeleton` v2.
 
 ### Other Changes
 
+-   Optimize animation performance:
+    -   The old animation animated the `background-position` property which made
+        the browser repaint the gradient on every frame.
+    -   The new animation animates the `transform` of a pseudoelement. This
+        avoids repaints and results in an observable decrease in CPU usage.
+-   No longer require `width` and `height` to be set for the `circle` prop to
+    work
 -   Change the default `duration` from 1.2 s to 1.5 s
 -   Make the default `Skeleton` base color a _tiny_ bit darker so that the
     animation is more visible
--   No longer require `width` and `height` to be set for the `circle` prop to
-    work
 
 ### Bug Fixes
 
@@ -57,6 +62,7 @@ continue to use `react-loading-skeleton` v2.
 ### Thanks!
 
 -   @srmagura
+-   @aboodz
 -   @RoseMagura
 -   @saadaouad
 -   @rlaunch
