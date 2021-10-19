@@ -25,7 +25,7 @@ it('styles the skeleton', () => {
 
     const skeleton = getSkeleton()
     expect(skeleton).toHaveStyle({ borderRadius: '1rem' })
-    expect(skeleton).toHaveStyle({ backgroundColor: 'black' })
+    expect(skeleton.style.getPropertyValue('--base-color')).toBe('black')
 })
 
 it('is overridden by Skeleton props', () => {
@@ -37,7 +37,7 @@ it('is overridden by Skeleton props', () => {
 
     const skeleton = getSkeleton()
     expect(skeleton).toHaveStyle({ borderRadius: '2rem' })
-    expect(skeleton).toHaveStyle({ backgroundColor: 'black' })
+    expect(skeleton.style.getPropertyValue('--base-color')).toBe('black')
 })
 
 it('styles the skeleton through a portal', () => {
@@ -52,5 +52,5 @@ it('styles the skeleton through a portal', () => {
 
     const skeleton = getSkeleton()
     expect(skeleton).toHaveStyle({ borderRadius: '1rem' })
-    expect(skeleton).toHaveStyle({ backgroundColor: 'black' })
+    expect(skeleton.style.getPropertyValue('--base-color')).toBe('black')
 })

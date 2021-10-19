@@ -28,6 +28,15 @@ it('renders the required number of skeletons', () => {
     expect(skeletonElements).toHaveLength(4)
 })
 
+it('changes the color of the skeleton', () => {
+    render(<Skeleton baseColor="purple" highlightColor="red" />)
+
+    const skeleton = getSkeleton()
+
+    expect(skeleton.style.getPropertyValue('--base-color')).toBe('purple')
+    expect(skeleton.style.getPropertyValue('--highlight-color')).toBe('red')
+})
+
 it('renders a skeleton with styles', () => {
     const style = { borderRadius: 10, height: 50, width: 50 }
     render(<Skeleton style={style} />)
