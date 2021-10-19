@@ -30,6 +30,12 @@ export const Inline: React.VFC = () => (
     </SideBySide>
 )
 
+export const InlineWithText: React.VFC = () => (
+    <div>
+        Some random text <Skeleton width={150} inline /> Some more random text
+    </div>
+)
+
 export const BlockWrapper: React.VFC = () => (
     <SideBySide>
         <Skeleton count={5} wrapper={Box} />
@@ -51,13 +57,12 @@ export const InlineWrapper: React.VFC = () => (
         <SideBySide>
             <div>
                 {[0, 1, 2, 3].map((i) => (
-                    <div>
+                    <div key={i}>
                         <Skeleton
                             count={4}
                             width={75}
                             inline
                             wrapper={InlineWrapperWithMargin}
-                            key={i}
                         />
                     </div>
                 ))}
@@ -73,7 +78,7 @@ export const InlineWrapper: React.VFC = () => (
 )
 
 export const DifferentDurations: React.VFC = () => (
-    <div>
+    <div style={{ width: 500 }}>
         <Skeleton duration={1} />
         <Skeleton duration={2} />
         <Skeleton duration={3} />
@@ -107,6 +112,7 @@ export const CustomStyles: React.VFC = () => (
 
 export const Circle: React.VFC = () => <Skeleton height={50} width={50} circle />
 
+// Use https://bennettfeely.com/clippy/ to try out other shapes
 const StarWrapper: React.FC = ({ children }) => (
     <div
         style={{
@@ -121,7 +127,6 @@ const StarWrapper: React.FC = ({ children }) => (
     </div>
 )
 
-// Use https://bennettfeely.com/clippy/ to try out other shapes
 export const Stars: React.VFC = () => (
     <Skeleton
         height="100%"

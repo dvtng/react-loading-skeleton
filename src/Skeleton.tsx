@@ -3,10 +3,6 @@ import React, { CSSProperties, ReactElement } from 'react'
 import { SkeletonThemeContext } from './SkeletonThemeContext'
 import { SkeletonStyleProps } from './SkeletonStyleProps'
 
-// If either color is changed, skeleton.css must be updated as well
-const defaultBaseColor = '#ebebeb'
-const defaultHighlightColor = '#f5f5f5'
-
 const defaultEnableAnimation = true
 
 // For performance & cleanliness, don't add any inline styles unless we have to
@@ -26,8 +22,8 @@ function styleOptionsToCssProperties({
     const style: CSSProperties & Record<`--${string}`, string> = {}
 
     if (direction === 'rtl') style['--animation-direction'] = 'reverse'
-
     if (typeof duration === 'number') style['--animation-duration'] = `${duration}s`
+    if (!enableAnimation) style.backgroundImage = 'none'
 
     if (typeof width === 'string' || typeof width === 'number') style.width = width
     if (typeof height === 'string' || typeof height === 'number') style.height = height
@@ -37,12 +33,8 @@ function styleOptionsToCssProperties({
 
     if (circle) style.borderRadius = '50%'
 
-    if (typeof baseColor !== 'undefined' || typeof highlightColor !== 'undefined') {
-        style['--base-color'] = baseColor ?? defaultBaseColor;
-        style['--highlight-color'] = highlightColor ?? defaultHighlightColor;
-    }
-
-    if (!enableAnimation) style.backgroundImage = 'none'
+    if (typeof baseColor !== 'undefined') style['--base-color'] = baseColor
+    if (typeof highlightColor !== 'undefined') style['--highlight-color'] = highlightColor
 
     return style
 }
