@@ -13,7 +13,10 @@
     <img src="https://media.giphy.com/media/l0Iyk4bAAjac3AU2k/giphy.gif" alt="Gif of the skeleton in action">
 </div>
 
-Learn about the [changes in version 3](https://github.com/dvtng/react-loading-skeleton/releases/tag/v3.0.0), or view the [v2 documentation](https://github.com/dvtng/react-loading-skeleton/tree/v2#readme).
+Learn about the [changes in version
+3](https://github.com/dvtng/react-loading-skeleton/releases/tag/v3.0.0), or view
+the [v2
+documentation](https://github.com/dvtng/react-loading-skeleton/tree/v2#readme).
 
 ## Basic Usage
 
@@ -75,7 +78,8 @@ This approach is beneficial because:
 
 ## Theming
 
-Customize individual skeletons with props, or render a `SkeletonTheme` to style all skeletons below it in the React hierarchy:
+Customize individual skeletons with props, or render a `SkeletonTheme` to style
+all skeletons below it in the React hierarchy:
 
 ```tsx
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
@@ -233,7 +237,7 @@ return (
 
 ### Custom Wrapper
 
-Wrapping a skeleton in a container is simple:
+There are two ways to wrap a skeleton in a container:
 
 ```tsx
 function Box({ children }: PropsWithChildren<unknown>) {
@@ -253,7 +257,11 @@ function Box({ children }: PropsWithChildren<unknown>) {
     )
 }
 
-const wrapped = (
+// Method 1: Use the wrapper prop
+const wrapped1 = <Skeleton wrapper={Box} count={5} />
+
+// Method 2: Do it "the normal way"
+const wrapped2 = (
     <Box>
         <Skeleton />
     </Box>
@@ -262,7 +270,8 @@ const wrapped = (
 
 ### The height of my container is off by a few pixels!
 
-In the example below, the height of the `<div>` will be slightly larger than 30 even though the `react-loading-skeleton` element is exactly 30px.
+In the example below, the height of the `<div>` will be slightly larger than 30
+even though the `react-loading-skeleton` element is exactly 30px.
 
 ```tsx
 <div>
@@ -270,7 +279,10 @@ In the example below, the height of the `<div>` will be slightly larger than 30 
 </div>
 ```
 
-This is a consequence of how `line-height` works in CSS. If you need the `<div>` to be exactly 30px tall, set its `line-height` to 1. [See here](https://github.com/dvtng/react-loading-skeleton/issues/23#issuecomment-939231878) for more details.
+This is a consequence of how `line-height` works in CSS. If you need the `<div>`
+to be exactly 30px tall, set its `line-height` to 1. [See
+here](https://github.com/dvtng/react-loading-skeleton/issues/23#issuecomment-939231878)
+for more details.
 
 ## Contributing
 
@@ -278,4 +290,5 @@ Contributions are welcome! See `CONTRIBUTING.md` to get started.
 
 ## Acknowledgements
 
-Our logo is based off an image from [Font Awesome](https://fontawesome.com/license/free). Thanks!
+Our logo is based off an image from [Font
+Awesome](https://fontawesome.com/license/free). Thanks!
