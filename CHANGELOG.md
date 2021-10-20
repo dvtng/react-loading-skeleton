@@ -1,3 +1,9 @@
+## UNRELEASED
+
+### Bug Fixes
+
+-   Fix `SkeletonProps` not being exported from the main entry point
+
 ## 3.0.0
 
 ### Migration Guide
