@@ -1,8 +1,10 @@
-## UNRELEASED
+## 3.0.1
 
 ### Bug Fixes
 
--   Fix `SkeletonProps` not being exported from the main entry point
+-   Fix circle skeleton animation being broken in Safari (#120)
+-   Fix `SkeletonProps` not being exported from the main entry point (#118)
+-   Fix `enableAnimation` prop having no effect. This was a regression.
 
 ## 3.0.0
 
