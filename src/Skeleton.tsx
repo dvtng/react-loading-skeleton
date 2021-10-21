@@ -23,7 +23,7 @@ function styleOptionsToCssProperties({
 
     if (direction === 'rtl') style['--animation-direction'] = 'reverse'
     if (typeof duration === 'number') style['--animation-duration'] = `${duration}s`
-    if (!enableAnimation) style.backgroundImage = 'none'
+    if (!enableAnimation) style['--pseudo-element-display'] = 'none'
 
     if (typeof width === 'string' || typeof width === 'number') style.width = width
     if (typeof height === 'string' || typeof height === 'number') style.height = height

@@ -9,6 +9,7 @@
     --highlight-color: #f5f5f5;
     --animation-duration: 1.5s;
     --animation-direction: normal;
+    --pseudo-element-display: block; /* Enable animation */
 
     background-color: var(--base-color);
 
@@ -24,7 +25,7 @@
 
 .react-loading-skeleton::after {
     content: ' ';
-    display: block;
+    display: var(--pseudo-element-display);
     position: absolute;
     left: 0;
     right: 0;
