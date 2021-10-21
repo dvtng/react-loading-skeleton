@@ -78,15 +78,15 @@ it('adds a line break when inline is false', () => {
 
 it('disables the animation if and only if enableAnimation is false', () => {
     const { rerender } = render(<Skeleton containerTestId="container" />)
-    expect(getSkeleton()).toHaveStyle({ backgroundImage: /linear-gradient/ })
+    expect(getSkeleton().style.getPropertyValue('--pseudo-element-display')).toBe('')
     expect(screen.getByTestId('container')).toHaveAttribute('aria-busy', 'true')
 
     rerender(<Skeleton enableAnimation containerTestId="container" />)
-    expect(getSkeleton()).toHaveStyle({ backgroundImage: /linear-gradient/ })
+    expect(getSkeleton().style.getPropertyValue('--pseudo-element-display')).toBe('')
     expect(screen.getByTestId('container')).toHaveAttribute('aria-busy', 'true')
 
     rerender(<Skeleton enableAnimation={false} containerTestId="container" />)
-    expect(getSkeleton()).toHaveStyle({ backgroundImage: 'none' })
+    expect(getSkeleton().style.getPropertyValue('--pseudo-element-display')).toBe('none')
     expect(screen.getByTestId('container')).toHaveAttribute('aria-busy', 'false')
 })
 
