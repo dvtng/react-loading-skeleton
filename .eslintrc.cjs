@@ -19,7 +19,7 @@ module.exports = {
         'testing-library/custom-renders': 'off',
     },
     rules: {
-        'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+        'no-plusplus': 'off',
         'no-restricted-syntax': [
             'error',
             // Options from https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/style.js
