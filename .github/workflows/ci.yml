@@ -18,4 +18,4 @@ jobs:
       - name: Test
         run: yarn test
       - name: Lint
-        run: yarn run lint-all
+        run: yarn run lint

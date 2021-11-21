@@ -9,7 +9,8 @@ Contributions are welcome.
 3. Check for type errors: `yarn tsc`
 4. Run Rollup: `yarn build`
 5. Run tests: `yarn test`
-6. Run ESLint: `yarn lint-all`
+6. Run ESLint: `yarn lint`
+7. Run Storybook: `yarn storybook`
 
 ## Publishing
 

@@ -26,13 +26,11 @@
     "scripts": {
         "build": "yarn clean && tsc && rollup -c .config/rollup.config.js",
         "clean": "rimraf dist",
-        "lint": "eslint",
-        "lint-all": "yarn lint .",
+        "lint": "eslint .",
         "lint-staged": "lint-staged --no-stash",
         "prepack": "yarn run build",
-        "prettier-all": "prettier .",
+        "prettier": "prettier .",
         "setup": "husky install",
-        "start": "yarn run storybook",
         "storybook": "start-storybook -p 8080",
         "test": "jest --config .config/jest.config.cjs"
     },
