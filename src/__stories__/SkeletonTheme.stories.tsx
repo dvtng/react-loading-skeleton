@@ -13,8 +13,8 @@ const darkBaseColor = '#333'
 const darkHighlightColor = '#999'
 const blueBaseColor = '#1D5CA6'
 const blueHighlightColor = '#5294e0'
-const lightBaseColor = '#d3d3d3'
-const lightHighlightColor = '#808080'
+const lightBaseColor = '#c0c0c0'
+const lightHighlightColor = '#A0A0A0'
 
 export const WithColors: React.VFC = () => (
     <div>
