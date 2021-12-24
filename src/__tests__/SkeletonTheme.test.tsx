@@ -54,3 +54,16 @@ it('styles the skeleton through a portal', () => {
     expect(skeleton).toHaveStyle({ borderRadius: '1rem' })
     expect(skeleton.style.getPropertyValue('--base-color')).toBe('black')
 })
+
+// Regression test
+it('is not blocked by setting Skeleton props to undefined', () => {
+    render(
+        <SkeletonTheme baseColor="green" highlightColor="red">
+            <Skeleton baseColor={undefined} highlightColor={undefined} />
+        </SkeletonTheme>
+    )
+
+    const skeleton = getSkeleton()
+    expect(skeleton.style.getPropertyValue('--base-color')).toBe('green')
+    expect(skeleton.style.getPropertyValue('--highlight-color')).toBe('red')
+})

@@ -28,15 +28,13 @@ export const WithColors: React.VFC = () => (
 )
 
 export const NoBorderRadius: React.VFC = () => (
-    <div>
-        <SkeletonTheme
-            baseColor={blueBaseColor}
-            highlightColor={blueHighlightColor}
-            borderRadius="0"
-        >
-            <Post loading />
-        </SkeletonTheme>
-    </div>
+    <SkeletonTheme
+        baseColor={blueBaseColor}
+        highlightColor={blueHighlightColor}
+        borderRadius="0"
+    >
+        <Post loading />
+    </SkeletonTheme>
 )
 
 export const LightAndDarkThemes: React.VFC = () => {
@@ -75,3 +73,16 @@ export const LightAndDarkThemes: React.VFC = () => {
         </div>
     )
 }
+
+export const PropsExplicitlySetToUndefined: React.VFC = () => (
+    <div>
+        <p>
+            This is a test for{' '}
+            <a href="https://github.com/dvtng/react-loading-skeleton/issues/128">#128</a>.
+            The skeleton should have Christmas colors.
+        </p>
+        <SkeletonTheme baseColor="green" highlightColor="red">
+            <Skeleton baseColor={undefined} highlightColor={undefined} />
+        </SkeletonTheme>
+    </div>
+)

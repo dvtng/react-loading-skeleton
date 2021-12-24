@@ -5,6 +5,8 @@ import { SkeletonStyleProps } from './SkeletonStyleProps'
 
 const defaultEnableAnimation = true
 
+type StyleOptions = SkeletonStyleProps & { circle: boolean }
+
 // For performance & cleanliness, don't add any inline styles unless we have to
 function styleOptionsToCssProperties({
     baseColor,
@@ -62,12 +64,22 @@ export function Skeleton({
     circle = false,
 
     style: styleProp,
-    ...propsStyleOptions
+    ...originalPropsStyleOptions
 }: SkeletonProps): ReactElement {
     const contextStyleOptions = React.useContext(SkeletonThemeContext)
 
+    const propsStyleOptions = { ...originalPropsStyleOptions }
+
+    // DO NOT overwrite style options from the context if `propsStyleOptions`
+    // has properties explicity set to undefined
+    for (const [key, value] of Object.entries(originalPropsStyleOptions)) {
+        if (typeof value === 'undefined') {
+            delete propsStyleOptions[key as keyof typeof propsStyleOptions]
+        }
+    }
+
     // Props take priority over context
-    const styleOptions = {
+    const styleOptions: StyleOptions = {
         ...contextStyleOptions,
         ...propsStyleOptions,
         circle,
