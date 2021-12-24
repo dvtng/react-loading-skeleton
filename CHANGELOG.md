@@ -1,3 +1,14 @@
+## 3.0.2
+
+### Bug Fixes
+
+-   Fix explicitly setting a `Skeleton` prop to undefined, like `<Skeleton highlightColor={undefined}>`, blocking style options from the `SkeletonTheme`
+    (#128)
+    -   If you were relying on this behavior to block values from the
+        `SkeletonTheme`, you can render a nested `SkeletonTheme` to override a
+        theme defined higher up in the component tree, OR explicitly set one or
+        more `Skeleton` props back to their default values e.g. `<Skeleton baseColor="#ebebeb" />`
+
 ## 3.0.1
 
 ### Bug Fixes

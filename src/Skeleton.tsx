@@ -62,9 +62,19 @@ export function Skeleton({
     circle = false,
 
     style: styleProp,
-    ...propsStyleOptions
+    ...originalPropsStyleOptions
 }: SkeletonProps): ReactElement {
     const contextStyleOptions = React.useContext(SkeletonThemeContext)
+
+    const propsStyleOptions = { ...originalPropsStyleOptions }
+
+    // DO NOT overwrite style options from the context if `propsStyleOptions`
+    // has properties explicity set to undefined
+    for (const [key, value] of Object.entries(originalPropsStyleOptions)) {
+        if (typeof value === 'undefined') {
+            delete propsStyleOptions[key as keyof typeof propsStyleOptions]
+        }
+    }
 
     // Props take priority over context
     const styleOptions = {
