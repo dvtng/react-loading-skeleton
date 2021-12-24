@@ -5,8 +5,6 @@ import { SkeletonStyleProps } from './SkeletonStyleProps'
 
 const defaultEnableAnimation = true
 
-type StyleOptions = SkeletonStyleProps & { circle: boolean }
-
 // For performance & cleanliness, don't add any inline styles unless we have to
 function styleOptionsToCssProperties({
     baseColor,
@@ -79,7 +77,7 @@ export function Skeleton({
     }
 
     // Props take priority over context
-    const styleOptions: StyleOptions = {
+    const styleOptions = {
         ...contextStyleOptions,
         ...propsStyleOptions,
         circle,
