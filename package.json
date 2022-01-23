@@ -1,6 +1,7 @@
 {
     "name": "react-loading-skeleton",
     "version": "3.0.2",
+    "description": "Make beautiful, animated loading skeletons that automatically adapt to your app.",
     "keywords": [
         "react",
         "loading",
