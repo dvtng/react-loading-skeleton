@@ -1,3 +1,13 @@
+## 3.0.3
+
+### Bug Fixes
+
+-   Fix an edge case where the animated highlight had the wrong vertical position (#133)
+
+### Thanks!
+
+-   @HexM7
+
 ## 3.0.2
 
 ### Bug Fixes
