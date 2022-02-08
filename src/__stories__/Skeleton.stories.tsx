@@ -367,3 +367,20 @@ export const ShadowDOM: React.VFC = () => {
         </div>
     )
 }
+
+export const RegressionTest133 = () => (
+    <div>
+        <p>
+            Regression test for{' '}
+            <a href="https://github.com/dvtng/react-loading-skeleton/pull/133">#133</a>,
+            in which the pseudoelement had the wrong vertical position. There animated
+            highlight should cover the entire square.
+        </p>
+        <div style={{ display: 'flex' }}>
+            <Skeleton
+                baseColor="paleturquoise"
+                style={{ display: 'block', width: 200, height: 200 }}
+            />
+        </div>
+    </div>
+)
