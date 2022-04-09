@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { render, screen } from '@testing-library/react'
 import { Skeleton } from '../Skeleton'
 import {
@@ -107,7 +107,9 @@ it('applies the containerClassName and containerTestId', () => {
 })
 
 it('renders a skeleton with a wrapper', () => {
-    const Wrapper: React.FC = ({ children }) => <div className="box">{children}</div>
+    const Wrapper: React.FC<PropsWithChildren<unknown>> = ({ children }) => (
+        <div className="box">{children}</div>
+    )
 
     render(<Skeleton wrapper={Wrapper} />)
 

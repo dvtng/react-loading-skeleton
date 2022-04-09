@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { CSSProperties, ReactElement } from 'react'
+import React, { CSSProperties, PropsWithChildren, ReactElement } from 'react'
 import { SkeletonThemeContext } from './SkeletonThemeContext'
 import { SkeletonStyleProps } from './SkeletonStyleProps'
 
@@ -41,7 +41,7 @@ function styleOptionsToCssProperties({
 
 export interface SkeletonProps extends SkeletonStyleProps {
     count?: number
-    wrapper?: React.FunctionComponent
+    wrapper?: React.FunctionComponent<PropsWithChildren<unknown>>
 
     className?: string
     containerClassName?: string
