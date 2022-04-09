@@ -113,7 +113,7 @@ export const CustomStyles: React.VFC = () => (
 export const Circle: React.VFC = () => <Skeleton height={50} width={50} circle />
 
 // Use https://bennettfeely.com/clippy/ to try out other shapes
-const StarWrapper: React.FC = ({ children }) => (
+const StarWrapper: React.FC<PropsWithChildren<unknown>> = ({ children }) => (
     <div
         style={{
             display: 'inline-block',
