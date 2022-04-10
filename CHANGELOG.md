@@ -1,3 +1,10 @@
+## 3.1.0
+
+### Features
+
+-   If `count` is set to a decimal number like 3.5, the component will display 3
+    full-width skeletons followed by 1 half-width skeleton. (#136)
+
 ## 3.0.3
 
 ### Bug Fixes
