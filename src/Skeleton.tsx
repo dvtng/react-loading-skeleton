@@ -96,11 +96,33 @@ export function Skeleton({
 
     const elements: ReactElement[] = []
 
-    // Without the <br />, the skeleton lines will all run together if
-    // `width` is specified
-    for (let i = 0; i < count; i++) {
+    const countCeil = Math.ceil(count)
+
+    for (let i = 0; i < countCeil; i++) {
+        let thisStyle = style
+
+        if (countCeil > count && i === countCeil - 1) {
+            // count is not an integer and we've reached the last iteration of
+            // the loop, so add a "fractional" skeleton.
+            //
+            // For example, if count is 3.5, we've already added 3 full
+            // skeletons, so now we add one more skeleton that is 0.5 times the
+            // original width.
+
+            const width = thisStyle.width ?? '100%' // 100% is the default since that's what's in the CSS
+
+            const fractionalPart = count % 1
+
+            const fractionalWidth =
+                typeof width === 'number'
+                    ? width * fractionalPart
+                    : `calc(${width} * ${fractionalPart})`
+
+            thisStyle = { ...thisStyle, width: fractionalWidth }
+        }
+
         const skeletonSpan = (
-            <span className={className} style={style} key={i}>
+            <span className={className} style={thisStyle} key={i}>
                 &zwnj;
             </span>
         )
@@ -108,6 +130,8 @@ export function Skeleton({
         if (inline) {
             elements.push(skeletonSpan)
         } else {
+            // Without the <br />, the skeleton lines will all run together if
+            // `width` is specified
             elements.push(
                 <React.Fragment key={i}>
                     {skeletonSpan}

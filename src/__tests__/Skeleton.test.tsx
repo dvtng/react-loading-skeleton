@@ -118,3 +118,23 @@ it('renders a skeleton with a wrapper', () => {
 
     expect(box.querySelector(skeletonSelector)).toBeVisible()
 })
+
+it('renders a half-width skeleton when count = 1.5', () => {
+    render(<Skeleton count={1.5} />)
+
+    const skeletons = getAllSkeletons()
+    expect(skeletons).toHaveLength(2)
+
+    expect(skeletons[0]).toHaveStyle({ width: '' })
+    expect(skeletons[1]).toHaveStyle({ width: 'calc(100% * 0.5)' })
+})
+
+it('renders a 3/4-width skeleton when count = 1.75 and width is set in pixels', () => {
+    render(<Skeleton count={1.75} width={100} />)
+
+    const skeletons = getAllSkeletons()
+    expect(skeletons).toHaveLength(2)
+
+    expect(skeletons[0]).toHaveStyle({ width: '100px' })
+    expect(skeletons[1]).toHaveStyle({ width: '75px' })
+})

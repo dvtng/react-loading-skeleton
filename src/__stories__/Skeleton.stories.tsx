@@ -16,9 +16,9 @@ export default {
     title: 'Skeleton',
 } as Meta
 
-export const Basic: React.VFC = () => <Skeleton count={5} width={400} />
+export const Basic: React.FC = () => <Skeleton count={5} width={400} />
 
-export const Inline: React.VFC = () => (
+export const Inline: React.FC = () => (
     <SideBySide>
         <div>
             <Skeleton width={100} inline style={{ marginRight: '0.5rem' }} />
@@ -30,13 +30,13 @@ export const Inline: React.VFC = () => (
     </SideBySide>
 )
 
-export const InlineWithText: React.VFC = () => (
+export const InlineWithText: React.FC = () => (
     <div>
         Some random text <Skeleton width={150} inline /> Some more random text
     </div>
 )
 
-export const BlockWrapper: React.VFC = () => (
+export const BlockWrapper: React.FC = () => (
     <SideBySide>
         <Skeleton count={5} wrapper={Box} />
         <div>
@@ -52,7 +52,7 @@ function InlineWrapperWithMargin({ children }: PropsWithChildren<unknown>): Reac
     return <span style={{ marginRight: '0.25rem' }}>{children}</span>
 }
 
-export const InlineWrapper: React.VFC = () => (
+export const InlineWrapper: React.FC = () => (
     <div style={{ lineHeight: 1.5 }}>
         <SideBySide>
             <div>
@@ -77,7 +77,7 @@ export const InlineWrapper: React.VFC = () => (
     </div>
 )
 
-export const DifferentDurations: React.VFC = () => (
+export const DifferentDurations: React.FC = () => (
     <div style={{ width: 500 }}>
         <Skeleton duration={1} />
         <Skeleton duration={2} />
@@ -86,7 +86,7 @@ export const DifferentDurations: React.VFC = () => (
     </div>
 )
 
-export const DifferentWidths: React.VFC = () => (
+export const DifferentWidths: React.FC = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Skeleton />
         <Skeleton width={50} />
@@ -96,7 +96,7 @@ export const DifferentWidths: React.VFC = () => (
     </div>
 )
 
-export const DifferentHeights: React.VFC = () => (
+export const DifferentHeights: React.FC = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Skeleton />
         <Skeleton height={200} />
@@ -106,11 +106,21 @@ export const DifferentHeights: React.VFC = () => (
     </div>
 )
 
-export const CustomStyles: React.VFC = () => (
+export const CustomStyles: React.FC = () => (
     <Skeleton height="100px" style={{ borderRadius: 10, height: 50, width: 50 }} />
 )
 
-export const Circle: React.VFC = () => <Skeleton height={50} width={50} circle />
+export const Circle: React.FC = () => <Skeleton height={50} width={50} circle />
+
+export const DecimalCount: React.FC = () => <Skeleton count={3.5} />
+
+export const DecimalCountPercentWidth: React.FC = () => (
+    <Skeleton width="50%" count={3.5} />
+)
+
+export const DecimalCountInline: React.FC = () => (
+    <Skeleton width={100} inline count={3.5} style={{ marginRight: '1rem' }} />
+)
 
 // Use https://bennettfeely.com/clippy/ to try out other shapes
 const StarWrapper: React.FC<PropsWithChildren<unknown>> = ({ children }) => (
@@ -127,7 +137,7 @@ const StarWrapper: React.FC<PropsWithChildren<unknown>> = ({ children }) => (
     </div>
 )
 
-export const Stars: React.VFC = () => (
+export const Stars: React.FC = () => (
     <Skeleton
         height="100%"
         wrapper={StarWrapper}
@@ -137,9 +147,9 @@ export const Stars: React.VFC = () => (
     />
 )
 
-export const RightToLeft: React.VFC = () => <Skeleton direction="rtl" />
+export const RightToLeft: React.FC = () => <Skeleton direction="rtl" />
 
-export const DisableAnimation: React.VFC = () => {
+export const DisableAnimation: React.FC = () => {
     const [enabled, setEnabled] = useState(true)
 
     return (
@@ -158,7 +168,7 @@ export const DisableAnimation: React.VFC = () => {
     )
 }
 
-export const PercentWidthInFlex: React.VFC = () => (
+export const PercentWidthInFlex: React.FC = () => (
     <div>
         <p>
             This is a test for{' '}
@@ -179,7 +189,7 @@ export const PercentWidthInFlex: React.VFC = () => (
     </div>
 )
 
-export const FillEntireContainer: React.VFC = () => (
+export const FillEntireContainer: React.FC = () => (
     <div>
         <p>
             This is a test for{' '}
@@ -231,7 +241,7 @@ function HeightComparison({
     )
 }
 
-export const HeightQuirk: React.VFC = () => (
+export const HeightQuirk: React.FC = () => (
     <div>
         <p>
             This is a demonstration of a Skeleton quirk that was reported in{' '}
@@ -287,7 +297,7 @@ export const HeightQuirk: React.VFC = () => (
     </div>
 )
 
-export const ShadowDOM: React.VFC = () => {
+export const ShadowDOM: React.FC = () => {
     const hostRef = useRef<HTMLDivElement | null>(null)
     const [portalDestination, setPortalDestination] = useState<HTMLDivElement>()
 
