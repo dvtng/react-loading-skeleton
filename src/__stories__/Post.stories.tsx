@@ -7,14 +7,14 @@ export default {
     title: 'Post',
 } as Meta
 
-export const Default: React.VFC = () => (
+export const Default: React.FC = () => (
     <SideBySide>
         <Post loading />
         <Post loading={false} />
     </SideBySide>
 )
 
-export const Large: React.VFC = () => (
+export const Large: React.FC = () => (
     <SideBySide>
         <Post loading size="large" />
         <Post loading={false} size="large" />

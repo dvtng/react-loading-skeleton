@@ -16,7 +16,7 @@ const blueHighlightColor = '#5294e0'
 const lightBaseColor = '#c0c0c0'
 const lightHighlightColor = '#A0A0A0'
 
-export const WithColors: React.VFC = () => (
+export const WithColors: React.FC = () => (
     <div>
         <SkeletonTheme baseColor={blueBaseColor} highlightColor={blueHighlightColor}>
             <Post loading />
@@ -27,7 +27,7 @@ export const WithColors: React.VFC = () => (
     </div>
 )
 
-export const NoBorderRadius: React.VFC = () => (
+export const NoBorderRadius: React.FC = () => (
     <SkeletonTheme
         baseColor={blueBaseColor}
         highlightColor={blueHighlightColor}
@@ -37,7 +37,7 @@ export const NoBorderRadius: React.VFC = () => (
     </SkeletonTheme>
 )
 
-export const LightAndDarkThemes: React.VFC = () => {
+export const LightAndDarkThemes: React.FC = () => {
     const [theme, setTheme] = React.useState<'light' | 'dark'>('light')
 
     const handleToggle = () => {
@@ -74,7 +74,7 @@ export const LightAndDarkThemes: React.VFC = () => {
     )
 }
 
-export const PropsExplicitlySetToUndefined: React.VFC = () => (
+export const PropsExplicitlySetToUndefined: React.FC = () => (
     <div>
         <p>
             This is a test for{' '}

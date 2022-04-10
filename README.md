@@ -108,7 +108,12 @@ return (
     <tbody>
         <tr>
             <td><code>count?: number</code></td>
-            <td>The number of lines of skeletons to render.</td>
+            <td>
+                The number of lines of skeletons to render. If 
+                <code>count</code> is a decimal number like 3.5,
+                three full skeletons and one half-width skeleton will be
+                rendered.
+            </td>
             <td><code>1</code></td>
         </tr>
         <tr>
