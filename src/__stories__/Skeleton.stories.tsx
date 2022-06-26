@@ -327,12 +327,12 @@ export const ShadowDOM: React.FC = () => {
             background-position: calc(200px + 100%) 0;
         }
     }
-    
+
     .react-loading-skeleton {
         /* If either color is changed, Skeleton.tsx must be updated as well */
         --base-color: #ebebeb;
         --highlight-color: #f5f5f5;
-    
+
         background-color: var(--base-color);
         background-image: linear-gradient(
             90deg,
@@ -340,19 +340,19 @@ export const ShadowDOM: React.FC = () => {
             var(--highlight-color),
             var(--base-color)
         );
-    
+
         width: 100%;
         background-size: 200px 100%;
         background-repeat: no-repeat;
         border-radius: 0.25rem;
         display: inline-block;
         line-height: 1;
-    
+
         animation-name: react-loading-skeleton;
         animation-duration: 1.5s;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
-    }    
+    }
     `
 
     const shadowContent = (

@@ -4,7 +4,7 @@ import '../src/skeleton.css'
 export const parameters = {
     options: {
         storySort: {
-            order: ['Skeleton', 'SkeletonTheme', 'Post'],
+            order: ['Skeleton', 'UseSkeleton', 'SkeletonTheme', 'Post'],
         },
     },
     actions: { argTypesRegex: '^on[A-Z].*' },

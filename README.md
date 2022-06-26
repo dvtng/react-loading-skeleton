@@ -109,7 +109,7 @@ return (
         <tr>
             <td><code>count?: number</code></td>
             <td>
-                The number of lines of skeletons to render. If 
+                The number of lines of skeletons to render. If
                 <code>count</code> is a decimal number like 3.5,
                 three full skeletons and one half-width skeleton will be
                 rendered.
@@ -288,6 +288,32 @@ This is a consequence of how `line-height` works in CSS. If you need the `<div>`
 to be exactly 30px tall, set its `line-height` to 1. [See
 here](https://github.com/dvtng/react-loading-skeleton/issues/23#issuecomment-939231878)
 for more details.
+
+### The `useSkeleton` hook
+
+A `useSkeleton` hook encapsulates conditional logic to keep your code easier to
+read.
+
+```tsx
+// Assuming a variable or prop exists with the loading state, use the
+// hook to get `withSkeleton`
+const { withSkeleton } = useSkeleton(loading)
+
+// A skeleton is rendered in place of `value` if `loading` is truthy
+<TableCell>{withSkeleton(value)}</TableCell>
+```
+
+If needed, skeleton options can be provided to `useSkeleton`
+
+```tsx
+const { withSkeleton } = useSkeleton(loading, { round: true })
+```
+
+...or via `withSkeleton()`
+
+```tsx
+<TableCell>{withSkeleton(value, { count: 4 })}</TableCell>
+```
 
 ## Contributing
 
