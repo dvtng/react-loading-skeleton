@@ -54,22 +54,6 @@ export default {
             dir: 'dist',
             format: 'cjs',
             exports: 'named',
-            /**
-             * This is required to prevent the error:
-             *
-             * TypeError: createContext only works in Client Components.
-             * Add the "use client" directive at the top of the file to use it.
-             *
-             * -----
-             *
-             * Here is the Rollup documentation on `banner`:
-             * A string to prepend/append to the bundle. You can also
-             * supply a function that returns a Promise that resolves
-             * to a string to generate it asynchronously
-             *
-             * (Note: banner and footer options will not
-             * break sourcemaps).
-             */
             banner: "'use client';",
         },
     ],
