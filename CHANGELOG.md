@@ -1,3 +1,14 @@
+## 3.1.1
+
+### Chores
+
+-   Add the `'use client'` directive to make the library compatible with React
+    Server Components and Next.js 13. (#162)
+
+### Thanks!
+
+-   @cravend
+
 ## 3.1.0
 
 ### Features
