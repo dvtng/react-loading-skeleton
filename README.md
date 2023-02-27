@@ -117,7 +117,7 @@ return (
             <td><code>1</code></td>
         </tr>
         <tr>
-            <td><code>wrapper?: React.FunctionComponent</code></td>
+            <td><code>wrapper?: React.FunctionComponent <br> &lt;PropsWithChildren&lt;unknown&gt;&gt;</code></td>
             <td>
                 A custom wrapper component that goes around the individual skeleton
                 elements.
