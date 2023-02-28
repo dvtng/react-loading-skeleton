@@ -49,6 +49,6 @@
 
 @media (prefers-reduced-motion) {
     .react-loading-skeleton {
-        --pseudo-element-display: none; /* Disable animation for accessiblity*/
+        --pseudo-element-display: none; /* Disable animation */
     }
 }
