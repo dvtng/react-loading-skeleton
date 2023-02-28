@@ -397,7 +397,7 @@ export const RegressionTest133 = () => (
 
 export const Accessiblity = () => (
     <div>
-        <p>With prefer-reduced-motion, this skeleton should not be animated.</p>
+        <p>With prefers-reduced-motion, this skeleton should not be animated.</p>
         <Skeleton
             circle
             baseColor="lavender"
