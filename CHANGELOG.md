@@ -1,3 +1,14 @@
+## 3.2.0
+
+### Features
+
+- The skeleton animation no longer plays for users who have enabled the
+  `prefers-reduced-motion` accessibility setting.
+
+### Thanks!
+
+- @RoseMagura
+
 ## 3.1.1
 
 ### Chores
