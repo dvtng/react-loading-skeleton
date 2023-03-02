@@ -46,3 +46,9 @@
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
+
+@media (prefers-reduced-motion) {
+    .react-loading-skeleton {
+        --pseudo-element-display: none; /* Disable animation */
+    }
+}

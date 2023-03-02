@@ -394,3 +394,15 @@ export const RegressionTest133 = () => (
         </div>
     </div>
 )
+
+export const PrefersReducedMotion = () => (
+    <div>
+        <p>With prefers-reduced-motion, this skeleton should not be animated.</p>
+        <Skeleton
+            circle
+            baseColor="lavender"
+            highlightColor="#E0B0FF"
+            style={{ display: 'block', width: 200, height: 200 }}
+        />
+    </div>
+)
