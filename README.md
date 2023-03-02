@@ -49,12 +49,12 @@ For example:
 
 ```tsx
 function BlogPost(props) {
-    return (
-        <div>
-            <h1>{props.title || <Skeleton />}</h1>
-            {props.body || <Skeleton count={10} />}
-        </div>
-    )
+  return (
+    <div>
+      <h1>{props.title || <Skeleton />}</h1>
+      {props.body || <Skeleton count={10} />}
+    </div>
+  );
 }
 ```
 
@@ -82,15 +82,15 @@ Customize individual skeletons with props, or render a `SkeletonTheme` to style
 all skeletons below it in the React hierarchy:
 
 ```tsx
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 return (
-    <SkeletonTheme baseColor="#202020" highlightColor="#444">
-        <p>
-            <Skeleton count={3} />
-        </p>
-    </SkeletonTheme>
-)
+  <SkeletonTheme baseColor="#202020" highlightColor="#444">
+    <p>
+      <Skeleton count={3} />
+    </p>
+  </SkeletonTheme>
+);
 ```
 
 ## Props Reference
@@ -246,31 +246,31 @@ There are two ways to wrap a skeleton in a container:
 
 ```tsx
 function Box({ children }: PropsWithChildren<unknown>) {
-    return (
-        <div
-            style={{
-                border: '1px solid #ccc',
-                display: 'block',
-                lineHeight: 2,
-                padding: '1rem',
-                marginBottom: '0.5rem',
-                width: 100,
-            }}
-        >
-            {children}
-        </div>
-    )
+  return (
+    <div
+      style={{
+        border: '1px solid #ccc',
+        display: 'block',
+        lineHeight: 2,
+        padding: '1rem',
+        marginBottom: '0.5rem',
+        width: 100,
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
 // Method 1: Use the wrapper prop
-const wrapped1 = <Skeleton wrapper={Box} count={5} />
+const wrapped1 = <Skeleton wrapper={Box} count={5} />;
 
 // Method 2: Do it "the normal way"
 const wrapped2 = (
-    <Box>
-        <Skeleton />
-    </Box>
-)
+  <Box>
+    <Skeleton />
+  </Box>
+);
 ```
 
 ### The height of my container is off by a few pixels!
@@ -280,7 +280,7 @@ even though the `react-loading-skeleton` element is exactly 30px.
 
 ```tsx
 <div>
-    <Skeleton height={30} />
+  <Skeleton height={30} />
 </div>
 ```
 

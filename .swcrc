@@ -1,14 +1,14 @@
 {
-    "jsc": {
-        "parser": {
-            "syntax": "typescript",
-            "tsx": true,
-            "dynamicImport": true
-        },
-        "target": "es2021"
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true,
+      "dynamicImport": true
     },
-    "module": {
-        "type": "commonjs"
-    },
-    "sourceMaps": true
+    "target": "es2021"
+  },
+  "module": {
+    "type": "commonjs"
+  },
+  "sourceMaps": true
 }

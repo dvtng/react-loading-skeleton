@@ -1,13 +1,13 @@
 export interface SkeletonStyleProps {
-    baseColor?: string
-    highlightColor?: string
+  baseColor?: string;
+  highlightColor?: string;
 
-    width?: string | number
-    height?: string | number
-    borderRadius?: string | number
-    inline?: boolean
+  width?: string | number;
+  height?: string | number;
+  borderRadius?: string | number;
+  inline?: boolean;
 
-    duration?: number
-    direction?: 'ltr' | 'rtl'
-    enableAnimation?: boolean
+  duration?: number;
+  direction?: 'ltr' | 'rtl';
+  enableAnimation?: boolean;
 }
