@@ -1,16 +1,16 @@
-import React, { ReactElement, PropsWithChildren } from 'react'
-import { SkeletonStyleProps } from './SkeletonStyleProps'
-import { SkeletonThemeContext } from './SkeletonThemeContext'
+import React, { ReactElement, PropsWithChildren } from 'react';
+import { SkeletonStyleProps } from './SkeletonStyleProps';
+import { SkeletonThemeContext } from './SkeletonThemeContext';
 
-export type SkeletonThemeProps = PropsWithChildren<SkeletonStyleProps>
+export type SkeletonThemeProps = PropsWithChildren<SkeletonStyleProps>;
 
 export function SkeletonTheme({
-    children,
-    ...styleOptions
+  children,
+  ...styleOptions
 }: SkeletonThemeProps): ReactElement {
-    return (
-        <SkeletonThemeContext.Provider value={styleOptions}>
-            {children}
-        </SkeletonThemeContext.Provider>
-    )
+  return (
+    <SkeletonThemeContext.Provider value={styleOptions}>
+      {children}
+    </SkeletonThemeContext.Provider>
+  );
 }

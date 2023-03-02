@@ -20,8 +20,8 @@ A clear and concise description of what you expected to happen.
 
 **Versions**
 
--   react-loading-skeleton version:
--   Browser version:
+- react-loading-skeleton version:
+- Browser version:
 
 **Additional context**
 Add any other context about the problem here.

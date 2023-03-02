@@ -1,29 +1,29 @@
 {
-    "compilerOptions": {
-        /* Language and Environment */
-        "target": "ES2018",
-        "jsx": "react",
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2018",
+    "jsx": "react",
 
-        /* Modules */
-        "module": "ESNext",
-        "moduleResolution": "node",
+    /* Modules */
+    "module": "ESNext",
+    "moduleResolution": "node",
 
-        /* Emit */
-        "declaration": true,
-        "outDir": "./dist",
-        "noEmit": true,
-        "noEmitOnError": true,
+    /* Emit */
+    "declaration": true,
+    "outDir": "./dist",
+    "noEmit": true,
+    "noEmitOnError": true,
 
-        /* Interop Constraints */
-        "isolatedModules": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
+    /* Interop Constraints */
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
 
-        /* Type Checking */
-        "strict": true,
-        "noFallthroughCasesInSwitch": true,
+    /* Type Checking */
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
 
-        /* Completeness */
-        "skipLibCheck": true
-    }
+    /* Completeness */
+    "skipLibCheck": true
+  }
 }

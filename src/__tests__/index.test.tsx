@@ -1,16 +1,16 @@
-import React from 'react'
-import Skeleton, { SkeletonTheme, SkeletonThemeProps, SkeletonProps } from '..'
+import React from 'react';
+import Skeleton, { SkeletonTheme, SkeletonThemeProps, SkeletonProps } from '..';
 
 it('exports Skeleton and friends', () => {
-    expect(typeof Skeleton).toBe('function')
-    expect(typeof SkeletonTheme).toBe('function')
+  expect(typeof Skeleton).toBe('function');
+  expect(typeof SkeletonTheme).toBe('function');
 
-    /* eslint-disable @typescript-eslint/no-unused-vars */
-    const skeletonProps: SkeletonProps = { count: 3, borderRadius: '1rem' }
-    const skeletonThemeProps: SkeletonThemeProps = {
-        children: <div />,
-        baseColor: '#3a3a3a',
-        highlightColor: 'white',
-    }
-    /* eslint-enable @typescript-eslint/no-unused-vars */
-})
+  /* eslint-disable @typescript-eslint/no-unused-vars */
+  const skeletonProps: SkeletonProps = { count: 3, borderRadius: '1rem' };
+  const skeletonThemeProps: SkeletonThemeProps = {
+    children: <div />,
+    baseColor: '#3a3a3a',
+    highlightColor: 'white',
+  };
+  /* eslint-enable @typescript-eslint/no-unused-vars */
+});
