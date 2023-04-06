@@ -150,3 +150,20 @@ it('renders a 3/4-width skeleton when count = 1.75 and width is set in pixels', 
   expect(skeletons[0]).toHaveStyle({ width: '100px' });
   expect(skeletons[1]).toHaveStyle({ width: '75px' });
 });
+
+it('include width:100% in container style because of a full-width skeleton when width is one of null, undefined, 100%', () => {
+  const { rerender } = render(
+    <Skeleton count={1} containerTestId="container" />
+  );
+
+  const skeletons = getAllSkeletons();
+  expect(skeletons).toHaveLength(1);
+
+  const container = screen.getByTestId('container');
+  expect(container).toHaveStyle({ width: '100%' });
+
+  rerender(<Skeleton count={1} containerTestId="container" width="100%" />);
+
+  expect(skeletons).toHaveLength(1);
+  expect(container).toHaveStyle({ width: '100%' });
+});
