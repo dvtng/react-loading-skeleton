@@ -96,6 +96,14 @@ export function Skeleton({
   let className = 'react-loading-skeleton';
   if (customClassName) className += ` ${customClassName}`;
 
+  let containerStyle;
+  // eslint-disable-next-line eqeqeq
+  if (style.width == undefined || style.width === '100%') {
+    // if style.width is undefined | null | '100%'
+    // we need to add width:100% to the container span element.
+    containerStyle = { width: '100%' };
+  }
+
   const inline = styleOptions.inline ?? false;
 
   const elements: ReactElement[] = [];
@@ -151,6 +159,7 @@ export function Skeleton({
       data-testid={containerTestId}
       aria-live="polite"
       aria-busy={styleOptions.enableAnimation ?? defaultEnableAnimation}
+      style={containerStyle}
     >
       {Wrapper
         ? elements.map((el, i) => <Wrapper key={i}>{el}</Wrapper>)
