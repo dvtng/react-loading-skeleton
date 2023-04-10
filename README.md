@@ -289,6 +289,23 @@ to be exactly 30px tall, set its `line-height` to 1. [See
 here](https://github.com/dvtng/react-loading-skeleton/issues/23#issuecomment-939231878)
 for more details.
 
+### Skeleton width becomes 0 when display of parent element is flex
+
+In the example below, the width of the `<Skeleton>`will be 0.
+```tsx
+<div style={{display:'flex'}}>
+    <Skeleton count={5}/>
+</div>
+```
+When there is no width prop of Skeleton, the default width is `width:100%`.
+If the child element(`<Skeleton>`) uses % width, the width of the child element uses % of the length of the parent element(`<div>`), which is affected by `display:flex`, so child element have `width:0`.<br/>
+Therefore, use `containerClassName` to give the skeleton container `flex: 1`
+```tsx
+<div style={{display:'flex'}}>
+    <Skeleton count={5} containerClassName='flex-1'/>
+</div>
+```
+[See here](https://github.com/dvtng/react-loading-skeleton/pull/177) for more details.
 ## Contributing
 
 Contributions are welcome! See `CONTRIBUTING.md` to get started.
