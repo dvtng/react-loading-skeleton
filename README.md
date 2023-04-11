@@ -297,8 +297,8 @@ In the example below, the width of the `<Skeleton>`will be 0.
     <Skeleton count={5}/>
 </div>
 ```
-When there is no width prop of Skeleton, the default width is `width:100%`.
-If the child element(`<Skeleton>`) uses % width, the width of the child element uses % of the length of the parent element(`<div>`), which is affected by `display:flex`, so child element have `width:0`.<br/>
+When there is no width prop of Skeleton, ```<Skeleton>``` has `width:100%`. <br/>
+However, If ```<Skeleton>``` has no intrinsic width, it will have a width of 0 when used as a child of a flex contain.<br/>
 Therefore, use `containerClassName` to give the skeleton container `flex: 1`
 ```tsx
 <div style={{display:'flex'}}>
