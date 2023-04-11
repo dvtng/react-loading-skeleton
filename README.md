@@ -298,8 +298,8 @@ In the example below, the width of the `<Skeleton>`will be 0.
 </div>
 ```
 When there is no width prop of Skeleton, ```<Skeleton>``` has `width:100%`. <br/>
-However, If ```<Skeleton>``` has no intrinsic width, it will have a width of 0 when used as a child of a flex contain.<br/>
-Therefore, use `containerClassName` to give the skeleton container `flex: 1`
+If ```<Skeleton>``` has no intrinsic width, it will have a width of 0 when used as a child of a flex contain.<br/>
+Therefore, use `containerClassName` to give the Skeleton container `flex: 1`
 ```tsx
 <div style={{display:'flex'}}>
     <Skeleton count={5} containerClassName='flex-1'/>
