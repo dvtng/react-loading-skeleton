@@ -1,3 +1,13 @@
+## 3.2.1
+
+### Bug Fixes
+
+- The skeleton now has `user-select: none` so that it cannot be selected. (#179)
+
+### Thanks!
+
+- @larsmunkholm
+
 ## 3.2.0
 
 ### Features
