@@ -80,6 +80,7 @@
     "jest-environment-jsdom": "^29.4.3",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
+    "prettier-plugin-packagejson": "^2.4.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^4.1.2",
