@@ -109,7 +109,7 @@ return (
         <tr>
             <td><code>count?: number</code></td>
             <td>
-                The number of lines of skeletons to render. If 
+                The number of lines of skeletons to render. If
                 <code>count</code> is a decimal number like 3.5,
                 three full skeletons and one half-width skeleton will be
                 rendered.
@@ -273,6 +273,29 @@ const wrapped2 = (
 );
 ```
 
+## Troubleshooting
+
+### The skeleton width is 0 when the parent has `display: flex`!
+
+In the example below, the width of the skeleton will be 0:
+
+```tsx
+<div style={{ display: 'flex' }}>
+  <Skeleton />
+</div>
+```
+
+This happens because the skeleton has no intrinsic width. You can fix it by
+applying `flex: 1` to the skeleton container via the `containerClassName` prop.
+
+For example, if you are using Tailwind, your code would look like this:
+
+```tsx
+<div style={{ display: 'flex' }}>
+  <Skeleton containerClassName="flex-1" />
+</div>
+```
+
 ### The height of my container is off by a few pixels!
 
 In the example below, the height of the `<div>` will be slightly larger than 30
@@ -289,23 +312,6 @@ to be exactly 30px tall, set its `line-height` to 1. [See
 here](https://github.com/dvtng/react-loading-skeleton/issues/23#issuecomment-939231878)
 for more details.
 
-### Skeleton width becomes 0 when display of parent element is flex
-
-In the example below, the width of the `<Skeleton>`will be 0.
-```tsx
-<div style={{display:'flex'}}>
-    <Skeleton count={5}/>
-</div>
-```
-When there is no width prop of Skeleton, ```<Skeleton>``` has `width:100%`. <br/>
-If ```<Skeleton>``` has no intrinsic width, it will have a width of 0 when used as a child of a flex contain.<br/>
-Therefore, use `containerClassName` to give the Skeleton container `flex: 1`
-```tsx
-<div style={{display:'flex'}}>
-    <Skeleton count={5} containerClassName='flex-1'/>
-</div>
-```
-[See here](https://github.com/dvtng/react-loading-skeleton/pull/177) for more details.
 ## Contributing
 
 Contributions are welcome! See `CONTRIBUTING.md` to get started.
