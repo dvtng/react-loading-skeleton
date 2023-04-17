@@ -28,7 +28,7 @@ npm install react-loading-skeleton
 ```
 
 ```tsx
-import Skeleton from 'react-loading-skeleton'
+import { Skeleton } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 <Skeleton /> // Simple, single-line loading skeleton
@@ -82,7 +82,7 @@ Customize individual skeletons with props, or render a `SkeletonTheme` to style
 all skeletons below it in the React hierarchy:
 
 ```tsx
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { Skeleton, SkeletonTheme } from 'react-loading-skeleton';
 
 return (
   <SkeletonTheme baseColor="#202020" highlightColor="#444">
