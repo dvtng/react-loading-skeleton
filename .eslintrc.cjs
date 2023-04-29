@@ -14,7 +14,7 @@ module.exports = {
     'prettier',
   ],
   plugins: ['@typescript-eslint', 'jest', 'jest-dom', 'testing-library'],
-  ignorePatterns: ['*.js', '*.cjs', 'dist/'],
+  ignorePatterns: ['*.js', '*.cjs', 'dist/', 'vite.config.ts'],
   settings: {
     'testing-library/custom-renders': 'off',
   },
