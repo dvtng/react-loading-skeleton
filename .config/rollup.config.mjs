@@ -6,7 +6,7 @@ export default {
   external: ['react'],
   output: [
     {
-      file: 'dist/index.mjs',
+      file: 'dist/index.js',
       format: 'es',
 
       // This disables the warning "Mixing named and default exports"
