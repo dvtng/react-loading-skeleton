@@ -10,7 +10,7 @@
 
     /* Emit */
     "declaration": true,
-    "outDir": "./dist",
+    "outDir": "dist",
     "noEmit": true,
     "noEmitOnError": true,
 
@@ -25,5 +25,6 @@
 
     /* Completeness */
     "skipLibCheck": true
-  }
+  },
+  "include": ["src"]
 }
