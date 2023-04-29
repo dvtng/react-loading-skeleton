@@ -6,7 +6,7 @@ export default {
   external: ['react'],
   output: [
     {
-      file: 'dist/index.js',
+      dir: 'dist',
       format: 'es',
 
       // This disables the warning "Mixing named and default exports"
@@ -51,7 +51,7 @@ export default {
       banner: "'use client';",
     },
     {
-      dir: 'dist',
+      file: 'dist/index.cjs',
       format: 'cjs',
       exports: 'named',
       banner: "'use client';",
