@@ -34,7 +34,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "yarn clean && tsc && rollup -c .config/rollup.config.mjs",
+    "build": "yarn clean && tsc && rollup -c .config/rollup.config.js",
     "clean": "rimraf dist",
     "lint": "eslint .",
     "lint-staged": "lint-staged --no-stash",
