@@ -1,13 +1,13 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { Post, SideBySide, Box } from './components';
-import { SkeletonTheme } from '../SkeletonTheme';
-import { Skeleton } from '../Skeleton';
+import { Post, SideBySide, Box } from './components/index.js';
+import { SkeletonTheme } from '../SkeletonTheme.js';
+import { Skeleton } from '../Skeleton.js';
 
 export default {
   component: SkeletonTheme,
   title: 'SkeletonTheme',
-} as Meta;
+} satisfies Meta;
 
 const darkBaseColor = '#333';
 const darkHighlightColor = '#999';

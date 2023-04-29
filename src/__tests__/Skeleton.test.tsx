@@ -1,12 +1,12 @@
 import React, { PropsWithChildren } from 'react';
 import { render, screen } from '@testing-library/react';
-import { Skeleton } from '../Skeleton';
+import { Skeleton } from '../Skeleton.js';
 import {
   getAllSkeletons,
   getSkeleton,
   hasLineBreak,
   skeletonSelector,
-} from './__helpers__';
+} from './__helpers__/index.js';
 
 it('renders a skeleton', () => {
   render(<Skeleton />);

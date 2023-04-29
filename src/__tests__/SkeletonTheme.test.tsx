@@ -2,9 +2,9 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { render, screen } from '@testing-library/react';
-import { SkeletonTheme } from '../SkeletonTheme';
-import { Skeleton } from '../Skeleton';
-import { getSkeleton } from './__helpers__';
+import { SkeletonTheme } from '../SkeletonTheme.js';
+import { Skeleton } from '../Skeleton.js';
+import { getSkeleton } from './__helpers__/index.js';
 
 it('does not render anything', () => {
   render(

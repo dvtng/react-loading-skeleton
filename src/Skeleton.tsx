@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { CSSProperties, PropsWithChildren, ReactElement } from 'react';
-import { SkeletonThemeContext } from './SkeletonThemeContext';
-import { SkeletonStyleProps } from './SkeletonStyleProps';
+import { SkeletonThemeContext } from './SkeletonThemeContext.js';
+import { SkeletonStyleProps } from './SkeletonStyleProps.js';
 
 const defaultEnableAnimation = true;
 
