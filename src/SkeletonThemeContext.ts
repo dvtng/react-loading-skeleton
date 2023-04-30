@@ -1,5 +1,5 @@
 import React from 'react';
-import { SkeletonStyleProps } from './SkeletonStyleProps';
+import { SkeletonStyleProps } from './SkeletonStyleProps.js';
 
 /**
  * @internal

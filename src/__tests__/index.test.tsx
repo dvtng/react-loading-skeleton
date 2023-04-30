@@ -1,5 +1,10 @@
 import React from 'react';
-import Skeleton, { SkeletonTheme, SkeletonThemeProps, SkeletonProps } from '..';
+import { it, expect } from 'vitest';
+import Skeleton, {
+  SkeletonTheme,
+  SkeletonThemeProps,
+  SkeletonProps,
+} from '../index.js';
 
 it('exports Skeleton and friends', () => {
   expect(typeof Skeleton).toBe('function');

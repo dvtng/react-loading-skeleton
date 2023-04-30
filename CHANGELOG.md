@@ -1,3 +1,9 @@
+## 3.3.0
+
+### Features
+
+- The library is now compatible with TypeScript's `"moduleResolution": "nodenext"` compiler option. (#187)
+
 ## 3.2.1
 
 ### Bug Fixes
@@ -12,8 +18,7 @@
 
 ### Features
 
-- The skeleton animation no longer plays for users who have enabled the
-  `prefers-reduced-motion` accessibility setting.
+- The skeleton animation no longer plays for users who have enabled the `prefers-reduced-motion` accessibility setting.
 
 ### Thanks!
 
@@ -23,8 +28,7 @@
 
 ### Chores
 
-- Add the `'use client'` directive to make the library compatible with React
-  Server Components and Next.js 13. (#162)
+- Add the `'use client'` directive to make the library compatible with React Server Components and Next.js 13. (#162)
 
 ### Thanks!
 
@@ -34,8 +38,7 @@
 
 ### Features
 
-- If `count` is set to a decimal number like 3.5, the component will display 3
-  full-width skeletons followed by 1 half-width skeleton. (#136)
+- If `count` is set to a decimal number like 3.5, the component will display 3 full-width skeletons followed by 1 half-width skeleton. (#136)
 
 ## 3.0.3
 
@@ -53,10 +56,7 @@
 
 - Fix explicitly setting a `Skeleton` prop to undefined, like `<Skeleton highlightColor={undefined}>`, blocking style options from the `SkeletonTheme`
   (#128)
-  - If you were relying on this behavior to block values from the
-    `SkeletonTheme`, you can render a nested `SkeletonTheme` to override a
-    theme defined higher up in the component tree, OR explicitly set one or
-    more `Skeleton` props back to their default values e.g. `<Skeleton baseColor="#ebebeb" />`
+  - If you were relying on this behavior to block values from the `SkeletonTheme`, you can render a nested `SkeletonTheme` to override a theme defined higher up in the component tree, OR explicitly set one or more `Skeleton` props back to their default values e.g. `<Skeleton baseColor="#ebebeb" />`
 
 ## 3.0.1
 
@@ -81,21 +81,17 @@
 ### Breaking Changes
 
 - Drop Emotion dependency, add CSS file that must be imported
-  - Dropping Emotion avoids conflicts when multiple Emotion versions are used
-    on one page and reduces bundle size
+  - Dropping Emotion avoids conflicts when multiple Emotion versions are used on one page and reduces bundle size
 - Reimplement `SkeletonTheme` using React context
-  - The old `SkeletonTheme` rendered a `<div>` which was undesirable in many
-    cases. The new `SkeletonTheme` does not render any DOM elements.
-  - The old `SkeletonTheme` did not work if the `Skeleton` was rendered in a
-    portal. The new `SkeletonTheme` does work in this case.
+  - The old `SkeletonTheme` rendered a `<div>` which was undesirable in many cases. The new `SkeletonTheme` does not render any DOM elements.
+  - The old `SkeletonTheme` did not work if the `Skeleton` was rendered in a portal. The new `SkeletonTheme` does work in this case.
 - `SkeletonTheme`: rename the `color` prop to `baseColor`
 - Convert to TypeScript
 - Publish code as ES2018 to reduce bundle size
 - Require React >= 16.8.0
 - Drop Internet Explorer support
 
-If you need to support Internet Explorer or use an old version of React, please
-continue to use `react-loading-skeleton` v2.
+If you need to support Internet Explorer or use an old version of React, please continue to use `react-loading-skeleton` v2.
 
 ### Features
 
@@ -111,15 +107,11 @@ continue to use `react-loading-skeleton` v2.
 ### Other Changes
 
 - Optimize animation performance:
-  - The old animation animated the `background-position` property which made
-    the browser repaint the gradient on every frame.
-  - The new animation animates the `transform` of a pseudoelement. This
-    avoids repaints and results in an observable decrease in CPU usage.
-- No longer require `width` and `height` to be set for the `circle` prop to
-  work
+  - The old animation animated the `background-position` property which made the browser repaint the gradient on every frame.
+  - The new animation animates the `transform` of a pseudoelement. This avoids repaints and results in an observable decrease in CPU usage.
+- No longer require `width` and `height` to be set for the `circle` prop to work
 - Change the default `duration` from 1.2 s to 1.5 s
-- Make the default `Skeleton` base color a _tiny_ bit darker so that the
-  animation is more visible
+- Make the default `Skeleton` base color a _tiny_ bit darker so that the animation is more visible
 
 ### Bug Fixes
 

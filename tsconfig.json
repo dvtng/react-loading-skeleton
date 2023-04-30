@@ -6,7 +6,7 @@
 
     /* Modules */
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
 
     /* Emit */
     "declaration": true,

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { SideBySide, Post } from './components';
+import { SideBySide, Post } from './components/index.js';
 
 export default {
   component: Post,
   title: 'Post',
-} as Meta;
+} satisfies Meta;
 
 export const Default: React.FC = () => (
   <SideBySide>

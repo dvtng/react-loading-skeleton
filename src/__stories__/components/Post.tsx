@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, ReactElement } from 'react';
-import { Skeleton } from '../../Skeleton';
+import { Skeleton } from '../../Skeleton.js';
 
 export const postContent =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +

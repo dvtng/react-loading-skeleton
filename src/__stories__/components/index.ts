@@ -1,3 +1,3 @@
-export * from './SideBySide';
-export * from './Post';
-export * from './Box';
+export * from './SideBySide.js';
+export * from './Post.js';
+export * from './Box.js';
