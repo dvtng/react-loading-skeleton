@@ -1,10 +1,12 @@
-import '@testing-library/jest-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { render, screen } from '@testing-library/react';
+import { it, expect, afterEach } from 'vitest';
+import { cleanup, render, screen } from '@testing-library/react';
 import { SkeletonTheme } from '../SkeletonTheme.js';
 import { Skeleton } from '../Skeleton.js';
 import { getSkeleton } from './__helpers__/index.js';
+
+afterEach(cleanup);
 
 it('does not render anything', () => {
   render(

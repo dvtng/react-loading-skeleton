@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from 'react';
-import { render, screen } from '@testing-library/react';
+import { it, expect, afterEach } from 'vitest';
+import { cleanup, render, screen } from '@testing-library/react';
 import { Skeleton } from '../Skeleton.js';
 import {
   getAllSkeletons,
@@ -7,6 +8,8 @@ import {
   hasLineBreak,
   skeletonSelector,
 } from './__helpers__/index.js';
+
+afterEach(cleanup);
 
 it('renders a skeleton', () => {
   render(<Skeleton />);
