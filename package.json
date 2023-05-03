@@ -1,6 +1,6 @@
 {
   "name": "react-loading-skeleton",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "Make beautiful, animated loading skeletons that automatically adapt to your app.",
   "keywords": [
     "react",
@@ -27,8 +27,8 @@
     },
     "./dist/skeleton.css": "./dist/skeleton.css"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/"
