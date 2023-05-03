@@ -1,3 +1,9 @@
+## 3.3.1
+
+### Bug Fixes
+
+- Fix `main` and `module` being incorrect in `package.json`. (#)
+
 ## 3.3.0
 
 ### Features
