@@ -39,6 +39,7 @@ module.exports = {
       },
     ],
 
+    'import/extensions': 'off',
     'import/no-extraneous-dependencies': [
       'error',
       {

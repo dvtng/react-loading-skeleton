@@ -13,6 +13,11 @@ jobs:
           cache: 'yarn'
       - name: Install
         run: yarn install --immutable
+
+      # `yarn build` does not type-check the tests
+      - name: tsc
+        run: yarn tsc
+
       - name: Build
         run: yarn build
       - name: Test
