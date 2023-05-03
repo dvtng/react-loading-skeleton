@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-- Fix `main` and `module` being incorrect in `package.json`. (#)
+- Fix `main` and `module` being incorrect in `package.json`. (#191)
 
 ## 3.3.0
 
