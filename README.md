@@ -61,6 +61,7 @@ Using a `<SkeletonTheme>` component, you can easily change the colors of all
 skeleton components below it in the React hierarchy:
 
 ```javascript
+import "react-loading-skeleton/dist/skeleton.css";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 <SkeletonTheme color="#202020" highlightColor="#444">
