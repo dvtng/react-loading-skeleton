@@ -5,8 +5,8 @@
 }
 
 .react-loading-skeleton {
-  --base-color: #ebebeb;
-  --highlight-color: #f5f5f5;
+  --base-color: ##202020;
+  --highlight-color: #444;
   --animation-duration: 1.5s;
   --animation-direction: normal;
   --pseudo-element-display: block; /* Enable animation */
