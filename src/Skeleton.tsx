@@ -5,6 +5,15 @@ import { SkeletonStyleProps } from './SkeletonStyleProps.js';
 
 const defaultEnableAnimation = true;
 
+function isValidStyleValue(
+  value: string | number | undefined
+): value is number | string {
+  return (
+    typeof value !== 'undefined' &&
+    (typeof value === 'string' || typeof value === 'number')
+  );
+}
+
 // For performance & cleanliness, don't add any inline styles unless we have to
 function styleOptionsToCssProperties({
   baseColor,
@@ -26,18 +35,14 @@ function styleOptionsToCssProperties({
     style['--animation-duration'] = `${duration}s`;
   if (!enableAnimation) style['--pseudo-element-display'] = 'none';
 
-  if (typeof width === 'string' || typeof width === 'number')
-    style.width = width;
-  if (typeof height === 'string' || typeof height === 'number')
-    style.height = height;
-
-  if (typeof borderRadius === 'string' || typeof borderRadius === 'number')
-    style.borderRadius = borderRadius;
+  if (isValidStyleValue(width)) style.width = width;
+  if (isValidStyleValue(height)) style.height = height;
+  if (isValidStyleValue(borderRadius)) style.borderRadius = borderRadius;
 
   if (circle) style.borderRadius = '50%';
 
-  if (typeof baseColor !== 'undefined') style['--base-color'] = baseColor;
-  if (typeof highlightColor !== 'undefined')
+  if (isValidStyleValue(baseColor)) style['--base-color'] = baseColor;
+  if (isValidStyleValue(highlightColor))
     style['--highlight-color'] = highlightColor;
 
   return style;
