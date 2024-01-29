@@ -1,3 +1,9 @@
+## 3.4.0
+
+### Features
+
+- Remove `z-index: 1` from the skeleton. This was a Safari-specific workaround that is no longer necessary in the latest versions of the browser. (#216)
+
 ## 3.3.1
 
 ### Bug Fixes

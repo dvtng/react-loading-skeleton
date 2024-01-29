@@ -21,7 +21,6 @@
   position: relative;
   user-select: none;
   overflow: hidden;
-  z-index: 1; /* Necessary for overflow: hidden to work correctly in Safari */
 }
 
 .react-loading-skeleton::after {
