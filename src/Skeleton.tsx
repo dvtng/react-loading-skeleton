@@ -18,8 +18,9 @@ function styleOptionsToCssProperties({
   direction,
   duration,
   enableAnimation = defaultEnableAnimation,
-}: SkeletonStyleProps & { circle: boolean }): CSSProperties {
-  const style: CSSProperties & Record<`--${string}`, string> = {};
+}: SkeletonStyleProps & { circle: boolean }): CSSProperties &
+  Record<`--${string}`, string> {
+  const style: ReturnType<typeof styleOptionsToCssProperties> = {};
 
   if (direction === 'rtl') style['--animation-direction'] = 'reverse';
   if (typeof duration === 'number')
