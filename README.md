@@ -235,6 +235,13 @@ return (
             </td>
             <td><code>true</code></td>
         </tr>
+        <tr>
+            <td><code>customHighlightBackground?: string</code></td>
+            <td>
+                Allows you to override the <code>background-image</code> property of the highlight element, enabling you to fully customize the gradient. See example below.
+            </td>
+            <td><code>undefined</code></td>
+        </tr>
     </tbody>
 </table>
 
@@ -272,6 +279,18 @@ const wrapped2 = (
   </Box>
 );
 ```
+
+### Custom Highlight Background
+
+You may want to make the gradient used in the highlight element narrower or wider. To do this, you can set the `customHighlightBackground` prop. Here's an example of a narrow highlight:
+
+```tsx
+<Skeleton customHighlightBackground="linear-gradient(90deg, var(--base-color) 40%, var(--highlight-color) 50%, var(--base-color) 60%)" />
+```
+
+**If you use this prop, the `baseColor` and `highlightColor` props are ignored,** but you can still reference their corresponding CSS variables as shown in the above example.
+
+![Custom highlight background example](assets/custom-highlight-background.png)
 
 ## Troubleshooting
 

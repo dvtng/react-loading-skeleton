@@ -427,3 +427,34 @@ export const PrefersReducedMotion = () => (
     />
   </div>
 );
+
+export const HighlightWidth = () => (
+  <div style={{ width: 500 }}>
+    <p>Default</p>
+    <Skeleton
+      highlightColor="#E0B0FF"
+      customHighlightBackground="linear-gradient(90deg, var(--base-color) 0%, var(--highlight-color) 50%, var(--base-color) 100%)"
+    />
+    <br />
+
+    <p>Narrow highlight</p>
+    <Skeleton
+      highlightColor="#E0B0FF"
+      customHighlightBackground="linear-gradient(90deg, var(--base-color) 40%, var(--highlight-color) 50%, var(--base-color) 60%)"
+    />
+    <br />
+
+    <p>Wide highlight</p>
+    <Skeleton
+      highlightColor="#E0B0FF"
+      customHighlightBackground="linear-gradient(90deg, var(--base-color) 0%, var(--highlight-color) 5%, var(--highlight-color) 95%, var(--base-color) 100%)"
+    />
+    <br />
+
+    <p>Fun gradient</p>
+    <Skeleton
+      highlightColor="#E0B0FF"
+      customHighlightBackground="linear-gradient(90deg, var(--base-color) 0%, rgba(131,58,180,1) 25%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 75%, var(--base-color) 100%)"
+    />
+  </div>
+);
