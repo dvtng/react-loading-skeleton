@@ -18,6 +18,8 @@ function styleOptionsToCssProperties({
   direction,
   duration,
   enableAnimation = defaultEnableAnimation,
+
+  customHighlightBackground,
 }: SkeletonStyleProps & { circle: boolean }): CSSProperties &
   Record<`--${string}`, string> {
   const style: ReturnType<typeof styleOptionsToCssProperties> = {};
@@ -40,6 +42,9 @@ function styleOptionsToCssProperties({
   if (typeof baseColor !== 'undefined') style['--base-color'] = baseColor;
   if (typeof highlightColor !== 'undefined')
     style['--highlight-color'] = highlightColor;
+
+  if (typeof customHighlightBackground === 'string')
+    style['--custom-highlight-background'] = customHighlightBackground;
 
   return style;
 }

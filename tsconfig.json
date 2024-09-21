@@ -5,7 +5,7 @@
     "jsx": "react",
 
     /* Modules */
-    "module": "ESNext",
+    "module": "nodenext",
     "moduleResolution": "nodenext",
 
     /* Emit */

@@ -1,3 +1,9 @@
+## 3.5.0
+
+### Features
+
+- Add optional `customHighlightBackground` prop. (#233)
+
 ## 3.4.0
 
 ### Features
