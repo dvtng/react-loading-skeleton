@@ -32,6 +32,9 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 <Skeleton /> // Simple, single-line loading skeleton
+<Skeleton>
+    <div>Loading...</div>
+</Skeleton> // Simple, with children
 <Skeleton count={5} /> // Five-line loading skeleton
 ```
 
@@ -163,6 +166,14 @@ return (
                 This is an escape hatch for advanced use cases and is not the preferred
                 way to style the skeleton. Props (e.g. <code>width</code>,
                 <code>borderRadius</code>) take priority over this style object.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>children?: React.ReactNode | JSX.Element | string</code></td>
+            <td>
+                If you pass children to the <code>Skeleton</code> component, the
+                children will be rendered with <code>visibility: hidden</code>.
             </td>
             <td></td>
         </tr>
