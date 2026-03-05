@@ -23,6 +23,21 @@ it('renders a skeleton', () => {
   expect(skeletonElements[0]).not.toHaveAttribute('style');
 });
 
+it('renders a skeleton with children', () => {
+  render(
+    <Skeleton>
+      <div>Loading...</div>
+    </Skeleton>
+  );
+
+  const skeletonElements = getAllSkeletons();
+
+  expect(skeletonElements).toHaveLength(1);
+  expect(skeletonElements[0]).toBeVisible();
+
+  expect(skeletonElements[0]).toHaveTextContent('Loading...');
+});
+
 it('renders the required number of skeletons', () => {
   render(<Skeleton count={4} />);
 

@@ -30,6 +30,16 @@ export const Inline: React.FC = () => (
   </SideBySide>
 );
 
+export const WithChildren: React.FC = () => (
+  <SideBySide>
+    <div>
+      <Skeleton width={100} inline style={{ marginRight: '0.5rem' }}>
+        <div>Loading...</div>
+      </Skeleton>
+    </div>
+  </SideBySide>
+);
+
 export const InlineWithText: React.FC = () => (
   <div>
     Some random text <Skeleton width={150} inline /> Some more random text

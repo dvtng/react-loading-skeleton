@@ -1,5 +1,10 @@
 /* eslint-disable react/no-array-index-key */
-import React, { CSSProperties, PropsWithChildren, ReactElement } from 'react';
+import React, {
+  CSSProperties,
+  PropsWithChildren,
+  ReactElement,
+  ReactNode,
+} from 'react';
 import { SkeletonThemeContext } from './SkeletonThemeContext.js';
 import { SkeletonStyleProps } from './SkeletonStyleProps.js';
 
@@ -59,6 +64,8 @@ export interface SkeletonProps extends SkeletonStyleProps {
 
   circle?: boolean;
   style?: CSSProperties;
+
+  children?: ReactNode | JSX.Element | string;
 }
 
 export function Skeleton({
@@ -72,6 +79,8 @@ export function Skeleton({
   circle = false,
 
   style: styleProp,
+
+  children,
   ...originalPropsStyleOptions
 }: SkeletonProps): ReactElement {
   const contextStyleOptions = React.useContext(SkeletonThemeContext);
@@ -104,6 +113,12 @@ export function Skeleton({
 
   const inline = styleOptions.inline ?? false;
 
+  const childrenContent = children ? (
+    <div style={{ visibility: 'hidden' }}>{children}</div>
+  ) : (
+    <>&zwnj;</>
+  );
+
   const elements: ReactElement[] = [];
 
   const countCeil = Math.ceil(count);
@@ -133,7 +148,7 @@ export function Skeleton({
 
     const skeletonSpan = (
       <span className={className} style={thisStyle} key={i}>
-        &zwnj;
+        {childrenContent}
       </span>
     );
 

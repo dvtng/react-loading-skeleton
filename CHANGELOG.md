@@ -1,3 +1,9 @@
+## 3.6.0
+
+### Features
+
+- Add optional `children` prop. If set, the skeleton will render its children with `visibility: hidden`. (#239)
+
 ## 3.5.0
 
 ### Features
